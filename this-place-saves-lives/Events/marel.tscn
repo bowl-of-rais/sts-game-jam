@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgn4x3od5yv3t"]
+
+[ext_resource type="Texture2D" uid="uid://dtxnahl2v47xx" path="res://Assets/MarelPortrait.png" id="1_b0s0r"]
+
+[node name="Dialog" type="Node"]
+
+[node name="Portrait" type="Sprite2D" parent="."]
+z_index = 2
+scale = Vector2(3.75, 3.75)
+texture = ExtResource("1_b0s0r")
+centered = false

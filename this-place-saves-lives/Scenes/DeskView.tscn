@@ -1,3 +1,130 @@
-[gd_scene format=3 uid="uid://b0xb08ck5jk8f"]
+[gd_scene load_steps=10 format=3 uid="uid://b0xb08ck5jk8f"]
+
+[ext_resource type="Texture2D" uid="uid://ytqi6nvchlsd" path="res://Assets/DeskViewBackground.png" id="1_ryl64"]
+[ext_resource type="Texture2D" uid="uid://dt6uuipliev0f" path="res://Assets/Desk.png" id="2_h835j"]
+[ext_resource type="Texture2D" uid="uid://3td1t7bggctu" path="res://Assets/Pen.png" id="3_y4ibu"]
+[ext_resource type="Texture2D" uid="uid://b4we1555qvu36" path="res://Assets/SafeConsumptionKit.png" id="4_llmo1"]
+[ext_resource type="Texture2D" uid="uid://nnv56xxmfhga" path="res://Assets/Phone.png" id="5_u615o"]
+[ext_resource type="PackedScene" uid="uid://cgn4x3od5yv3t" path="res://Events/marel.tscn" id="7_bfdkt"]
+[ext_resource type="Script" path="res://Scripts/dialog_player.gd" id="7_tomk4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0s0p"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.69163, 0.585192, 0.378925, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.783523, 0.783523, 0.783523, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_riddx"]
+font_size = 20
+font_color = Color(0.982343, 0.982342, 0.982342, 1)
 
 [node name="Node2D" type="Node2D"]
+z_as_relative = false
+
+[node name="DeskViewBackground" type="Sprite2D" parent="."]
+z_as_relative = false
+position = Vector2(480, 270)
+scale = Vector2(3.75, 3.75)
+texture = ExtResource("1_ryl64")
+
+[node name="Desk" type="Sprite2D" parent="."]
+z_index = 3
+z_as_relative = false
+position = Vector2(480, 270)
+scale = Vector2(3.75, 3.75)
+texture = ExtResource("2_h835j")
+
+[node name="Pen" type="Sprite2D" parent="."]
+z_index = 4
+z_as_relative = false
+position = Vector2(208, 496)
+scale = Vector2(3.75, 3.75)
+texture = ExtResource("3_y4ibu")
+
+[node name="SafeConsumptionKit" type="Sprite2D" parent="."]
+z_index = 4
+z_as_relative = false
+position = Vector2(91, 474)
+scale = Vector2(3.75, 3.75)
+texture = ExtResource("4_llmo1")
+
+[node name="Phone" type="Sprite2D" parent="."]
+z_index = 4
+z_as_relative = false
+position = Vector2(821, 478)
+scale = Vector2(3.75, 3.75)
+texture = ExtResource("5_u615o")
+
+[node name="DialogPlayer" type="Control" parent="." node_paths=PackedStringArray("shortcut_context")]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_left = 272.0
+offset_top = 68.0
+offset_right = 689.0
+offset_bottom = 478.0
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 16
+shortcut_context = NodePath("..")
+script = ExtResource("7_tomk4")
+
+[node name="DialogPanel" type="Panel" parent="DialogPlayer"]
+light_mask = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.783
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0300293
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c0s0p")
+
+[node name="DialogTextLabel" type="Label" parent="DialogPlayer/DialogPanel"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hey kid, how's it going?"
+label_settings = SubResource("LabelSettings_riddx")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AnswerButton" type="Button" parent="DialogPlayer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.5
+offset_top = 11.0
+offset_right = 149.5
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Aunt Marel! Doing good. You?"
+
+[node name="Dialog" parent="DialogPlayer" instance=ExtResource("7_bfdkt")]
+
+[connection signal="gui_input" from="DialogPlayer" to="DialogPlayer" method="_on_gui_input"]
+[connection signal="pressed" from="DialogPlayer/AnswerButton" to="DialogPlayer" method="_on_answer_pressed"]
