@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0xb08ck5jk8f"]
+[gd_scene load_steps=12 format=3 uid="uid://b0xb08ck5jk8f"]
 
 [ext_resource type="Texture2D" uid="uid://ytqi6nvchlsd" path="res://Assets/DeskViewBackground.png" id="1_ryl64"]
 [ext_resource type="Texture2D" uid="uid://dt6uuipliev0f" path="res://Assets/Desk.png" id="2_h835j"]
@@ -7,13 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://nnv56xxmfhga" path="res://Assets/Phone.png" id="5_u615o"]
 [ext_resource type="PackedScene" uid="uid://cgn4x3od5yv3t" path="res://Events/marel.tscn" id="7_bfdkt"]
 [ext_resource type="Script" path="res://Scripts/dialog_player.gd" id="7_tomk4"]
+[ext_resource type="Script" path="res://addons/gdrama/scripts/components/DramaPlayer.gd" id="8_swxgh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0s0p"]
 content_margin_left = 5.0
 content_margin_top = 5.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
-bg_color = Color(0.69163, 0.585192, 0.378925, 1)
+bg_color = Color(0.443953, 0.107512, 0.391904, 1)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -28,6 +29,9 @@ anti_aliasing = false
 [sub_resource type="LabelSettings" id="LabelSettings_riddx"]
 font_size = 20
 font_color = Color(0.982343, 0.982342, 0.982342, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5inr"]
+bg_color = Color(0.180124, 0.409245, 0.776356, 1)
 
 [node name="Node2D" type="Node2D"]
 z_as_relative = false
@@ -79,21 +83,27 @@ mouse_default_cursor_shape = 16
 shortcut_context = NodePath("..")
 script = ExtResource("7_tomk4")
 
+[node name="Dialog" parent="DialogPlayer" instance=ExtResource("7_bfdkt")]
+
 [node name="DialogPanel" type="Panel" parent="DialogPlayer"]
 light_mask = 0
+z_index = 5
+z_as_relative = false
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.783
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -0.0300293
+offset_top = -128.0
+offset_bottom = -28.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_c0s0p")
 
 [node name="DialogTextLabel" type="Label" parent="DialogPlayer/DialogPanel"]
-z_index = 1
+z_index = 5
+z_as_relative = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,7 +111,7 @@ anchor_bottom = 1.0
 offset_left = 5.0
 offset_top = 5.0
 offset_right = -5.0
-offset_bottom = -5.0
+offset_bottom = -5.20999
 grow_horizontal = 2
 grow_vertical = 2
 text = "Hey kid, how's it going?"
@@ -109,7 +119,44 @@ label_settings = SubResource("LabelSettings_riddx")
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="AnswerButton" type="Button" parent="DialogPlayer"]
+[node name="PlayerPanel" type="Panel" parent="DialogPlayer"]
+light_mask = 0
+z_index = 5
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -20.0
+offset_right = -5.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l5inr")
+
+[node name="PlayerTextLabel" type="Label" parent="DialogPlayer/PlayerPanel"]
+z_index = 5
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.20999
+grow_horizontal = 2
+grow_vertical = 2
+text = "Aunt Marel! Doing good. You?"
+label_settings = SubResource("LabelSettings_riddx")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AnswerButton1" type="Button" parent="DialogPlayer"]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -117,14 +164,31 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -150.5
-offset_top = 11.0
+offset_top = -21.0
 offset_right = 149.5
-offset_bottom = 46.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Aunt Marel! Doing good. You?"
 
-[node name="Dialog" parent="DialogPlayer" instance=ExtResource("7_bfdkt")]
+[node name="AnswerButton2" type="Button" parent="DialogPlayer"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.5
+offset_top = 18.0
+offset_right = 149.5
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Aunt Marel! Doing good. You?"
+
+[node name="DramaPlayer" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("8_swxgh")
 
 [connection signal="gui_input" from="DialogPlayer" to="DialogPlayer" method="_on_gui_input"]
-[connection signal="pressed" from="DialogPlayer/AnswerButton" to="DialogPlayer" method="_on_answer_pressed"]

@@ -18,12 +18,17 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalBus="*res://Scripts/signal_bus.gd"
+Main="*res://Scripts/main.gd"
 
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdrama/plugin.cfg")
 
 [rendering]
 
