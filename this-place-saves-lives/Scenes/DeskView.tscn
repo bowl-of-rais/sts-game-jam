@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0xb08ck5jk8f"]
+[gd_scene load_steps=12 format=3 uid="uid://b0xb08ck5jk8f"]
 
 [ext_resource type="Texture2D" uid="uid://ytqi6nvchlsd" path="res://Assets/DeskViewBackground.png" id="1_ryl64"]
 [ext_resource type="Texture2D" uid="uid://dt6uuipliev0f" path="res://Assets/Desk.png" id="2_h835j"]
@@ -24,6 +24,9 @@ anti_aliasing = false
 [sub_resource type="LabelSettings" id="LabelSettings_riddx"]
 font_size = 20
 font_color = Color(0.982343, 0.982342, 0.982342, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cvkww"]
+font_size = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5inr"]
 bg_color = Color(0.180124, 0.409245, 0.776356, 1)
@@ -115,6 +118,14 @@ grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_riddx")
 autowrap_mode = 3
+
+[node name="ActorName" type="Label" parent="DialogPlayer/DialogPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -26.0
+offset_right = 205.0
+offset_bottom = 2.0
+label_settings = SubResource("LabelSettings_cvkww")
 
 [node name="PlayerPanel" type="Panel" parent="DialogPlayer"]
 visible = false

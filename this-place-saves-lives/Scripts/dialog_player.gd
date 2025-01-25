@@ -6,6 +6,8 @@ extends DramaDisplayControl
 @onready var answer_button2 = get_node("AnswerButton2")
 @onready var player_text_field = get_node("PlayerPanel/PlayerTextLabel")
 @onready var player_box = get_node("PlayerPanel")
+@onready var speaker_name_label = get_node("DialogPanel/ActorName")
+
 @onready var speaker_text_field = dialog_text_field
 
 var dialog_scene = null
@@ -41,6 +43,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		elif dialog_ready:
 			self.dialog_ready = false
 			self.dialog_running = true
+			SignalBus.dialog_start.emit()
 			%DramaPlayer.start_drama()
 		
 func hide_and_disable_buttons():
@@ -118,6 +121,7 @@ func _set_actor(actor: String):
 		player_box.visible = true
 		dialog_box.visible = false
 	else:
+		speaker_name_label.text = actor
 		speaker_text_field = dialog_text_field
 		dialog_box.visible = true
 		player_box.visible = false
@@ -127,6 +131,7 @@ func _set_actor(actor: String):
 ## movement
 func _ended_drama(_info: String):
 	self.dialog_running = false
+	SignalBus.dialog_end.emit()
 	#remove event scene (containing character sprite and mb other stuff)
 	self.visible = false
 	#TODO do some fading out

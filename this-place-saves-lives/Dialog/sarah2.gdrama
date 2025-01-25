@@ -1,0 +1,25 @@
+<beat start>
+	Sarah comes in. She looks distressed.
+	Player: Hey. Are you ok?
+	Sarah: No, I.... I got fired.
+	Sarah: I got fired and my husband... 
+	Her voice gives out and her eyes are wide with fear.
+	Sarah: Can I just, stay for a bit? I'm not ready to go back there.
+	Player: Of course, you can hang out here as long as you need.
+	Player: I'm sorry, that's a horrible position to be in.
+	Sarah: Thanks.
+	Sarah: ...
+	Sarah: I've been saving up. You know, to leave.
+	Sarah: But I don't know where to go yet and now it's all chaos and....
+	Sarah: ...fuck...
+	Her eyes fill with tears
+	Player: Know what. I'll make you some tea, and then we can sit down and look at your options.
+	Player: You are not going to drown in this, okay?
+	Sarah nods
+	<make_tea>
+	Honey: <honey_appears>You using because of him?
+	Sarah: Hah, like some housewife from the 50's. Honestly, who knows.
+	Sarah: I'd already done drugs before, but I guess it's gotten more.
+	Sarah: I'll care after I cope. And after I save Bun.
+	Honey: Oh no, you have a kid too? Shit.
+	Sarah: No, god no. Bun's my dog. Still, no way in hell i'll leave her with him.
