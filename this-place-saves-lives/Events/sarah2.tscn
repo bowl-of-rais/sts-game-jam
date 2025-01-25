@@ -23,5 +23,5 @@ func honey_appears():
 	#TODO set honeys sprite to visible and mb some repositioning
 "
 
-[node name="Sarah2" type="Node2D"]
+[node name="Sarah2" type="Node"]
 script = SubResource("GDScript_44h1a")

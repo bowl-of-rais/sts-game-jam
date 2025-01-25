@@ -11,5 +11,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not emitted:
-		SignalBus.dialog_waiting.emit("sarah2")
+		SignalBus.dialog_waiting.emit("sarah1")
 		emitted = true
