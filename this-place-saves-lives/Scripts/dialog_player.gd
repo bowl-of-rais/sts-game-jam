@@ -23,8 +23,8 @@ func _on_dialog_waiting(dialog_name):
 	assert(not dialog_ready, "no dialog should be waiting before getting another ready")
 	#load dialog scene instance
 	var path: String = "res://Events/" + dialog_name + ".tscn"
-	add_child(await load(path).instantiate())
-	dialog_scene = get_node("Dialog")
+	dialog_scene = load(path).instantiate()
+	add_child(dialog_scene)
 	#load gdrama dialog
 	%DramaPlayer.load_gdrama("res://Dialog/" + dialog_name + ".gdrama")
 	self.dialog_ready = true
@@ -130,7 +130,7 @@ func _ended_drama(_info: String):
 	#remove event scene (containing character sprite and mb other stuff)
 	self.visible = false
 	#TODO do some fading out
-	get_node("Dialog").queue_free()
+	dialog_scene.queue_free()
 	
 ## Will be emited when the GDrama calls for a function. Can be used to implement
 ## specific functions, such as changing a character's mood

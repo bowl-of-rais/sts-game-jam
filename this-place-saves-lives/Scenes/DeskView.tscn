@@ -115,7 +115,6 @@ grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_riddx")
 autowrap_mode = 3
-text_overrun_behavior = 1
 
 [node name="PlayerPanel" type="Panel" parent="DialogPlayer"]
 visible = false
@@ -149,7 +148,6 @@ grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_riddx")
 autowrap_mode = 3
-text_overrun_behavior = 1
 
 [node name="AnswerButton1" type="Button" parent="DialogPlayer"]
 visible = false
