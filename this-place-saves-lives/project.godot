@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://Scripts/signal_bus.gd"
 Main="*res://Scripts/main.gd"
-Log="*res://Scripts/log.gd"
 
 [display]
 

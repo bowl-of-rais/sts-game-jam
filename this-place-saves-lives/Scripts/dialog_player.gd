@@ -59,7 +59,8 @@ func remove_buttons():
 		button_container.queue_free()
 		
 func set_flag(name:String, value:bool):
-	assert(name != "")
+	assert(name is String and value is bool, "Flag can only be string and bool")
+	assert(name != "", "Flag name can not be empty")
 	%DramaPlayer.drama_reader.flags[name] = value
 
 # === DramaDisplay Overrides ===
@@ -81,6 +82,7 @@ func _direction_ended():
 func _set_raw_text(raw_text: String):
 	speaker_text_field.text = raw_text
 	speaker_text_field.visible_characters = 0
+	SignalBus.log_event.emit(self.current_actor + " : " + raw_text)
 
 ## Will be called to signal that the given letter has been displayed. Can, for
 ## instance, add one to the visible_characters property of the RichTextLabel 
@@ -129,12 +131,13 @@ func _ask_for_choice(line: Dictionary):
 func _set_actor(actor: String):
 	current_actor = actor
 	if actor.to_lower() == "player":
+		current_actor = "You"
 		speaker_text_field = player_text_field
 		player_box.visible = true
 		dialog_box.visible = false
 		narration_box.visible = false
 	elif actor == "":
-		current_actor = "narration"
+		current_actor = "Narration"
 		speaker_text_field = narration_text_field
 		narration_box.visible = true
 		player_box.visible = false

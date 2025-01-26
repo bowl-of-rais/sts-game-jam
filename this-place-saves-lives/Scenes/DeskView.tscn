@@ -1,12 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0xb08ck5jk8f"]
+[gd_scene load_steps=17 format=3 uid="uid://b0xb08ck5jk8f"]
 
 [ext_resource type="Texture2D" uid="uid://ytqi6nvchlsd" path="res://Assets/Desk/DeskViewBackground.png" id="1_ryl64"]
 [ext_resource type="Texture2D" uid="uid://dt6uuipliev0f" path="res://Assets/Desk/Desk.png" id="2_h835j"]
 [ext_resource type="Texture2D" uid="uid://3td1t7bggctu" path="res://Assets/Desk/Pen.png" id="3_y4ibu"]
 [ext_resource type="Texture2D" uid="uid://b4we1555qvu36" path="res://Assets/Desk/SafeConsumptionKit.png" id="4_llmo1"]
 [ext_resource type="Texture2D" uid="uid://nnv56xxmfhga" path="res://Assets/Desk/Phone.png" id="5_u615o"]
+[ext_resource type="Texture2D" uid="uid://bw6osuc2141xx" path="res://Assets/Desk/Bell.png" id="6_yph1c"]
 [ext_resource type="Script" path="res://Scripts/dialog_player.gd" id="7_tomk4"]
 [ext_resource type="Script" path="res://addons/gdrama/scripts/components/DramaPlayer.gd" id="8_swxgh"]
+[ext_resource type="Texture2D" uid="uid://w264r41nf385" path="res://Assets/Desk/Paper.png" id="9_urh03"]
+[ext_resource type="Script" path="res://Scripts/dialog_log.gd" id="10_o5oiy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0s0p"]
 content_margin_left = 5.0
@@ -41,6 +44,9 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n28c4"]
+bg_color = Color(0.894118, 0.415686, 1, 0.392157)
+
 [node name="DeskScene" type="Node2D"]
 z_as_relative = false
 
@@ -58,25 +64,44 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_h835j")
 
 [node name="Pen" type="Sprite2D" parent="."]
-z_index = 4
+z_index = 5
 z_as_relative = false
-position = Vector2(334, 525)
-scale = Vector2(3.75, 3.75)
+position = Vector2(970, 546)
+scale = Vector2(-3.75, 3.75)
 texture = ExtResource("3_y4ibu")
 
 [node name="SafeConsumptionKit" type="Sprite2D" parent="."]
 z_index = 4
 z_as_relative = false
-position = Vector2(183, 510)
-scale = Vector2(3.75, 3.75)
+position = Vector2(150, 512)
+scale = Vector2(4, 4)
 texture = ExtResource("4_llmo1")
 
 [node name="Phone" type="Sprite2D" parent="."]
 z_index = 4
 z_as_relative = false
-position = Vector2(872, 509)
+position = Vector2(760, 509)
 scale = Vector2(3.75, 3.75)
 texture = ExtResource("5_u615o")
+
+[node name="Bell" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(604, 482)
+scale = Vector2(4, 4)
+texture = ExtResource("6_yph1c")
+
+[node name="Paper" type="TextureButton" parent="."]
+z_index = 4
+offset_left = 815.0
+offset_top = 476.0
+offset_right = 860.0
+offset_bottom = 501.0
+scale = Vector2(4, 4)
+toggle_mode = true
+action_mode = 0
+texture_normal = ExtResource("9_urh03")
+texture_pressed = ExtResource("9_urh03")
+texture_hover = ExtResource("9_urh03")
 
 [node name="DialogDisplay" type="Control" parent="." node_paths=PackedStringArray("shortcut_context")]
 visible = false
@@ -215,4 +240,38 @@ grow_vertical = 0
 unique_name_in_owner = true
 script = ExtResource("8_swxgh")
 
+[node name="DialogLog" type="Panel" parent="."]
+visible = false
+z_index = 6
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = 80.0
+offset_right = 800.0
+offset_bottom = 530.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n28c4")
+script = ExtResource("10_o5oiy")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogLog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Log" type="RichTextLabel" parent="DialogLog/PanelContainer"]
+layout_mode = 2
+text = ">Start of event log<
+"
+scroll_following = true
+shortcut_keys_enabled = false
+
+[connection signal="toggled" from="Paper" to="DialogLog" method="toggle_log"]
 [connection signal="gui_input" from="DialogDisplay" to="DialogDisplay" method="_on_gui_input"]
