@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ytqi6nvchlsd"
-path="res://.godot/imported/DeskViewBackground.png-b146c8aa2ea515ab6ce185ed6aabda35.ctex"
+uid="uid://nnv56xxmfhga"
+path="res://.godot/imported/Phone.png-0f78aeb90bfedae68d254346a13e094e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/DeskViewBackground.png"
-dest_files=["res://.godot/imported/DeskViewBackground.png-b146c8aa2ea515ab6ce185ed6aabda35.ctex"]
+source_file="res://Assets/Desk/Phone.png"
+dest_files=["res://.godot/imported/Phone.png-0f78aeb90bfedae68d254346a13e094e.ctex"]
 
 [params]
 

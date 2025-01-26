@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3td1t7bggctu"
-path="res://.godot/imported/Pen.png-4573f39df79c9ae1123f5c1c0ffd54ae.ctex"
+uid="uid://4e1fb773mvmc"
+path="res://.godot/imported/PlayerCharacterSitting.png-ea8c7bb27434fcee68ae07a83bd84d28.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Pen.png"
-dest_files=["res://.godot/imported/Pen.png-4573f39df79c9ae1123f5c1c0ffd54ae.ctex"]
+source_file="res://Assets/Topdown/PlayerCharacterSitting.png"
+dest_files=["res://.godot/imported/PlayerCharacterSitting.png-ea8c7bb27434fcee68ae07a83bd84d28.ctex"]
 
 [params]
 

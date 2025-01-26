@@ -2,33 +2,39 @@ extends DramaDisplayControl
 
 @onready var dialog_text_field = get_node("DialogPanel/DialogTextLabel")
 @onready var dialog_box = get_node("DialogPanel")
-@onready var answer_button1 = get_node("AnswerButton1")
-@onready var answer_button2 = get_node("AnswerButton2")
+
 @onready var player_text_field = get_node("PlayerPanel/PlayerTextLabel")
 @onready var player_box = get_node("PlayerPanel")
 @onready var speaker_name_label = get_node("DialogPanel/ActorName")
 
-@onready var speaker_text_field = dialog_text_field
+@onready var narration_box = get_node("NarrationPanel")
+@onready var narration_text_field = get_node("NarrationPanel/NarrationTextLabel")
+
+@onready var button_container = get_node("ChoiceButtonContainer")
+
+@onready var speaker_text_field = null
+
+var choice_button_template = preload("res://UI/CoiceButton.tscn")
 
 var dialog_scene = null
-
+var current_actor = null
 var dialog_ready = false
 var dialog_running = false
+var choice_pending = false
 
 func _ready() -> void:
 	#connect to signal that indicates character waiting at desk
 	SignalBus.dialog_waiting.connect(_on_dialog_waiting)
 	%DramaPlayer.connect_display(self)
-	
 
 func _on_dialog_waiting(dialog_name):
 	assert(not dialog_ready, "no dialog should be waiting before getting another ready")
 	#load dialog scene instance
-	var path: String = "res://Events/" + dialog_name + ".tscn"
+	var path: String = "res://Story/Events/" + dialog_name + ".tscn"
 	dialog_scene = load(path).instantiate()
 	add_child(dialog_scene)
 	#load gdrama dialog
-	%DramaPlayer.load_gdrama("res://Dialog/" + dialog_name + ".gdrama")
+	%DramaPlayer.load_gdrama("res://Story/Dialog/" + dialog_name + ".gdrama")
 	self.dialog_ready = true
 	self.visible = true
 
@@ -46,11 +52,15 @@ func _on_gui_input(event: InputEvent) -> void:
 			SignalBus.dialog_start.emit()
 			%DramaPlayer.start_drama()
 		
-func hide_and_disable_buttons():
-	answer_button1.disabled = true
-	answer_button1.visible = false
-	answer_button2.disabled = true
-	answer_button2.visible = false
+func remove_buttons():
+	button_container.visible = false
+	#disable every button in the container
+	for button_container in button_container.get_children():
+		button_container.queue_free()
+		
+func set_flag(name:String, value:bool):
+	assert(name != "")
+	%DramaPlayer.drama_reader.flags[name] = value
 
 # === DramaDisplay Overrides ===
 
@@ -91,23 +101,24 @@ func _spoke(letter: String):
 ## "conditions": [true, false, ...]
 ## }
 func _ask_for_choice(line: Dictionary):
-	#assuming only binary choices for now
-	assert(len(line.choices) == 2)
-	player_text_field.visible = false
-	answer_button1.text = line.choices[0]
-	answer_button1.pressed.connect(func chose0(): 
-		self.drama_player.make_choice(0)
-		hide_and_disable_buttons()
+	if choice_pending:
+		return
+	choice_pending = true
+	button_container.visible = true
+	player_box.visible = false
+	narration_box.visible = false
+	#make a button for every option
+	for i in range(len(line.choices)):
+		var current_button_container = choice_button_template.instantiate()
+		var current_button = current_button_container.get_child(0)
+		current_button.text = line.choices[i]
+		current_button.pressed.connect(func chosei(): 
+			self.drama_player.make_choice(i)
+			remove_buttons()
+			self.choice_pending = false
 		)
-	answer_button1.disabled = false
-	answer_button1.visible = true
-	answer_button2.text = line.choices[1]
-	answer_button2.pressed.connect(func chose1(): 
-		self.drama_player.make_choice(1)
-		hide_and_disable_buttons()
-		)
-	answer_button2.disabled = false
-	answer_button2.visible = true
+		current_button.disabled = false
+		button_container.add_child(current_button_container)
 
 ## Will be called to signal the current actor. Can be used, for instance, to
 ## display that actor's name and sprite
@@ -116,26 +127,38 @@ func _ask_for_choice(line: Dictionary):
 ## as _set_raw_text and _spoke, so it may be used to determine which display
 ## to focus on out of many
 func _set_actor(actor: String):
+	current_actor = actor
 	if actor.to_lower() == "player":
 		speaker_text_field = player_text_field
 		player_box.visible = true
+		dialog_box.visible = false
+		narration_box.visible = false
+	elif actor == "":
+		current_actor = "narration"
+		speaker_text_field = narration_text_field
+		narration_box.visible = true
+		player_box.visible = false
 		dialog_box.visible = false
 	else:
 		speaker_name_label.text = actor
 		speaker_text_field = dialog_text_field
 		dialog_box.visible = true
 		player_box.visible = false
+		narration_box.visible = false
 
 ## Will be called to signal that the current scene has ended. Can be used, for
 ## instance, to close the current dialogue windows and free the player's
 ## movement
 func _ended_drama(_info: String):
+	#TODO do some fading out
+	self.visible = false
+	player_box.visible = false
+	dialog_box.visible = false
+	narration_box.visible = false
+	#remove event scene (containing character sprite and mb other stuff)
+	dialog_scene.queue_free()
 	self.dialog_running = false
 	SignalBus.dialog_end.emit()
-	#remove event scene (containing character sprite and mb other stuff)
-	self.visible = false
-	#TODO do some fading out
-	dialog_scene.queue_free()
 	
 ## Will be emited when the GDrama calls for a function. Can be used to implement
 ## specific functions, such as changing a character's mood

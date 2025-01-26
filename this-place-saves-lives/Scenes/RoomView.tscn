@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://loyi4vvokxcg"]
+
+[ext_resource type="Texture2D" uid="uid://2ax6nqak41xe" path="res://Assets/Topdown/OverviewBackground.png" id="1_1b0no"]
+[ext_resource type="Texture2D" uid="uid://ba0kt1skxq4bv" path="res://Assets/Topdown/receptionDesk.png" id="2_i8m0n"]
+[ext_resource type="Texture2D" uid="uid://4e1fb773mvmc" path="res://Assets/Topdown/PlayerCharacterSitting.png" id="3_euueb"]
+[ext_resource type="Texture2D" uid="uid://byjiplix6qy5x" path="res://Assets/Topdown/ConsumptionTable.png" id="4_3avrq"]
+[ext_resource type="Texture2D" uid="uid://byo7trc5jeeji" path="res://Assets/Topdown/stool.png" id="5_o0f2c"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_1b0no")
+centered = false
+
+[node name="ReceptionDesk" type="Sprite2D" parent="."]
+z_index = 1
+z_as_relative = false
+position = Vector2(934, 312)
+scale = Vector2(4, 4)
+texture = ExtResource("2_i8m0n")
+
+[node name="PlayerCharacterSitting" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(932, 320)
+scale = Vector2(4, 4)
+texture = ExtResource("3_euueb")
+
+[node name="ConsumptionService" type="Node2D" parent="."]
+position = Vector2(512, 484)
+
+[node name="ConsumptionTable" type="Sprite2D" parent="ConsumptionService"]
+position = Vector2(34, 52)
+scale = Vector2(4, 4)
+texture = ExtResource("4_3avrq")
+
+[node name="ConsumptionTable2" type="Sprite2D" parent="ConsumptionService"]
+position = Vector2(102, 52)
+scale = Vector2(4, 4)
+texture = ExtResource("4_3avrq")
+
+[node name="ConsumptionTable3" type="Sprite2D" parent="ConsumptionService"]
+position = Vector2(170, 52)
+scale = Vector2(4, 4)
+texture = ExtResource("4_3avrq")
+
+[node name="ConsumptionTable4" type="Sprite2D" parent="ConsumptionService"]
+position = Vector2(238, 52)
+scale = Vector2(4, 4)
+texture = ExtResource("4_3avrq")
+
+[node name="Stool" type="Sprite2D" parent="."]
+position = Vector2(546, 502)
+scale = Vector2(4, 4)
+texture = ExtResource("5_o0f2c")

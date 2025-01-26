@@ -1,0 +1,28 @@
+<beat start>
+	Person enters the room, looking slightly intimidated and rather young.
+	Sam: Uhhh... <wait 0.5> hi.<wait 0.5> Is this where I register?
+	<choice "Sorry, we don't allow minors in here." nominors>
+	<choice "Sure, I just need your ID for a sec." id>
+
+<beat nominors>
+	Sam sighs
+	Sam: I'm 25.
+	Player: Oh...
+	Sam: Don't worry, I get that a lot.
+	Player: I'm sorry. I'll still need your ID to register you, though.
+	<jump id>
+
+<beat id>
+	Sam: Is my insurance card ok too?
+	Player: Yeah, that works too.
+	You register Sam's info into the system<id true>
+	<branch drugchecking drugcheck>
+	<jump end>
+
+<beat drugchecking>
+	Player: Alright Sam, what do you need?
+	Sam: I heard about your drug checking thing and, uhm, wanted to have this tested.
+	Player: Yes of course, right over there.<decrease_overdose_risk>
+
+<beat end>
+	Player: Ok then, you are all set.<id false>

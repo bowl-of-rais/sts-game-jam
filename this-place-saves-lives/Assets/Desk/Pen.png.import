@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkoybvqnxl3uc"
-path="res://.godot/imported/SarahPortrait.png-c11cdbd1d1bdeefdc8bd7ce9c24574f3.ctex"
+uid="uid://3td1t7bggctu"
+path="res://.godot/imported/Pen.png-666a101074dae7d5d0a5507dd00b72d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SarahPortrait.png"
-dest_files=["res://.godot/imported/SarahPortrait.png-c11cdbd1d1bdeefdc8bd7ce9c24574f3.ctex"]
+source_file="res://Assets/Desk/Pen.png"
+dest_files=["res://.godot/imported/Pen.png-666a101074dae7d5d0a5507dd00b72d1.ctex"]
 
 [params]
 

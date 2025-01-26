@@ -1,0 +1,13 @@
+<beat start>
+	Sarah: Hello
+	Player: Hi!<wait 0.5> ID please if you wanna register.
+	Sarah: One question, can i use my own stuff as well?<wait 0.5> Like, needles.
+	Sarah: I just...
+	She lowers her eyes
+	Sarah: I'd just need a place to do it.
+	Player: We won't force you to,<wait 0.5> but I'd really recommend using ours.
+	Sarah: Nah, it's fine.<wait 0.5> I don't wanna take resources I don't need.<id true>
+	Player: Okay, then just through that door.
+	Sarah: <id false>One more thing...<wait 1> if a guy comes asking for me, please don't tell him I'm here?
+	Player: Of course.<wait 0.5> I mean<wait 0.5>, in any case<wait 0.5>, but it's also policy anyways.
+	Sarah: Ah,<wait 0.5> okay,<wait 0.5> thanks

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtxnahl2v47xx"
-path="res://.godot/imported/MarelPortrait.png-d4fa8e15b444e28f601ff8e3c4fe9151.ctex"
+uid="uid://b4we1555qvu36"
+path="res://.godot/imported/SafeConsumptionKit.png-bc218cddf7f8629cd97ddaa13ae90d87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MarelPortrait.png"
-dest_files=["res://.godot/imported/MarelPortrait.png-d4fa8e15b444e28f601ff8e3c4fe9151.ctex"]
+source_file="res://Assets/Desk/SafeConsumptionKit.png"
+dest_files=["res://.godot/imported/SafeConsumptionKit.png-bc218cddf7f8629cd97ddaa13ae90d87.ctex"]
 
 [params]
 

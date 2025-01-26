@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj51qgs7pyuiq"]
+
+[sub_resource type="GDScript" id="GDScript_qnsed"]
+script/source = "extends Node2D
+
+func id(show:bool):
+	%ID.visible = show
+
+func decrease_overdose_risk():
+	print(\"sam's risk of overdosing has decreased\")
+	#TODO decrease sam's risk for overdosing
+"
+
+[node name="Sam1" type="Node"]
+script = SubResource("GDScript_qnsed")
+
+[node name="ID" type="Sprite2D" parent="."]
+unique_name_in_owner = true

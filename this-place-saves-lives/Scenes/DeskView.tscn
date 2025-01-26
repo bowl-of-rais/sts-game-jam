@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0xb08ck5jk8f"]
+[gd_scene load_steps=13 format=3 uid="uid://b0xb08ck5jk8f"]
 
-[ext_resource type="Texture2D" uid="uid://ytqi6nvchlsd" path="res://Assets/DeskViewBackground.png" id="1_ryl64"]
-[ext_resource type="Texture2D" uid="uid://dt6uuipliev0f" path="res://Assets/Desk.png" id="2_h835j"]
-[ext_resource type="Texture2D" uid="uid://3td1t7bggctu" path="res://Assets/Pen.png" id="3_y4ibu"]
-[ext_resource type="Texture2D" uid="uid://b4we1555qvu36" path="res://Assets/SafeConsumptionKit.png" id="4_llmo1"]
-[ext_resource type="Texture2D" uid="uid://nnv56xxmfhga" path="res://Assets/Phone.png" id="5_u615o"]
+[ext_resource type="Texture2D" uid="uid://ytqi6nvchlsd" path="res://Assets/Desk/DeskViewBackground.png" id="1_ryl64"]
+[ext_resource type="Texture2D" uid="uid://dt6uuipliev0f" path="res://Assets/Desk/Desk.png" id="2_h835j"]
+[ext_resource type="Texture2D" uid="uid://3td1t7bggctu" path="res://Assets/Desk/Pen.png" id="3_y4ibu"]
+[ext_resource type="Texture2D" uid="uid://b4we1555qvu36" path="res://Assets/Desk/SafeConsumptionKit.png" id="4_llmo1"]
+[ext_resource type="Texture2D" uid="uid://nnv56xxmfhga" path="res://Assets/Desk/Phone.png" id="5_u615o"]
 [ext_resource type="Script" path="res://Scripts/dialog_player.gd" id="7_tomk4"]
 [ext_resource type="Script" path="res://addons/gdrama/scripts/components/DramaPlayer.gd" id="8_swxgh"]
 
@@ -35,58 +35,64 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68hqw"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="DeskScene" type="Node2D"]
 z_as_relative = false
 
 [node name="DeskViewBackground" type="Sprite2D" parent="."]
 z_as_relative = false
-position = Vector2(480, 270)
-scale = Vector2(3.75, 3.75)
+position = Vector2(512, 288)
+scale = Vector2(4, 4)
 texture = ExtResource("1_ryl64")
 
 [node name="Desk" type="Sprite2D" parent="."]
 z_index = 3
 z_as_relative = false
-position = Vector2(480, 270)
-scale = Vector2(3.75, 3.75)
+position = Vector2(512, 288)
+scale = Vector2(4, 4)
 texture = ExtResource("2_h835j")
 
 [node name="Pen" type="Sprite2D" parent="."]
 z_index = 4
 z_as_relative = false
-position = Vector2(208, 496)
+position = Vector2(334, 525)
 scale = Vector2(3.75, 3.75)
 texture = ExtResource("3_y4ibu")
 
 [node name="SafeConsumptionKit" type="Sprite2D" parent="."]
 z_index = 4
 z_as_relative = false
-position = Vector2(91, 474)
+position = Vector2(183, 510)
 scale = Vector2(3.75, 3.75)
 texture = ExtResource("4_llmo1")
 
 [node name="Phone" type="Sprite2D" parent="."]
 z_index = 4
 z_as_relative = false
-position = Vector2(821, 478)
+position = Vector2(872, 509)
 scale = Vector2(3.75, 3.75)
 texture = ExtResource("5_u615o")
 
-[node name="DialogPlayer" type="Control" parent="." node_paths=PackedStringArray("shortcut_context")]
+[node name="DialogDisplay" type="Control" parent="." node_paths=PackedStringArray("shortcut_context")]
 visible = false
 z_index = 5
 layout_mode = 3
 anchors_preset = 0
-offset_left = 272.0
-offset_top = 68.0
-offset_right = 689.0
-offset_bottom = 478.0
+offset_left = 301.0
+offset_top = 90.0
+offset_right = 718.0
+offset_bottom = 500.0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 16
 shortcut_context = NodePath("..")
 script = ExtResource("7_tomk4")
 
-[node name="DialogPanel" type="Panel" parent="DialogPlayer"]
+[node name="DialogPanel" type="Panel" parent="DialogDisplay"]
 visible = false
 light_mask = 0
 z_index = 5
@@ -103,7 +109,7 @@ grow_vertical = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_c0s0p")
 
-[node name="DialogTextLabel" type="Label" parent="DialogPlayer/DialogPanel"]
+[node name="DialogTextLabel" type="Label" parent="DialogDisplay/DialogPanel"]
 z_index = 5
 z_as_relative = false
 layout_mode = 1
@@ -119,7 +125,7 @@ grow_vertical = 2
 label_settings = SubResource("LabelSettings_riddx")
 autowrap_mode = 3
 
-[node name="ActorName" type="Label" parent="DialogPlayer/DialogPanel"]
+[node name="ActorName" type="Label" parent="DialogDisplay/DialogPanel"]
 layout_mode = 0
 offset_left = 8.0
 offset_top = -26.0
@@ -127,7 +133,7 @@ offset_right = 205.0
 offset_bottom = 2.0
 label_settings = SubResource("LabelSettings_cvkww")
 
-[node name="PlayerPanel" type="Panel" parent="DialogPlayer"]
+[node name="PlayerPanel" type="Panel" parent="DialogDisplay"]
 visible = false
 light_mask = 0
 z_index = 5
@@ -144,7 +150,7 @@ grow_vertical = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_l5inr")
 
-[node name="PlayerTextLabel" type="Label" parent="DialogPlayer/PlayerPanel"]
+[node name="PlayerTextLabel" type="Label" parent="DialogDisplay/PlayerPanel"]
 z_index = 5
 z_as_relative = false
 layout_mode = 1
@@ -160,33 +166,48 @@ grow_vertical = 2
 label_settings = SubResource("LabelSettings_riddx")
 autowrap_mode = 3
 
-[node name="AnswerButton1" type="Button" parent="DialogPlayer"]
+[node name="NarrationPanel" type="Panel" parent="DialogDisplay"]
 visible = false
+light_mask = 0
+z_index = 5
+z_as_relative = false
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -150.5
-offset_top = -21.0
-offset_right = 149.5
+offset_top = -66.0
 offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_68hqw")
 
-[node name="AnswerButton2" type="Button" parent="DialogPlayer"]
+[node name="NarrationTextLabel" type="Label" parent="DialogDisplay/NarrationPanel"]
+z_index = 5
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.20999
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_riddx")
+autowrap_mode = 3
+
+[node name="ChoiceButtonContainer" type="VBoxContainer" parent="DialogDisplay"]
 visible = false
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -150.5
-offset_top = 18.0
-offset_right = 149.5
-offset_bottom = 53.0
+offset_top = -20.0
+offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -194,4 +215,4 @@ grow_vertical = 0
 unique_name_in_owner = true
 script = ExtResource("8_swxgh")
 
-[connection signal="gui_input" from="DialogPlayer" to="DialogPlayer" method="_on_gui_input"]
+[connection signal="gui_input" from="DialogDisplay" to="DialogDisplay" method="_on_gui_input"]
