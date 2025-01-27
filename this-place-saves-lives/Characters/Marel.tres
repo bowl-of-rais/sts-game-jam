@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterSetting" load_steps=3 format=3 uid="uid://dn1dn02q3w0bj"]
+
+[ext_resource type="Script" path="res://Scripts/character_resource.gd" id="1_wc37k"]
+[ext_resource type="Texture2D" uid="uid://dr5ck8rs4x2xv" path="res://Assets/Topdown/Skins/MarolSkin.png" id="2_d2ekl"]
+
+[resource]
+script = ExtResource("1_wc37k")
+skin = ExtResource("2_d2ekl")
+bodytype = 0
+current_needs = Array[int]([0, 1, 4])
