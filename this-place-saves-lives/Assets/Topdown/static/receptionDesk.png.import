@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2ax6nqak41xe"
-path="res://.godot/imported/OverviewBackground.png-a3efa9577a90f7fee1b07d1e0698233d.ctex"
+uid="uid://ba0kt1skxq4bv"
+path="res://.godot/imported/receptionDesk.png-fb964e9dc9b4f85a7c941cd514f5f3d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Topdown/OverviewBackground.png"
-dest_files=["res://.godot/imported/OverviewBackground.png-a3efa9577a90f7fee1b07d1e0698233d.ctex"]
+source_file="res://Assets/Topdown/static/receptionDesk.png"
+dest_files=["res://.godot/imported/receptionDesk.png-fb964e9dc9b4f85a7c941cd514f5f3d4.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4e1fb773mvmc"
-path="res://.godot/imported/PlayerCharacterSitting.png-ea8c7bb27434fcee68ae07a83bd84d28.ctex"
+uid="uid://dpb5sw18qf8bj"
+path="res://.godot/imported/CharacterSkinKey.png-3d638eab9b4ff1c770d203a2df16d335.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Topdown/PlayerCharacterSitting.png"
-dest_files=["res://.godot/imported/PlayerCharacterSitting.png-ea8c7bb27434fcee68ae07a83bd84d28.ctex"]
+source_file="res://Assets/Topdown/Animations/CharacterSkinKey.png"
+dest_files=["res://.godot/imported/CharacterSkinKey.png-3d638eab9b4ff1c770d203a2df16d335.ctex"]
 
 [params]
 

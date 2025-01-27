@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byo7trc5jeeji"
-path="res://.godot/imported/stool.png-ae669e699f3c1e4b826af29f26cdc0ed.ctex"
+uid="uid://4e1fb773mvmc"
+path="res://.godot/imported/PlayerCharacterSitting.png-c41a0813ae70e01854bd7341bf15a44f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Topdown/stool.png"
-dest_files=["res://.godot/imported/stool.png-ae669e699f3c1e4b826af29f26cdc0ed.ctex"]
+source_file="res://Assets/Topdown/static/PlayerCharacterSitting.png"
+dest_files=["res://.godot/imported/PlayerCharacterSitting.png-c41a0813ae70e01854bd7341bf15a44f.ctex"]
 
 [params]
 

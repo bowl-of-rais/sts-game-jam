@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh63ouhf5um33"
-path="res://.godot/imported/MascCharacterIdle.png-049cb6b8e6d1caf9d8f7c0efb60de0e7.ctex"
+uid="uid://2ax6nqak41xe"
+path="res://.godot/imported/OverviewBackground.png-fd294b6c53d198d252875c9559934b16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Topdown/Animations/MascCharacterIdle.png"
-dest_files=["res://.godot/imported/MascCharacterIdle.png-049cb6b8e6d1caf9d8f7c0efb60de0e7.ctex"]
+source_file="res://Assets/Topdown/static/OverviewBackground.png"
+dest_files=["res://.godot/imported/OverviewBackground.png-fd294b6c53d198d252875c9559934b16.ctex"]
 
 [params]
 

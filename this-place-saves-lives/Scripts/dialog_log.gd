@@ -7,6 +7,7 @@ func _ready() -> void:
 
 func toggle_log(visible:bool):
 	self.visible = visible
-	
+
+##adds an event description in a new line of the log
 func add_entry(event_description:String):
 	log_text_label.text += event_description + "\n"

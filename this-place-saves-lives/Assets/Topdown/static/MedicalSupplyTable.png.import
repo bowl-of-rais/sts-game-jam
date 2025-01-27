@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsxuygn3floyi"
-path="res://.godot/imported/MedicalSupplyTable.png-473fe3499e899e20d6230e993ff71996.ctex"
+path="res://.godot/imported/MedicalSupplyTable.png-f8f25a9b2db7602213d20046d8289006.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Topdown/MedicalSupplyTable.png"
-dest_files=["res://.godot/imported/MedicalSupplyTable.png-473fe3499e899e20d6230e993ff71996.ctex"]
+source_file="res://Assets/Topdown/static/MedicalSupplyTable.png"
+dest_files=["res://.godot/imported/MedicalSupplyTable.png-f8f25a9b2db7602213d20046d8289006.ctex"]
 
 [params]
 

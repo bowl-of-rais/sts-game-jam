@@ -11,7 +11,7 @@ extends DramaDisplayControl
 @onready var narration_text_field = get_node("NarrationPanel/NarrationTextLabel")
 
 @onready var button_container = get_node("ChoiceButtonContainer")
-
+##references the text field of the current speaker
 @onready var speaker_text_field = null
 
 var choice_button_template = preload("res://UI/CoiceButton.tscn")
@@ -57,7 +57,8 @@ func remove_buttons():
 	#disable every button in the container
 	for button_container in button_container.get_children():
 		button_container.queue_free()
-		
+
+##sets a dialog flag to be read in gdrama dialog
 func set_flag(name:String, value:bool):
 	assert(name is String and value is bool, "Flag can only be string and bool")
 	assert(name != "", "Flag name can not be empty")

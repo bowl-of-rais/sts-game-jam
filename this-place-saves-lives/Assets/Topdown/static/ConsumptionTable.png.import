@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcy5d888m455r"
-path="res://.godot/imported/FemCharacterIdle.png-a45602f5dcf8022d441341368d58d704.ctex"
+uid="uid://byjiplix6qy5x"
+path="res://.godot/imported/ConsumptionTable.png-24d55f53605fe0268bde8bda7efcfd4e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Topdown/Animations/FemCharacterIdle.png"
-dest_files=["res://.godot/imported/FemCharacterIdle.png-a45602f5dcf8022d441341368d58d704.ctex"]
+source_file="res://Assets/Topdown/static/ConsumptionTable.png"
+dest_files=["res://.godot/imported/ConsumptionTable.png-24d55f53605fe0268bde8bda7efcfd4e.ctex"]
 
 [params]
 
