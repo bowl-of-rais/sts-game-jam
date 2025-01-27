@@ -1,24 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4wftmpfy61vv"]
+[gd_scene load_steps=10 format=3 uid="uid://b4wftmpfy61vv"]
 
+[ext_resource type="Script" path="res://Scripts/topdown_character.gd" id="1_721bw"]
 [ext_resource type="Shader" path="res://Scripts/skin_mapping.gdshader" id="1_r3pm1"]
 [ext_resource type="Texture2D" uid="uid://cdb8hq5v5k7e1" path="res://Assets/Topdown/Skins/TheBoiSkin.png" id="2_5ki1x"]
+[ext_resource type="Texture2D" uid="uid://clg25u01sy2uu" path="res://Assets/Topdown/Animations/mapped_MascCharacterIdle.png" id="3_f4lnb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_norfn"]
 radius = 3.0
 height = 12.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_078l8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2nxx4"]
 shader = ExtResource("1_r3pm1")
-shader_parameter/active = true
 shader_parameter/skin = ExtResource("2_5ki1x")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v4tm"]
+atlas = ExtResource("3_f4lnb")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1l6u6"]
+atlas = ExtResource("3_f4lnb")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j17yr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v4tm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l6u6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.5
+}]
+
 [node name="CharacterBase" type="CharacterBody2D"]
+script = ExtResource("1_721bw")
+skin = ExtResource("2_5ki1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_norfn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_078l8")
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_2nxx4")
 position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_j17yr")
 autoplay = "default"
+frame_progress = 0.228626

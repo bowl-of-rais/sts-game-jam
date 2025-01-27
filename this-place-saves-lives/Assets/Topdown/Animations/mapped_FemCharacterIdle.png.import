@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpb5sw18qf8bj"
-path="res://.godot/imported/CharacterSkinKey.png-3d638eab9b4ff1c770d203a2df16d335.ctex"
+uid="uid://bd64wrwuotm5a"
+path="res://.godot/imported/mapped_FemCharacterIdle.png-d192b79ee46c1b485959d386eef3ef16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Topdown/Animations/CharacterSkinKey.png"
-dest_files=["res://.godot/imported/CharacterSkinKey.png-3d638eab9b4ff1c770d203a2df16d335.ctex"]
+source_file="res://Assets/Topdown/Animations/mapped_FemCharacterIdle.png"
+dest_files=["res://.godot/imported/mapped_FemCharacterIdle.png-d192b79ee46c1b485959d386eef3ef16.ctex"]
 
 [params]
 
