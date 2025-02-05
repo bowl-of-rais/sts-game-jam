@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://clg25u01sy2uu" path="res://Assets/Topdown/Animations/mapped_MascCharacterIdle.png" id="3_f4lnb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_norfn"]
-radius = 3.0
-height = 12.0
+radius = 4.0
+height = 40.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2nxx4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vycgl"]
 shader = ExtResource("1_r3pm1")
 shader_parameter/skin = ExtResource("2_y4jcg")
 
@@ -36,6 +36,7 @@ animations = [{
 }]
 
 [node name="CharacterBase" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_721bw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -44,8 +45,11 @@ shape = SubResource("CapsuleShape2D_norfn")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_2nxx4")
-position = Vector2(0, -11)
+material = SubResource("ShaderMaterial_vycgl")
+position = Vector2(0, -44)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_j17yr")
 autoplay = "default"
 frame_progress = 0.847734
+
+[connection signal="property_list_changed" from="." to="." method="_on_property_list_changed"]

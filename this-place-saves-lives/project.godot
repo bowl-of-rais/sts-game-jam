@@ -30,6 +30,13 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/gdrama/plugin.cfg")
 
+[layer_names]
+
+2d_physics/layer_1="Collision"
+2d_physics/layer_2="Action"
+2d_physics/layer_3="Hitbox"
+2d_physics/layer_4="Hurtbox"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

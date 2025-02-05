@@ -7,4 +7,4 @@
 script = ExtResource("1_wc37k")
 skin = ExtResource("2_d2ekl")
 bodytype = 0
-current_needs = Array[int]([0, 1, 4])
+initial_needs = Array[int]([0, 1, 6])

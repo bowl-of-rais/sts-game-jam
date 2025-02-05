@@ -1,126 +1,117 @@
-[gd_scene load_steps=8 format=3 uid="uid://loyi4vvokxcg"]
+[gd_scene load_steps=14 format=3 uid="uid://loyi4vvokxcg"]
 
 [ext_resource type="Texture2D" uid="uid://2ax6nqak41xe" path="res://Assets/Topdown/static/OverviewBackground.png" id="1_1b0no"]
 [ext_resource type="Texture2D" uid="uid://ba0kt1skxq4bv" path="res://Assets/Topdown/static/receptionDesk.png" id="2_i8m0n"]
 [ext_resource type="Texture2D" uid="uid://4e1fb773mvmc" path="res://Assets/Topdown/static/PlayerCharacterSitting.png" id="3_euueb"]
-[ext_resource type="Texture2D" uid="uid://byjiplix6qy5x" path="res://Assets/Topdown/static/ConsumptionTable.png" id="4_3avrq"]
-[ext_resource type="Texture2D" uid="uid://byo7trc5jeeji" path="res://Assets/Topdown/static/stool.png" id="5_o0f2c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtqx"]
+size = Vector2(1024, 80)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2x8xu"]
+a = Vector2(0, 576)
+b = Vector2(0, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_w5mmg"]
+a = Vector2(0, 576)
+b = Vector2(1024, 576)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_k4kyr"]
+a = Vector2(1024, 284)
+b = Vector2(1024, 576)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cx4ns"]
+a = Vector2(1024, 240)
+b = Vector2(1024, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_pu3iu"]
+a = Vector2(1024, 240)
+b = Vector2(1073, 240)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_s13mc"]
+a = Vector2(1073, 284)
+b = Vector2(1024, 284)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_thx0m"]
+a = Vector2(1073, 240)
+b = Vector2(1073, 284)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnxvv"]
+size = Vector2(100, 12)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_himyw"]
 radius = 9.43398
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_y5xtv"]
-radius = 30.4138
-
 [node name="Node2D" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+z_index = 1
+z_as_relative = false
+position = Vector2(512, 40)
+shape = SubResource("RectangleShape2D_hqtqx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+z_index = 2
+shape = SubResource("SegmentShape2D_2x8xu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor"]
+z_index = 2
+shape = SubResource("SegmentShape2D_w5mmg")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Floor"]
+z_index = 2
+shape = SubResource("SegmentShape2D_k4kyr")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Floor"]
+z_index = 2
+shape = SubResource("SegmentShape2D_cx4ns")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("SegmentShape2D_pu3iu")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("SegmentShape2D_s13mc")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("SegmentShape2D_thx0m")
+
+[node name="FloorSprite" type="Sprite2D" parent="Floor"]
 scale = Vector2(4, 4)
 texture = ExtResource("1_1b0no")
 centered = false
 
-[node name="ReceptionDesk" type="Sprite2D" parent="."]
+[node name="ReceptionDesk" type="StaticBody2D" parent="."]
+position = Vector2(934, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ReceptionDesk"]
+z_index = 5
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_tnxvv")
+
+[node name="DeskSprite" type="Sprite2D" parent="ReceptionDesk"]
 z_index = 1
 z_as_relative = false
-position = Vector2(934, 312)
 scale = Vector2(4, 4)
 texture = ExtResource("2_i8m0n")
 
 [node name="PlayerCharacterSitting" type="Sprite2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(932, 320)
+position = Vector2(932, 319)
 scale = Vector2(4, 4)
 texture = ExtResource("3_euueb")
 
 [node name="DialogArea" type="Area2D" parent="PlayerCharacterSitting"]
 unique_name_in_owner = true
-position = Vector2(-225.75, -76)
+position = Vector2(0, -2)
 scale = Vector2(0.25, 0.25)
+collision_layer = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacterSitting/DialogArea"]
-position = Vector2(903, 272)
+z_index = 5
 shape = SubResource("CircleShape2D_himyw")
 
-[node name="ConsumptionService" type="Node2D" parent="."]
-z_as_relative = false
-position = Vector2(512, 484)
-
-[node name="ConsumptionTable" type="Sprite2D" parent="ConsumptionService"]
-z_index = 2
-z_as_relative = false
-position = Vector2(34, 52)
-scale = Vector2(4, 4)
-texture = ExtResource("4_3avrq")
-
-[node name="ConsumptionTable2" type="Sprite2D" parent="ConsumptionService"]
-z_index = 2
-z_as_relative = false
-position = Vector2(102, 52)
-scale = Vector2(4, 4)
-texture = ExtResource("4_3avrq")
-
-[node name="ConsumptionTable3" type="Sprite2D" parent="ConsumptionService"]
-z_index = 2
-z_as_relative = false
-position = Vector2(170, 52)
-scale = Vector2(4, 4)
-texture = ExtResource("4_3avrq")
-
-[node name="ConsumptionTable4" type="Sprite2D" parent="ConsumptionService"]
-z_index = 2
-z_as_relative = false
-position = Vector2(238, 52)
-scale = Vector2(4, 4)
-texture = ExtResource("4_3avrq")
-
-[node name="Stool" type="Sprite2D" parent="ConsumptionService"]
-z_index = 1
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(34, 18)
-scale = Vector2(4, 4)
-texture = ExtResource("5_o0f2c")
-
-[node name="Stool2" type="Sprite2D" parent="ConsumptionService"]
-z_index = 1
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(100, 26)
-scale = Vector2(4, 4)
-texture = ExtResource("5_o0f2c")
-
-[node name="Stool3" type="Sprite2D" parent="ConsumptionService"]
-z_index = 1
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(170, 19)
-scale = Vector2(4, 4)
-texture = ExtResource("5_o0f2c")
-
-[node name="Stool4" type="Sprite2D" parent="ConsumptionService"]
-z_index = 1
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(242, 18)
-scale = Vector2(4, 4)
-texture = ExtResource("5_o0f2c")
-
-[node name="consumptionArea" type="Area2D" parent="ConsumptionService"]
-unique_name_in_owner = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ConsumptionService/consumptionArea"]
-position = Vector2(34, 26)
-shape = SubResource("CircleShape2D_y5xtv")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ConsumptionService/consumptionArea"]
-position = Vector2(101, 34)
-shape = SubResource("CircleShape2D_y5xtv")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="ConsumptionService/consumptionArea"]
-position = Vector2(170, 27)
-shape = SubResource("CircleShape2D_y5xtv")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="ConsumptionService/consumptionArea"]
-position = Vector2(242, 26)
-shape = SubResource("CircleShape2D_y5xtv")
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(1046, 262)

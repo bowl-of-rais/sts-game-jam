@@ -1,9 +1,14 @@
 extends Resource
 class_name CharacterSetting
 
-@export var skin:Texture2D
-@export_enum("fem_slim","masc_slim","fem_curvy","masc_curvy") var bodytype
+enum Need{
+	talk,drugs,relax,socialize,\
+	kitchen,shower,toilet,\
+	menstrual_hygiene,breastfeed
+	}
 
-enum needs{talk,drugs,relax,kitchen,toilet,\
-shower,menstrual_hygiene,breastfeed}
-@export var current_needs:Array[needs]
+enum BodyType{fem_slim, masc_slim, fem_curvy, masc_curvy}
+
+@export var skin:Texture2D
+@export var bodytype:BodyType
+@export var initial_needs:Array[Need]
