@@ -41,7 +41,7 @@ size = Vector2(100, 12)
 [sub_resource type="CircleShape2D" id="CircleShape2D_himyw"]
 radius = 9.43398
 
-[node name="Node2D" type="Node2D"]
+[node name="Room" type="Node2D"]
 
 [node name="Floor" type="StaticBody2D" parent="."]
 
