@@ -2,7 +2,7 @@
 extends Node2D
 class_name ServiceManager
 
-@export var service_name: StringName
+@export var service_name: String
 var stations: Array[Station]
 var fullfills: Array[CharacterSetting.Need]
 

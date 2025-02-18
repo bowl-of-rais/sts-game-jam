@@ -9,6 +9,6 @@ enum Need{
 
 enum BodyType{fem_slim, masc_slim, fem_curvy, masc_curvy}
 
-@export var skin:Texture2D
+@export var skin:ShaderMaterial
 @export var bodytype:BodyType
 @export var initial_needs:Array[Need]

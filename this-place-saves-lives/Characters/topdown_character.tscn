@@ -1,17 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://b4wftmpfy61vv"]
+[gd_scene load_steps=8 format=3 uid="uid://b4wftmpfy61vv"]
 
 [ext_resource type="Script" path="res://Scripts/topdown_character.gd" id="1_721bw"]
-[ext_resource type="Shader" path="res://Scripts/skin_mapping.gdshader" id="1_r3pm1"]
-[ext_resource type="Texture2D" uid="uid://ku6cvh53fd3f" path="res://Assets/Topdown/Skins/CharacterMapKey.png" id="2_y4jcg"]
+[ext_resource type="Material" uid="uid://dhr7x7rrd1h36" path="res://Characters/placeholder_material.tres" id="2_wdq5q"]
 [ext_resource type="Texture2D" uid="uid://clg25u01sy2uu" path="res://Assets/Topdown/Animations/mapped_MascCharacterIdle.png" id="3_f4lnb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_norfn"]
 radius = 4.0
 height = 40.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vycgl"]
-shader = ExtResource("1_r3pm1")
-shader_parameter/skin = ExtResource("2_y4jcg")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8v4tm"]
 atlas = ExtResource("3_f4lnb")
@@ -37,6 +32,7 @@ animations = [{
 
 [node name="CharacterBase" type="CharacterBody2D"]
 y_sort_enabled = true
+motion_mode = 1
 script = ExtResource("1_721bw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -45,11 +41,9 @@ shape = SubResource("CapsuleShape2D_norfn")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_vycgl")
+material = ExtResource("2_wdq5q")
 position = Vector2(0, -44)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_j17yr")
 autoplay = "default"
-frame_progress = 0.847734
-
-[connection signal="property_list_changed" from="." to="." method="_on_property_list_changed"]
+frame_progress = 0.101269

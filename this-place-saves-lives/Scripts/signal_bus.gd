@@ -20,3 +20,6 @@ signal dialog_start
 signal dialog_end
 
 signal log_event(description:String)
+
+signal station_occupied(station:Station)
+signal station_free(station:Station)

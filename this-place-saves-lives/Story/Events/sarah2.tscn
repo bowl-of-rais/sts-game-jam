@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://1x4lmfivn3np"]
+[gd_scene load_steps=3 format=3 uid="uid://1x4lmfivn3np"]
+
+[ext_resource type="Texture2D" uid="uid://disifr2sbvts" path="res://Assets/Desk/Portraits/SarahDistressedPortrait.png" id="1_iavk0"]
 
 [sub_resource type="GDScript" id="GDScript_44h1a"]
 resource_name = "Sarah2Actions"
@@ -24,3 +26,9 @@ func honey_appears():
 
 [node name="Sarah2" type="Node"]
 script = SubResource("GDScript_44h1a")
+
+[node name="SarahDistressedPortrait" type="Sprite2D" parent="."]
+position = Vector2(313, 0)
+scale = Vector2(4, 4)
+texture = ExtResource("1_iavk0")
+centered = false

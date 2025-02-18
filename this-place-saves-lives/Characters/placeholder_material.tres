@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dhr7x7rrd1h36"]
+
+[ext_resource type="Shader" path="res://Scripts/skin_mapping.gdshader" id="1_hxbgk"]
+[ext_resource type="Texture2D" uid="uid://ku6cvh53fd3f" path="res://Assets/Topdown/Skins/CharacterMapKey.png" id="2_72wvx"]
+
+[resource]
+shader = ExtResource("1_hxbgk")
+shader_parameter/skin = ExtResource("2_72wvx")

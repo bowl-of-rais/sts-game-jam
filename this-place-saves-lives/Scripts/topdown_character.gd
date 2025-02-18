@@ -1,39 +1,39 @@
-@tool
 extends CharacterBody2D
 class_name topdown_character
+
+const default_skin = preload("res://Characters/placeholder_material.tres")
 
 @export var character:CharacterSetting:
 	set(new_settings):
 		character = new_settings
-		%Sprite.material.set_instance_shader_parameter("skin",new_settings.skin)
-	get():
-		return self.character
-
-const default_skin = preload("res://Assets/Topdown/Skins/CharacterMapKey.png")
+		if character != null:
+			%Sprite.material = character.skin
+		else:
+			%Sprite.material = default_skin
+	get:
+		return character
 
 var stateM: StateMachine
 var current_needs: Array[CharacterSetting.Need]
+var desired_dir
 
 func _ready() -> void:
-	if not Engine.is_editor_hint():#only execute when game running
-		stateM = StateMachine.new()
-		stateM.add_state("Idle", idle)
-		stateM.set_state("Idle")
+	#setup character TODO make work in tool mode
+	self.character = self.character
+	#setup needs
+	current_needs = character.initial_needs.duplicate()
+	#setup state machine
+	stateM = StateMachine.new()
+	stateM.add_state("Idle", idle)
+	stateM.set_state("Idle")
+	stateM.add_state("Walking", walking)
+	stateM.add_state("Busy", busy)
 
 func _process(_delta: float) -> void:
-	if not Engine.is_editor_hint():#only execute when game running
-		stateM.process()
+	stateM.process()
 
 func _physics_process(_delta: float) -> void:
-	if not Engine.is_editor_hint():#only execute when game running
-		pass# move_and_slide towards walking target
-
-
-func _on_property_list_changed() -> void:
-	if self.character != null:
-		%Sprite.material.set_instance_shader_parameter("skin",self.character.skin)
-	else:
-		%Sprite.material.set_instance_shader_parameter("skin",self.default_skin)
+	pass# move_and_slide towards walking target
 
 func idle():
 	pass
@@ -44,3 +44,13 @@ func idle():
 	
 func walking():
 	pass
+	#TODO set desired direction to follow route to service
+	#TODO check if station is still available?
+	#		if no check aggression stat and initiate conflict if high
+	#		else search for othersuitable station and reroute
+	#TODO initiate fight on collision
+	
+func busy():
+	pass
+	#TODO check if timer for task is up and if yes transition to idle
+	#TODO check if task specific events should be triggered
