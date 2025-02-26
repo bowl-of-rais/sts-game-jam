@@ -132,3 +132,6 @@ position = Vector2(68, 0)
 
 [node name="ConsumptionStation3" parent="ServiceManager" instance=ExtResource("5_q04p4")]
 position = Vector2(136, 0)
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

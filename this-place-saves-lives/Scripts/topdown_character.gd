@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name topdown_character
 
 const default_skin = preload("res://Characters/placeholder_material.tres")
+var spawn_point: Node2D #set to spawn point marker when spawned
+var room: Room
 
 @export var character:CharacterSetting:
 	set(new_settings):
@@ -15,7 +17,7 @@ const default_skin = preload("res://Characters/placeholder_material.tres")
 
 var stateM: StateMachine
 var current_needs: Array[CharacterSetting.Need]
-var desired_dir
+var target: Vector2
 
 func _ready() -> void:
 	#setup character TODO make work in tool mode
@@ -25,9 +27,9 @@ func _ready() -> void:
 	#setup state machine
 	stateM = StateMachine.new()
 	stateM.add_state("Idle", idle)
-	stateM.set_state("Idle")
 	stateM.add_state("Walking", walking)
 	stateM.add_state("Busy", busy)
+	stateM.set_state("Idle") #set initial state
 
 func _process(_delta: float) -> void:
 	stateM.process()
@@ -36,11 +38,20 @@ func _physics_process(_delta: float) -> void:
 	pass# move_and_slide towards walking target
 
 func idle():
-	pass
-	#TODO check current needs
-	#TODO request matching service+station
-	#TODO calculate route
-	#TODO transition to walking
+	if current_needs.is_empty():
+		#character is done with all needs
+		#set target to spawn point
+		target = spawn_point.position
+	else:
+		# check current needs
+		var next_need = current_needs.back()
+		#request matching service+station
+		var possible_targets = room.get_need_stations(next_need)
+		possible_targets.sort_custom(
+			func(a,b):self.position.distance_to(a.position) < self.position.distance_to(b.position)
+			)
+		target = possible_targets.back().position
+		return "Walking"
 	
 func walking():
 	pass

@@ -113,4 +113,4 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_j17yr")
 animation = &"fem_default"
 autoplay = "fem_default"
-frame_progress = 0.424842
+frame_progress = 0.284974

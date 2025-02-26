@@ -7,4 +7,5 @@ var occupied: bool = false:
 	get():
 		return occupied
 	set(new):
+		#TODO hide or sth
 		occupied = new
