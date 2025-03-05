@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://b4we1555qvu36" path="res://Assets/Desk/SafeConsumptionKit.png" id="4_llmo1"]
 [ext_resource type="Texture2D" uid="uid://nnv56xxmfhga" path="res://Assets/Desk/Phone.png" id="5_u615o"]
 [ext_resource type="Texture2D" uid="uid://bw6osuc2141xx" path="res://Assets/Desk/Bell.png" id="6_yph1c"]
-[ext_resource type="Script" path="res://Scripts/dialog_player.gd" id="7_tomk4"]
-[ext_resource type="Script" path="res://addons/gdrama/scripts/components/DramaPlayer.gd" id="8_swxgh"]
+[ext_resource type="Script" uid="uid://ch615b6cg5uvx" path="res://Scripts/dialog_player.gd" id="7_tomk4"]
+[ext_resource type="Script" uid="uid://cjq3aypbsgft2" path="res://addons/gdrama/scripts/components/DramaPlayer.gd" id="8_swxgh"]
 [ext_resource type="Texture2D" uid="uid://w264r41nf385" path="res://Assets/Desk/Paper.png" id="9_urh03"]
-[ext_resource type="Script" path="res://Scripts/dialog_log.gd" id="10_o5oiy"]
+[ext_resource type="Script" uid="uid://beww0p3ifwjxu" path="res://Scripts/dialog_log.gd" id="10_o5oiy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0s0p"]
 content_margin_left = 5.0

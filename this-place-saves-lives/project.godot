@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="This Place Saves Lives"
-run/main_scene="res://Views/DeskView.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+run/main_scene="uid://b0xb08ck5jk8f"
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
