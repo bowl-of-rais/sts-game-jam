@@ -11,12 +11,12 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#test one event
 	if not emitted:
-		SignalBus.dialog_waiting.emit("sarah1")
+		SignalBus.dialog_waiting.emit("sam1")
 		emitted = true
-		SignalBus.dialog_end.connect(next_dialog)
+		#SignalBus.dialog_end.connect(next_dialog)
 
 #add second dialog to test dialog deinitialization
 func next_dialog():
