@@ -1,0 +1,24 @@
+<beat start>
+	Nicky: Hey, I feel like I know you from somewhere.
+	Sam: turns to her. Wait...<wait 2> Nicky?<wait 0.5> 8th grade ethics??
+	Nicky: Yeah! <wait 0.5> ...I think I don't remember your name, though.
+	Sam: Oh, I mean, it's changed since then. But, I'm Sam.
+	Nicky: Hah, I knew you'd come around. Nice to re-meet you, Sam.
+	Sam: So, uhhh...<wait 0.5> you come here often?
+	Nicky: [snort]Yeah, you could say that.
+	Nicky: What about you, golden boy finally falling through the cracks in the system?
+	Sam: Nah, I mean...<wait 0.5> I go to uni. But I also come here, so there's that.
+	Sam: Mostly to get my stuff checked.
+	Nicky: Ah.
+	Nicky: ...
+	Nicky: So my brain is still out of whack,<wait 0.5> if you remember how I used to stay at the psych ward in between foster housings.
+	Sam: I think I do.
+	Nicky: But now I'm 19 and. Well. The world is my oyster.
+	Sam: So...?
+	Nicky: So. I DJ a bit, I sell some art, I work part-time at this bar across town.
+	Nicky: And technically I'm homeless, but I have my car. Really could be worse.
+	Nicky: If this place holds up, I'll cancel my gym membership. Those are some expensive showers, lemme tell you.
+	Sam: Haha, good luck trying to get out of that. Gym memberships are like bear traps.
+	Nicky: Oh you know, you might like it. I can take you sometime, there's this thing where you can bring a friend on the weekends.
+
+	<flag SamMetNicky>

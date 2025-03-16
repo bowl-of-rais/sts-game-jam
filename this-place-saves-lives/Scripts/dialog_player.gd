@@ -34,7 +34,7 @@ func _on_dialog_waiting(dialog_name):
 	dialog_scene = load(path).instantiate()
 	add_child(dialog_scene)
 	#load gdrama dialog
-	%DramaPlayer.load_gdrama("res://Story/Dialog/" + dialog_name + ".gdrama")
+	%DramaPlayer.load_gdrama("res://Story/Dialogues/" + dialog_name + ".gdrama")
 	self.dialog_ready = true
 	self.visible = true
 

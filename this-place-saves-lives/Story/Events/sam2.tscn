@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cea4h3ie4wy2c"]
+
+[sub_resource type="GDScript" id="GDScript_blw7s"]
+script/source = "extends Node
+
+# requires: PlayerMetSam, SamMetNicky
+"
+
+[node name="Sam2" type="Node"]
+script = SubResource("GDScript_blw7s")

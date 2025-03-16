@@ -14,7 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#test one event
 	if not emitted:
-		SignalBus.dialog_waiting.emit("sarah1")
+		SignalBus.dialog_waiting.emit("nickysam1")
 		emitted = true
 		#SignalBus.dialog_end.connect(next_dialog)
 
