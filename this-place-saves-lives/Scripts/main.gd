@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	if not emitted:
 		SignalBus.dialog_waiting.emit("sarah1")
 		emitted = true
-		SignalBus.dialog_end.connect(next_dialog)
+		#SignalBus.dialog_end.connect(next_dialog)
 
 #add second dialog to test dialog deinitialization
 func next_dialog():

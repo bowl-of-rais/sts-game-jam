@@ -113,4 +113,4 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_j17yr")
 animation = &"fem_walk_right"
 autoplay = "fem_default"
-frame_progress = 0.13468
+frame_progress = 0.640285
