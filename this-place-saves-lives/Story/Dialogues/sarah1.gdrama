@@ -11,3 +11,5 @@
 	Sarah: <id false>One more thing...<wait 1> if a guy comes asking for me, please don't tell him I'm here?
 	Player: Of course.<wait 0.5> I mean<wait 0.5>, in any case<wait 0.5>, but it's also policy anyways.
 	Sarah: Ah,<wait 0.5> okay,<wait 0.5> thanks
+
+<flag PlayerMetSarah>
