@@ -7,16 +7,15 @@
 	Player: Hey guys, coming for your results?
 	Honey: That's right.
 	<sti_results true>
-	Player: *looks through files, gives them their respective STI test result documents*
-	Honey: Thanks, darlin'.<wait 0.5>Aly, let's call it a night, shall we?
+	You look through files and give them their respective STI test results.
+	Honey: Thanks, darlin'.<wait 0.5> Aly, let's call it a night, shall we?
 	Alya: ....
 	Honey: Aly?
-	Alya: shows Honey her results
+	Alya shows Honey her results
 	Honey: HUH.<wait 0.5> I thought we were gonna have a talk before starting a family.
 	Alya snorts, her face softening into a slight smile
 	Alya: Now is really not the time for jokes, you know.
 	Honey: Oh sweetie. Come 'ere.<wait 0.5> We got this, okay? I'm with you whatever happens.
-	Honey: I sure do pray it's not the banker.
 
 <flag PlayerMetAlya>
 <flag PlayerMetHoney>

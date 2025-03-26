@@ -6,11 +6,11 @@
 [node name="HoneyAndAlya" type="Node"]
 
 [node name="PortraitAlya" type="Sprite2D" parent="."]
-position = Vector2(394, 287)
+position = Vector2(346, 288)
 scale = Vector2(4, 4)
 texture = ExtResource("1_qhe6i")
 
 [node name="PortraitHoney" type="Sprite2D" parent="."]
-position = Vector2(726, 288)
+position = Vector2(693, 287)
 scale = Vector2(4, 4)
 texture = ExtResource("2_fmc10")
