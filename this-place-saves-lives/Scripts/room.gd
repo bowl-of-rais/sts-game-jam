@@ -1,7 +1,10 @@
 extends Node2D
 class_name Room
 
-var services: Array[ServiceManager]
+@export var services: Array[ServiceManager]
+
+## The spot where new characters should spawn
+@onready var spawn_point: Marker2D = %SpawnPoint
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,7 +23,7 @@ func unregister_service(old: ServiceManager):
 
 ## get the services that fulfill a specific need
 func get_need_stations(need : CharacterSetting.Need) -> Array[Station]:
-	var results
+	var results:Array[Station] = []
 	for service in services:
 		results.append_array(service.get_need_stations(need))
 	return results

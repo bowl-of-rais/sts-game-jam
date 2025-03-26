@@ -22,7 +22,7 @@ func update_need_fullfillment():
 
 ## gives the stations of this manager that fulfills
 ## the given need and is unoccupied
-func get_need_stations(need: CharacterSetting.Need):
+func get_need_stations(need: CharacterSetting.Need) -> Array[Station]:
 	if active:
 		return stations.filter(func(s): return not s.occupied and s.fulfills==need)
 	else: return []

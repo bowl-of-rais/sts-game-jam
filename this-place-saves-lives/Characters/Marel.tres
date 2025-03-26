@@ -8,3 +8,4 @@ script = ExtResource("1_wc37k")
 skin = ExtResource("2_mvt6w")
 bodytype = 0
 initial_needs = Array[int]([0, 1, 6])
+speed = 0.0

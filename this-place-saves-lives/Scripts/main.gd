@@ -1,25 +1,22 @@
 extends Node
 
-#2 temporary test values
-var emitted = false
-var second = false
+var character_base: PackedScene = preload("res://Characters/topdown_character.tscn")
+
+var spawn_test_done = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
-	
-
+	print("main ready!")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	#test one event
-	if not emitted:
-		SignalBus.dialog_waiting.emit("sam1")
-		emitted = true
-		#SignalBus.dialog_end.connect(next_dialog)
+	if not spawn_test_done:
+		#test topdown character
+		var test_character: topdown_character = character_base.instantiate()
+		test_character.position = %Room.spawn_point.position
+		test_character.character = load("res://Characters/test_character.tres")
+		%Room.add_child(test_character)
+		spawn_test_done = true
 
-#add second dialog to test dialog deinitialization
-func next_dialog():
-	if not second:
-		second = true
-		SignalBus.dialog_waiting.emit("sarah2")
+func go_to_desk():
+	pass

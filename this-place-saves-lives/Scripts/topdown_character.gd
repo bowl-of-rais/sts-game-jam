@@ -5,6 +5,7 @@ const default_skin = preload("res://Characters/placeholder_material.tres")
 var spawn_point: Node2D #set to spawn point marker when spawned
 var room: Room
 
+## The characterSetting ressource that defines this character (including appearance)
 @export var character:CharacterSetting:
 	set(new_settings):
 		character = new_settings
@@ -18,8 +19,11 @@ var room: Room
 var stateM: StateMachine
 var current_needs: Array[CharacterSetting.Need]
 var target: Vector2
+var target_delta: Vector2
 
 func _ready() -> void:
+	#setup room ref
+	room = get_parent()
 	#setup character TODO make work in tool mode
 	self.character = self.character
 	#setup needs
@@ -33,9 +37,11 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	stateM.process()
+	#TODO set animation speed according to walking speed
 
 func _physics_process(_delta: float) -> void:
-	pass# move_and_slide towards walking target
+	velocity = target_delta * (character.speed / target_delta.length())
+	self.move_and_slide()
 
 func idle():
 	if current_needs.is_empty():
@@ -47,15 +53,20 @@ func idle():
 		var next_need = current_needs.back()
 		#request matching service+station
 		var possible_targets = room.get_need_stations(next_need)
-		possible_targets.sort_custom(
-			func(a,b):self.position.distance_to(a.position) < self.position.distance_to(b.position)
-			)
-		target = possible_targets.back().position
-		return "Walking"
+		if possible_targets.is_empty():
+			pass
+			#TODO remove need and give specific approval penalty
+		else:
+			possible_targets.sort_custom(
+				func(a,b):self.position.distance_to(a.position) < self.position.distance_to(b.position)
+				)
+			target = possible_targets.back().position
+	return "Walking"
 	
 func walking():
-	pass
-	#TODO set desired direction to follow route to service
+	#set desired direction to follow route to service
+	target_delta = target - position
+	
 	#TODO check if station is still available?
 	#		if no check aggression stat and initiate conflict if high
 	#		else search for othersuitable station and reroute

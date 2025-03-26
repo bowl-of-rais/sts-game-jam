@@ -97,6 +97,7 @@ animations = [{
 }]
 
 [node name="CharacterBase" type="CharacterBody2D"]
+z_index = 1
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_721bw")
