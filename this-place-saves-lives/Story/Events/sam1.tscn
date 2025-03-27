@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj51qgs7pyuiq"]
+[gd_scene load_steps=3 format=3 uid="uid://cj51qgs7pyuiq"]
+
+[ext_resource type="Texture2D" uid="uid://durplwha7tpc6" path="res://Assets/Desk/Portraits/Sam.png" id="1_dd7h8"]
 
 [sub_resource type="GDScript" id="GDScript_nbqmw"]
 script/source = "extends Node
@@ -9,3 +11,8 @@ script = SubResource("GDScript_nbqmw")
 
 [node name="ID" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+
+[node name="PortraitSam" type="Sprite2D" parent="."]
+position = Vector2(505, 288)
+scale = Vector2(4, 4)
+texture = ExtResource("1_dd7h8")
