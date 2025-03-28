@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://lenhn78t4ctc"]
+
+[ext_resource type="Texture2D" uid="uid://cklm10c78aktn" path="res://Assets/Menu/Pages/AboutPage.png" id="1_3kc1d"]
+[ext_resource type="Script" uid="uid://cncdg45g23u4x" path="res://MenuPages/about_page.gd" id="1_u2juv"]
+[ext_resource type="Texture2D" uid="uid://bbx62lemeinol" path="res://Assets/Menu/Buttons/Back/BackButtonPurple.png" id="2_u2juv"]
+[ext_resource type="Texture2D" uid="uid://2d7llybwhp3n" path="res://Assets/Menu/Buttons/Back/AltBackButtonPurple.png" id="3_cpqh2"]
+
+[node name="AboutPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u2juv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(512, 287)
+texture = ExtResource("1_3kc1d")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 500.0
+offset_right = 80.0
+offset_bottom = 540.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("2_u2juv")
+texture_pressed = ExtResource("2_u2juv")
+texture_hover = ExtResource("3_cpqh2")
+texture_disabled = ExtResource("2_u2juv")
+texture_focused = ExtResource("2_u2juv")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

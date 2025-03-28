@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://8q1aec16ql1q"]
+
+[ext_resource type="Script" uid="uid://dfjoggfhuhx2x" path="res://main_menu.gd" id="1_7r1g0"]
+[ext_resource type="Texture2D" uid="uid://ceqox7bu1vu4v" path="res://Assets/Menu/Pages/TitlePurple.png" id="2_u7cqb"]
+[ext_resource type="Texture2D" uid="uid://cewctdrwnou7t" path="res://Assets/Menu/Buttons/Play/PlayButtonPurple.png" id="3_u7cqb"]
+[ext_resource type="Texture2D" uid="uid://d1vphg0ve1stq" path="res://Assets/Menu/Buttons/Play/AltPlayButtonPurple.png" id="4_afec1"]
+[ext_resource type="Texture2D" uid="uid://crwcdcvl7ssuv" path="res://Assets/Menu/Buttons/Settings/SettingsButtonPurple.png" id="5_31qfy"]
+[ext_resource type="Texture2D" uid="uid://b2nix6ej8pxx5" path="res://Assets/Menu/Buttons/Settings/AltSettingsButtonPurple.png" id="6_qie43"]
+[ext_resource type="Texture2D" uid="uid://lhbvm60qegcx" path="res://Assets/Menu/Buttons/About/AboutButtonPurple.png" id="7_61cf8"]
+[ext_resource type="Texture2D" uid="uid://ds5gcme6cwang" path="res://Assets/Menu/Buttons/About/AltAboutButtonPurple.png" id="8_rnncn"]
+[ext_resource type="Texture2D" uid="uid://byqraoqjgy8g6" path="res://Assets/Menu/Buttons/CNs/CNsButtonPurple.png" id="9_3fnrj"]
+[ext_resource type="Texture2D" uid="uid://bah5n6ekjey8r" path="res://Assets/Menu/Buttons/CNs/AltCNsButtonPurple.png" id="10_m04lp"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_7r1g0")
+
+[node name="TitleImage" type="Sprite2D" parent="."]
+position = Vector2(512, 289)
+texture = ExtResource("2_u7cqb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 340.0
+offset_right = 807.0
+offset_bottom = 412.0
+scale = Vector2(3, 3)
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayTextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_u7cqb")
+texture_pressed = ExtResource("3_u7cqb")
+texture_hover = ExtResource("4_afec1")
+texture_disabled = ExtResource("3_u7cqb")
+texture_focused = ExtResource("3_u7cqb")
+
+[node name="SettingsTextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_31qfy")
+texture_pressed = ExtResource("5_31qfy")
+texture_hover = ExtResource("6_qie43")
+texture_disabled = ExtResource("5_31qfy")
+texture_focused = ExtResource("5_31qfy")
+
+[node name="AboutTextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_61cf8")
+texture_pressed = ExtResource("7_61cf8")
+texture_hover = ExtResource("8_rnncn")
+texture_disabled = ExtResource("7_61cf8")
+texture_focused = ExtResource("7_61cf8")
+
+[node name="CNsTextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_3fnrj")
+texture_pressed = ExtResource("9_3fnrj")
+texture_hover = ExtResource("10_m04lp")
+texture_disabled = ExtResource("9_3fnrj")
+texture_focused = ExtResource("9_3fnrj")
+
+[connection signal="pressed" from="VBoxContainer/PlayTextureButton" to="." method="_on_play_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsTextureButton" to="." method="_on_settings_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/AboutTextureButton" to="." method="_on_about_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CNsTextureButton" to="." method="_on_c_ns_texture_button_pressed"]
