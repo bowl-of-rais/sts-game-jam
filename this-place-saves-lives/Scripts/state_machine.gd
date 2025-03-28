@@ -29,7 +29,8 @@ func add_state(state_name: StringName, active_callback:Callable,
 		return false
 	states[state_name] = State.new(state_name, enter_callback, active_callback, exit_callback)
 	return true
-	
+
+## can override the callbacks associated with a state name
 func edit_state(state_name: StringName, active=null, enter=null, exit=null):
 	if not states.has(state_name):
 		printerr("No state named "+ state_name + " in this StateMachine!")
@@ -42,13 +43,13 @@ func edit_state(state_name: StringName, active=null, enter=null, exit=null):
 		states[state_name].exit_callback = exit
 	return true
 
-##removes a state by name and returns if it was succesfull
+## removes a state by name and returns if it was succesfull
 func remove_state(state_name: StringName):
 	if not states.has(state_name): return false
 	states.erase(state_name)
 	return true
 
-##to change the state on a running state machine (makes transitions)
+## to change the state on a running state machine (makes transitions)
 func change_state(state_name: StringName):
 	assert(self.current_state != null)
 	if not states.has(state_name):

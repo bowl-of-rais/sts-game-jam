@@ -1,11 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://b4wftmpfy61vv"]
 
 [ext_resource type="Script" uid="uid://dku2uivoy3gnj" path="res://Scripts/topdown_character.gd" id="1_721bw"]
+[ext_resource type="Shape2D" uid="uid://cjh4iqfhutwaw" path="res://Characters/topdown_character_collision_shape.tres" id="2_iocbd"]
 [ext_resource type="Texture2D" uid="uid://brupibfow06gp" path="res://Assets/Topdown/Animations/mapped_FemCharacter.png" id="3_r13p6"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_norfn"]
-radius = 4.0
-height = 40.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3dpfn"]
 atlas = ExtResource("3_r13p6")
@@ -99,12 +96,14 @@ animations = [{
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
+collision_layer = 9
+collision_mask = 5
 motion_mode = 1
 script = ExtResource("1_721bw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_norfn")
+shape = ExtResource("2_iocbd")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
@@ -116,3 +115,16 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_j17yr")
 animation = &"fem_walk_left"
 autoplay = "fem_default"
+
+[node name="InteractionArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 2
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+rotation = 1.5708
+shape = ExtResource("2_iocbd")
+
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]

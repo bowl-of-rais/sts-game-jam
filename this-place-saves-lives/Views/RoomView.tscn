@@ -142,19 +142,16 @@ active = true
 [node name="ConsumptionStation" parent="ConsumptionService" instance=ExtResource("5_q04p4")]
 z_index = 1
 z_as_relative = false
-fulfills = 1
 
 [node name="ConsumptionStation2" parent="ConsumptionService" instance=ExtResource("5_q04p4")]
 z_index = 1
 z_as_relative = false
 position = Vector2(68, 0)
-fulfills = 1
 
 [node name="ConsumptionStation3" parent="ConsumptionService" instance=ExtResource("5_q04p4")]
 z_index = 1
 z_as_relative = false
 position = Vector2(136, 0)
-fulfills = 1
 
 [node name="Stool" type="Sprite2D" parent="."]
 position = Vector2(754, 422)

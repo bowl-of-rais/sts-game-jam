@@ -24,5 +24,6 @@ func go_to_desk():
 	%Desk.show()
 	
 func go_to_room():
+	#TODO maybe disable interaction boxes of desk/dialog if not already happening
 	%Desk.hide()
 	%Room.show()
