@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalBus="*res://Scripts/signal_bus.gd"
 Main="*res://Scripts/main.gd"
+GlobalAudio="*res://GlobalAudio.tscn"
 
 [display]
 
