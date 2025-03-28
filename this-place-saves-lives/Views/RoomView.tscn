@@ -1,14 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://loyi4vvokxcg"]
+[gd_scene load_steps=23 format=3 uid="uid://loyi4vvokxcg"]
 
 [ext_resource type="Texture2D" uid="uid://2ax6nqak41xe" path="res://Assets/Topdown/static/OverviewBackground.png" id="1_1b0no"]
 [ext_resource type="Script" uid="uid://cox4k3v3rneqn" path="res://Views/room.gd" id="1_7mgdn"]
 [ext_resource type="Texture2D" uid="uid://ba0kt1skxq4bv" path="res://Assets/Topdown/static/receptionDesk.png" id="2_i8m0n"]
 [ext_resource type="Texture2D" uid="uid://4e1fb773mvmc" path="res://Assets/Topdown/static/PlayerCharacterSitting.png" id="3_euueb"]
+[ext_resource type="Texture2D" uid="uid://tv17sdx3tkrc" path="res://Assets/Topdown/static/OverviewBackWall.png" id="3_hew1i"]
 [ext_resource type="Script" uid="uid://ccn0nls46lluq" path="res://Scripts/Service.gd" id="4_ldjbo"]
 [ext_resource type="PackedScene" uid="uid://c3gsufb5ilft6" path="res://Services/ConsumptionStation.tscn" id="5_q04p4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtqx"]
-size = Vector2(1024, 80)
+[ext_resource type="PackedScene" uid="uid://3k51bolt18vb" path="res://Services/ToiletStation.tscn" id="7_f7ehb"]
+[ext_resource type="PackedScene" uid="uid://cxwmmh3emi2kk" path="res://Services/ShowerStation.tscn" id="8_d43x1"]
+[ext_resource type="PackedScene" uid="uid://6mqil7fc58ng" path="res://Services/CouchStation.tscn" id="9_hew1i"]
+[ext_resource type="PackedScene" uid="uid://dkbtlrbe554t8" path="res://Services/LoungeTableStation.tscn" id="10_3jkwu"]
+[ext_resource type="PackedScene" uid="uid://d14j3r2jkqdgy" path="res://Services/MicrowaveStation.tscn" id="11_p45k2"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_2x8xu"]
 a = Vector2(0, 576)
@@ -38,6 +41,9 @@ b = Vector2(1024, 284)
 a = Vector2(1073, 240)
 b = Vector2(1073, 284)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtqx"]
+size = Vector2(1024, 105)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tnxvv"]
 size = Vector2(100, 12)
 
@@ -48,12 +54,6 @@ radius = 9.43398
 script = ExtResource("1_7mgdn")
 
 [node name="Floor" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-z_index = 1
-z_as_relative = false
-position = Vector2(512, 40)
-shape = SubResource("RectangleShape2D_hqtqx")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
 z_index = 2
@@ -84,6 +84,19 @@ shape = SubResource("SegmentShape2D_thx0m")
 scale = Vector2(4, 4)
 texture = ExtResource("1_1b0no")
 centered = false
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+z_index = 1
+z_as_relative = false
+position = Vector2(512, 52.5)
+shape = SubResource("RectangleShape2D_hqtqx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Wall"]
+position = Vector2(512, 54)
+scale = Vector2(1, 0.8)
+texture = ExtResource("3_hew1i")
 
 [node name="ReceptionDesk" type="StaticBody2D" parent="."]
 position = Vector2(934, 312)
@@ -120,18 +133,63 @@ shape = SubResource("CircleShape2D_himyw")
 [node name="SpawnPoint" type="Marker2D" parent="."]
 position = Vector2(1046, 262)
 
-[node name="ServiceManager" type="Node2D" parent="."]
+[node name="ConsumptionManager" type="Node2D" parent="."]
 position = Vector2(620, 452)
 script = ExtResource("4_ldjbo")
-service_name = "Consumtion"
+service_name = "Consumption"
 
-[node name="ConsumptionStation" parent="ServiceManager" instance=ExtResource("5_q04p4")]
+[node name="ConsumptionStation" parent="ConsumptionManager" instance=ExtResource("5_q04p4")]
 
-[node name="ConsumptionStation2" parent="ServiceManager" instance=ExtResource("5_q04p4")]
+[node name="ConsumptionStation2" parent="ConsumptionManager" instance=ExtResource("5_q04p4")]
 position = Vector2(68, 0)
 
-[node name="ConsumptionStation3" parent="ServiceManager" instance=ExtResource("5_q04p4")]
+[node name="ConsumptionStation3" parent="ConsumptionManager" instance=ExtResource("5_q04p4")]
 position = Vector2(136, 0)
+
+[node name="ToiletManager" type="Node2D" parent="."]
+script = ExtResource("4_ldjbo")
+service_name = "Toilet"
+metadata/_custom_type_script = "uid://ccn0nls46lluq"
+
+[node name="ToiletStation" parent="ToiletManager" instance=ExtResource("7_f7ehb")]
+position = Vector2(192, 133)
+
+[node name="ToiletStation2" parent="ToiletManager" instance=ExtResource("7_f7ehb")]
+position = Vector2(263, 134)
+
+[node name="ShowerManager" type="Node2D" parent="."]
+script = ExtResource("4_ldjbo")
+service_name = "Shower"
+metadata/_custom_type_script = "uid://ccn0nls46lluq"
+
+[node name="ShowerStation" parent="ShowerManager" instance=ExtResource("8_d43x1")]
+position = Vector2(121, 130)
+
+[node name="ShowerStation2" parent="ShowerManager" instance=ExtResource("8_d43x1")]
+position = Vector2(50, 130)
+
+[node name="CouchManager" type="Node2D" parent="."]
+script = ExtResource("4_ldjbo")
+service_name = "Couch"
+metadata/_custom_type_script = "uid://ccn0nls46lluq"
+
+[node name="CouchStation" parent="CouchManager" instance=ExtResource("9_hew1i")]
+position = Vector2(705, 114)
+
+[node name="LoungeTableManager" type="Node2D" parent="."]
+script = ExtResource("4_ldjbo")
+metadata/_custom_type_script = "uid://ccn0nls46lluq"
+
+[node name="LoungeTableStation" parent="LoungeTableManager" instance=ExtResource("10_3jkwu")]
+position = Vector2(131, 442)
+
+[node name="MicrowaveManager" type="Node2D" parent="."]
+script = ExtResource("4_ldjbo")
+service_name = "Microwave"
+metadata/_custom_type_script = "uid://ccn0nls46lluq"
+
+[node name="MicrowaveStation" parent="MicrowaveManager" instance=ExtResource("11_p45k2")]
+position = Vector2(446, 96)
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
