@@ -11,7 +11,7 @@ size = Vector2(66.0138, 15.5)
 
 [node name="ShowerStation" type="Node2D"]
 script = ExtResource("1_mxuak")
-fullfills = 1
+fullfills = 5
 
 [node name="Shower" type="StaticBody2D" parent="."]
 y_sort_enabled = true

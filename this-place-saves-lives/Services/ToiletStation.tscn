@@ -11,7 +11,7 @@ size = Vector2(68, 16)
 
 [node name="ToiletStation" type="Node2D"]
 script = ExtResource("1_1vwmp")
-fullfills = 1
+fullfills = 6
 
 [node name="Toilet" type="StaticBody2D" parent="."]
 y_sort_enabled = true
