@@ -1,6 +1,7 @@
 extends Node
 
 signal approval_changed(new_approval, old_approval)
+signal approval_delta(relative_approval)
 
 signal funds_changed(new_funds, old_funds)
 

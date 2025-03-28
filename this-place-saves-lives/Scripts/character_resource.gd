@@ -12,4 +12,4 @@ enum BodyType{fem_slim, masc_slim, fem_curvy, masc_curvy}
 @export var skin:ShaderMaterial
 @export var bodytype:BodyType
 @export var initial_needs:Array[Need]
-@export_range(1, 10) var speed:float
+@export_range(10, 100) var speed:float

@@ -7,8 +7,8 @@ class State:
 	var active_callback:Callable
 	var exit_callback:Callable
 	
-	func _init(name:StringName, enter:Callable, active:Callable, exit:Callable):
-		self.name = name
+	func _init(sname:StringName, enter:Callable, active:Callable, exit:Callable):
+		self.name = sname
 		self.enter_callback = enter
 		self.active_callback = active
 		self.exit_callback = exit

@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://b4wftmpfy61vv"]
+[gd_scene load_steps=15 format=3 uid="uid://b4wftmpfy61vv"]
 
 [ext_resource type="Script" uid="uid://dku2uivoy3gnj" path="res://Scripts/topdown_character.gd" id="1_721bw"]
-[ext_resource type="Material" uid="uid://dhr7x7rrd1h36" path="res://Characters/placeholder_material.tres" id="2_wdq5q"]
 [ext_resource type="Texture2D" uid="uid://brupibfow06gp" path="res://Assets/Topdown/Animations/mapped_FemCharacter.png" id="3_r13p6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_norfn"]
@@ -98,6 +97,7 @@ animations = [{
 
 [node name="CharacterBase" type="CharacterBody2D"]
 z_index = 1
+z_as_relative = false
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_721bw")
@@ -108,10 +108,11 @@ shape = SubResource("CapsuleShape2D_norfn")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-material = ExtResource("2_wdq5q")
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 position = Vector2(0, -44)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_j17yr")
-animation = &"fem_walk_right"
+animation = &"fem_walk_left"
 autoplay = "fem_default"
-frame_progress = 0.13468

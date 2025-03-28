@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 class_name Room
 
@@ -27,11 +28,3 @@ func get_need_stations(need : CharacterSetting.Need) -> Array[Station]:
 	for service in services:
 		results.append_array(service.get_need_stations(need))
 	return results
-
-func _on_child_entered_tree(node: Node) -> void:
-	if node is ServiceManager:
-		register_service(node)
-
-func _on_child_exiting_tree(node: Node) -> void:
-	if node is ServiceManager:
-		unregister_service(node)

@@ -8,5 +8,5 @@ script = ExtResource("1_1w8n7")
 skin = ExtResource("2_2ekg6")
 bodytype = 0
 initial_needs = Array[int]([1])
-speed = 0.0
+speed = 40.0
 metadata/_custom_type_script = "uid://7j5oel4upva7"
