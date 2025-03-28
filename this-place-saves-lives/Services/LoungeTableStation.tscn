@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkbtlrbe554t8"]
+
+[ext_resource type="Script" uid="uid://deysunic7sfop" path="res://Scripts/Station.gd" id="1_qyt0g"]
+[ext_resource type="Texture2D" uid="uid://5c1udc1mnw2s" path="res://Assets/Topdown/static/LoungeTableSet.png" id="2_j2kxp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g75ew"]
+size = Vector2(108, 136)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyt0g"]
+size = Vector2(202, 266)
+
+[node name="LoungeTableStation" type="Node2D"]
+script = ExtResource("1_qyt0g")
+fullfills = 3
+
+[node name="LoungeTable" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(34, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoungeTable"]
+position = Vector2(-34, -28)
+shape = SubResource("RectangleShape2D_g75ew")
+
+[node name="TableSprite" type="Sprite2D" parent="LoungeTable"]
+position = Vector2(-34, -56)
+scale = Vector2(4, 4)
+texture = ExtResource("2_j2kxp")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(34, 35)
+collision_layer = 2
+collision_mask = 3
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(-34, -35)
+shape = SubResource("RectangleShape2D_qyt0g")
