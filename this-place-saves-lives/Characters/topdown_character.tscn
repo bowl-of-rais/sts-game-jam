@@ -115,6 +115,7 @@ scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_j17yr")
 animation = &"fem_walk_left"
 autoplay = "fem_default"
+
 [node name="InteractionArea" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 2

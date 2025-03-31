@@ -32,12 +32,13 @@ texture = ExtResource("2_eqv4g")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
+offset_left = 30.0
 offset_top = 23.0
 offset_right = 512.0
 offset_bottom = 38.0
 scale = Vector2(2, 2)
-theme_override_constants/separation = 400
-alignment = 1
+theme_override_constants/separation = 415
+alignment = 2
 
 [node name="BackButton" type="TextureButton" parent="HBoxContainer"]
 layout_mode = 2
@@ -48,9 +49,17 @@ texture_disabled = ExtResource("3_866s1")
 texture_focused = ExtResource("3_866s1")
 stretch_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+[node name="MarginContainer" type="HBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_ha8kw")
+theme_override_font_sizes/font_size = 12
+vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -58,13 +67,6 @@ size_flags_horizontal = 8
 size_flags_vertical = 4
 texture = ExtResource("5_aa7rb")
 stretch_mode = 2
-
-[node name="Label" type="Label" parent="HBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("6_ha8kw")
-theme_override_font_sizes/font_size = 12
-text = "69420"
-vertical_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 clip_contents = false
@@ -295,7 +297,7 @@ offset_bottom = 12.5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("6_ha8kw")
 theme_override_font_sizes/font_size = 12
-text = "100"
+text = "50"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -374,6 +376,7 @@ vertical_alignment = 2
 [connection signal="pressed" from="HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/GridContainer/ConsTableContainer/BuyConsTableButton" to="." method="_on_buy_cons_table_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/GridContainer/ToiletContainer/BuyToiletButton" to="." method="_on_buy_toilet_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/GridContainer/ShowerContainer/BuyShowerButton" to="." method="_on_buy_shower_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/GridContainer/MensProductContainer/BuyTamponsButton" to="." method="_on_buy_tampons_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/GridContainer/CouchContainer/BuyCouchButton" to="." method="_on_buy_couch_button_pressed"]
 [connection signal="pressed" from="ScrollContainer/GridContainer/MicrowaveContainer/BuyMicrowaveButton" to="." method="_on_buy_microwave_button_pressed"]

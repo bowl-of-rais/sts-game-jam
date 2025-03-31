@@ -3,7 +3,10 @@ extends Node
 signal approval_changed(new_approval, old_approval)
 signal approval_delta(relative_approval)
 
-signal funds_changed(new_funds, old_funds)
+# signal funds_changed(new_funds, old_funds)
+signal funds_changed()
+
+signal service_full(type: Services.Types)
 
 #sets up a new dialog event wen emitted
 signal dialog_waiting(dialog_name)

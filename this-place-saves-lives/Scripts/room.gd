@@ -31,3 +31,12 @@ func get_need_stations(need : CharacterSetting.Need) -> Array[Station]:
 	for service in services:
 		results.append_array(service.get_need_stations(need))
 	return results
+
+func buy(type: Services.Types) -> bool:
+	# iterate through children, find correct manager, acquire in manager
+	for child in get_children():
+		if child is ServiceManager:
+			if child.type == type:
+				child.buy()
+				return true
+	return false

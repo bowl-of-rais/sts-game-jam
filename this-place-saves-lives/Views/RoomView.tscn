@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://2ax6nqak41xe" path="res://Assets/Topdown/static/OverviewBackground.png" id="1_1b0no"]
 [ext_resource type="Script" uid="uid://cox4k3v3rneqn" path="res://Scripts/room.gd" id="1_7mgdn"]
 [ext_resource type="Texture2D" uid="uid://tv17sdx3tkrc" path="res://Assets/Topdown/static/OverviewBackWall.png" id="3_yi4ap"]
-[ext_resource type="Script" uid="uid://ccn0nls46lluq" path="res://Scripts/Service.gd" id="4_ldjbo"]
+[ext_resource type="Script" uid="uid://ccn0nls46lluq" path="res://Scripts/service_manager.gd" id="4_ldjbo"]
 [ext_resource type="PackedScene" uid="uid://bd1lrtej5kawv" path="res://Services/ReceptionStation.tscn" id="5_hew1i"]
 [ext_resource type="PackedScene" uid="uid://c3gsufb5ilft6" path="res://Services/ConsumptionStation.tscn" id="5_q04p4"]
 [ext_resource type="Texture2D" uid="uid://byo7trc5jeeji" path="res://Assets/Topdown/static/stool.png" id="7_f7ehb"]
@@ -110,6 +110,7 @@ y_sort_enabled = true
 position = Vector2(620, 452)
 script = ExtResource("4_ldjbo")
 service_name = "Consumtion"
+max_num = 3
 active = true
 
 [node name="ConsumptionStation" parent="ConsumptionService" instance=ExtResource("5_q04p4")]
@@ -144,54 +145,71 @@ texture = ExtResource("7_f7ehb")
 [node name="CouchService" type="Node2D" parent="."]
 position = Vector2(700, 142)
 script = ExtResource("4_ldjbo")
+max_num = 1
+type = 3
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
 [node name="CouchStation" parent="CouchService" instance=ExtResource("9_d43x1")]
+visible = false
 fulfills = 2
 
 [node name="KitchenService" type="Node2D" parent="."]
 position = Vector2(542, 130)
 script = ExtResource("4_ldjbo")
+max_num = 1
+type = 4
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
 [node name="MicrowaveStation" parent="KitchenService" instance=ExtResource("10_hew1i")]
+visible = false
 fulfills = 4
 
 [node name="ShowerService" type="Node2D" parent="."]
 position = Vector2(62, 152)
 script = ExtResource("4_ldjbo")
+max_num = 2
+type = 2
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
 [node name="ShowerStation" parent="ShowerService" instance=ExtResource("11_d43x1")]
+visible = false
 fulfills = 5
 
 [node name="ShowerStation2" parent="ShowerService" instance=ExtResource("11_d43x1")]
+visible = false
 position = Vector2(64, 0)
 fulfills = 5
 
 [node name="ToiletService" type="Node2D" parent="."]
 position = Vector2(190, 155)
 script = ExtResource("4_ldjbo")
+max_num = 2
+type = 1
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
 [node name="ToiletStation" parent="ToiletService" instance=ExtResource("12_3jkwu")]
+visible = false
 fulfills = 6
 
 [node name="ToiletStation2" parent="ToiletService" instance=ExtResource("12_3jkwu")]
+visible = false
 position = Vector2(64, 0)
 fulfills = 6
 
 [node name="LoungeService" type="Node2D" parent="."]
 position = Vector2(130, 432)
 script = ExtResource("4_ldjbo")
+max_num = 1
+type = 5
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
 [node name="LoungeTableStation" parent="LoungeService" instance=ExtResource("13_p45k2")]
+visible = false
 fulfills = 3
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]

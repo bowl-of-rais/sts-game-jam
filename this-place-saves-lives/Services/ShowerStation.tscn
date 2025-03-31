@@ -1,8 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cxwmmh3emi2kk"]
 
-
 [ext_resource type="Script" uid="uid://deysunic7sfop" path="res://Scripts/station.gd" id="1_mxuak"]
-
 [ext_resource type="Texture2D" uid="uid://bmshic11t2wrm" path="res://Assets/Topdown/static/ShowerDoorOpen.png" id="2_v3w0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g75ew"]
@@ -13,7 +11,6 @@ size = Vector2(66.0138, 15.5)
 
 [node name="ShowerStation" type="Node2D"]
 script = ExtResource("1_mxuak")
-fullfills = 5
 
 [node name="Shower" type="StaticBody2D" parent="."]
 y_sort_enabled = true

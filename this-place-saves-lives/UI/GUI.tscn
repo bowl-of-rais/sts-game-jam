@@ -12,10 +12,12 @@
 [sub_resource type="GDScript" id="GDScript_u4p83"]
 script/source = "extends Control
 
-
 func _on_shop_button_pressed() -> void:
 	hide()
 	%BuyMenu.show()
+
+func set_funds_display(val: int):
+	%Label.text = str(val)
 "
 
 [node name="Gui" type="Control"]
@@ -29,13 +31,13 @@ script = SubResource("GDScript_u4p83")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-offset_left = 354.0
+offset_left = 380.0
 offset_top = 23.0
-offset_right = 688.0
+offset_right = 690.0
 offset_bottom = 60.0
 scale = Vector2(2, 2)
 theme_override_constants/separation = 103
-alignment = 1
+alignment = 2
 
 [node name="ApprovalBarContainer" type="HBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(0, 15)
@@ -77,6 +79,7 @@ size_flags_vertical = 4
 alignment = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/MoneyCounter"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("6_3tted")
