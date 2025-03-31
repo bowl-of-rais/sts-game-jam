@@ -2,8 +2,10 @@ extends Node2D
 class_name ServiceManager
 
 @export var service_name: String
+@export var max_num: int
 var stations: Array[Station]
-var fullfills: Array[CharacterSetting.Need] #TODO is this needed?
+var acquired_stations: int = 0
+@export var type : Services.Types
 @export var active:bool = false
 
 func register_station(newNode:Station):
@@ -13,11 +15,6 @@ func register_station(newNode:Station):
 func deregister_station(removedNode:Station):
 	if removedNode is not Station: return #only handle stations here
 	stations.erase(removedNode)
-
-func update_need_fullfillment():#TODO currently not used
-	for station in stations:
-		if not fullfills.has(station.fullfills):
-			fullfills.append(station.fullfills)
 
 ## gives the stations of this manager that fulfills
 ## the given need and is unoccupied
@@ -29,3 +26,24 @@ func get_need_stations(need: CharacterSetting.Need) -> Array[Station]:
 func _ready() -> void:
 	for child in get_children():
 		register_station(child)
+		if type == Services.Types.Reception or type == Services.Types.Consumption:
+			child.acquire()
+			acquired_stations += 1
+	if acquired_stations == 0:
+		visible = false
+
+func buy() -> bool:
+	if acquired_stations < max_num:
+		stations[acquired_stations].acquire()
+		acquired_stations += 1
+		
+		if not visible:
+			visible = true
+		
+		check_capacity()
+		return true
+	return false
+
+func check_capacity():
+	if acquired_stations >= max_num:
+		SignalBus.service_full.emit(type)
