@@ -2,6 +2,7 @@ extends Resource
 class_name Services
 
 enum Types {
+	Reception,
 	Consumption,
 	Toilet,
 	Shower,
@@ -13,6 +14,7 @@ enum Types {
 }
 
 static var service_to_need : Dictionary = {
+	Types.Reception : CharacterSetting.Need.talk,
 	Types.Consumption : CharacterSetting.Need.drugs,
 	Types.Toilet : CharacterSetting.Need.toilet,
 	Types.Shower : CharacterSetting.Need.shower,
@@ -27,6 +29,7 @@ static func needs_of(type: Types) -> CharacterSetting.Need:
 	return service_to_need[type]
 
 static var service_to_price : Dictionary = {
+	Types.Reception : 0,
 	Types.Consumption : 500,
 	Types.Toilet : 1000,
 	Types.Shower : 1000,

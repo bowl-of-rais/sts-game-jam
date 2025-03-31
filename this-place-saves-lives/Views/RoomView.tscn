@@ -98,6 +98,7 @@ position = Vector2(1046, 262)
 [node name="ReceptionService" type="Node2D" parent="."]
 position = Vector2(924, 304)
 script = ExtResource("4_ldjbo")
+max_num = 1
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
@@ -111,6 +112,7 @@ position = Vector2(620, 452)
 script = ExtResource("4_ldjbo")
 service_name = "Consumtion"
 max_num = 3
+type = 1
 active = true
 
 [node name="ConsumptionStation" parent="ConsumptionService" instance=ExtResource("5_q04p4")]
@@ -146,7 +148,7 @@ texture = ExtResource("7_f7ehb")
 position = Vector2(700, 142)
 script = ExtResource("4_ldjbo")
 max_num = 1
-type = 3
+type = 4
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
@@ -158,7 +160,7 @@ fulfills = 2
 position = Vector2(542, 130)
 script = ExtResource("4_ldjbo")
 max_num = 1
-type = 4
+type = 5
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
@@ -170,7 +172,7 @@ fulfills = 4
 position = Vector2(62, 152)
 script = ExtResource("4_ldjbo")
 max_num = 2
-type = 2
+type = 3
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
@@ -187,7 +189,7 @@ fulfills = 5
 position = Vector2(190, 155)
 script = ExtResource("4_ldjbo")
 max_num = 2
-type = 1
+type = 2
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
@@ -204,7 +206,7 @@ fulfills = 6
 position = Vector2(130, 432)
 script = ExtResource("4_ldjbo")
 max_num = 1
-type = 5
+type = 6
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 

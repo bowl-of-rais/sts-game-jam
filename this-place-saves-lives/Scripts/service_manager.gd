@@ -4,7 +4,7 @@ class_name ServiceManager
 @export var service_name: String
 @export var max_num: int
 var stations: Array[Station]
-var acquired_stations: int
+var acquired_stations: int = 0
 @export var type : Services.Types
 @export var active:bool = false
 
@@ -26,6 +26,9 @@ func get_need_stations(need: CharacterSetting.Need) -> Array[Station]:
 func _ready() -> void:
 	for child in get_children():
 		register_station(child)
+		if type == Services.Types.Reception or type == Services.Types.Consumption:
+			child.acquire()
+			acquired_stations += 1
 
 func buy() -> bool:
 	if acquired_stations < max_num:
