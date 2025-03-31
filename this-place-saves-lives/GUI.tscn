@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://co6pjj1oa6b7l"]
+[gd_scene load_steps=9 format=3 uid="uid://b5wi1i61vmvww"]
 
 [ext_resource type="Texture2D" uid="uid://dblctwetsn36l" path="res://Assets/UI/Approval/Disapproval.png" id="1_k1pai"]
 [ext_resource type="Texture2D" uid="uid://o73n1uost14w" path="res://Assets/UI/Approval/ApprovalBarBG.png" id="2_axji4"]
