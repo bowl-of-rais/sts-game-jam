@@ -1,8 +1,8 @@
 extends Control
 
 func _on_back_button_pressed() -> void:
-	pass # Replace with function body.
-
+	%Gui.show()
+	hide()
 
 func _on_buy_cons_table_button_pressed() -> void:
 	pass # Replace with function body.

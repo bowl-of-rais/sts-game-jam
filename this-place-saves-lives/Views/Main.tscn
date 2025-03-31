@@ -1,15 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://i06gp828b1by"]
+[gd_scene load_steps=6 format=3 uid="uid://i06gp828b1by"]
 
 [ext_resource type="Script" uid="uid://bffl2vjj5bgh6" path="res://Scripts/main.gd" id="1_5tqwe"]
 [ext_resource type="PackedScene" uid="uid://loyi4vvokxcg" path="res://Views/RoomView.tscn" id="2_bn1h3"]
 [ext_resource type="PackedScene" uid="uid://b0xb08ck5jk8f" path="res://Views/DeskView.tscn" id="3_bn1h3"]
+[ext_resource type="PackedScene" uid="uid://d3pe4hbkkvwau" path="res://UI/BuyMenu.tscn" id="4_ha8lo"]
+[ext_resource type="PackedScene" uid="uid://co6pjj1oa6b7l" path="res://UI/GUI.tscn" id="5_7eko3"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_5tqwe")
 
-[node name="Room" parent="." instance=ExtResource("2_bn1h3")]
+[node name="Room" parent="." node_paths=PackedStringArray("services") instance=ExtResource("2_bn1h3")]
 unique_name_in_owner = true
+services = []
 
 [node name="Desk" parent="." instance=ExtResource("3_bn1h3")]
 unique_name_in_owner = true
 visible = false
+
+[node name="BuyMenu" parent="." instance=ExtResource("4_ha8lo")]
+unique_name_in_owner = true
+visible = false
+z_index = 4
+
+[node name="Gui" parent="." instance=ExtResource("5_7eko3")]
+unique_name_in_owner = true
