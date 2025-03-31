@@ -124,11 +124,17 @@ func busy():
 	#TODO check if task specific events should be triggered
 
 func _on_interaction_area_area_entered(area: Area2D) -> void:
+	if area.name == "DespawnArea" and current_needs.is_empty():
+		#TODO some last game state changes before despawning
+		#shedule this characters despawn
+		self.queue_free()
+		return
+	
 	var detected = area.get_parent()
-	if detected is not Station: return
-	#check if right station and set to busy
-	var detected_station = detected as Station
-	if detected_station.fulfills == next_need:
-		detected_station.occupied = true
-		occupying_station = detected_station
-		stateM.change_state("Busy")
+	if detected is Station:
+		#check if right station and set to busy
+		var detected_station = detected as Station
+		if detected_station.fulfills == next_need:
+			detected_station.occupied = true
+			occupying_station = detected_station
+			stateM.change_state("Busy")

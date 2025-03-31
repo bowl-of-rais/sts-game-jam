@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://loyi4vvokxcg"]
+[gd_scene load_steps=22 format=3 uid="uid://loyi4vvokxcg"]
 
 [ext_resource type="Texture2D" uid="uid://2ax6nqak41xe" path="res://Assets/Topdown/static/OverviewBackground.png" id="1_1b0no"]
 [ext_resource type="Script" uid="uid://cox4k3v3rneqn" path="res://Scripts/room.gd" id="1_7mgdn"]
@@ -43,6 +43,9 @@ b = Vector2(1024, 284)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_thx0m"]
 a = Vector2(1073, 240)
 b = Vector2(1073, 284)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hew1i"]
+size = Vector2(13, 40)
 
 [node name="Room" type="Node2D"]
 y_sort_enabled = true
@@ -193,6 +196,16 @@ metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
 [node name="LoungeTableStation" parent="LoungeService" instance=ExtResource("13_p45k2")]
 fulfills = 3
+
+[node name="DespawnArea" type="Area2D" parent="."]
+position = Vector2(1046, 262)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DespawnArea"]
+position = Vector2(18.5, 0)
+shape = SubResource("RectangleShape2D_hew1i")
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]
