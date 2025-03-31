@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://drtloqola3f1o"]
+
+[ext_resource type="Script" uid="uid://deysunic7sfop" path="res://Scripts/station.gd" id="1_lwtlt"]
+[ext_resource type="Texture2D" uid="uid://bp8onroohh1fy" path="res://Assets/Topdown/static/Cookies.png" id="2_lwtlt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g75ew"]
+size = Vector2(32, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5tbjf"]
+radius = 27.0
+
+[node name="SnackStation" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_lwtlt")
+fulfills = 1
+
+[node name="ConsumptionTable" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConsumptionTable"]
+shape = SubResource("RectangleShape2D_g75ew")
+
+[node name="TableSprite" type="Sprite2D" parent="ConsumptionTable"]
+position = Vector2(0, -20)
+scale = Vector2(4, 4)
+texture = ExtResource("2_lwtlt")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(0, -9)
+collision_layer = 2
+collision_mask = 3
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 21)
+shape = SubResource("CircleShape2D_5tbjf")
