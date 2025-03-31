@@ -14,8 +14,9 @@ func _process(_delta: float) -> void:
 		#test topdown character
 		var test_character: topdown_character = character_base.instantiate()
 		test_character.name = "test_character"
-		test_character.position = %Room.spawn_point.position
 		test_character.character = load("res://Characters/test_character.tres")
+		test_character.position = %Room.spawn_point.position
+		
 		%Room.add_child(test_character)
 		spawn_test_done = true
 

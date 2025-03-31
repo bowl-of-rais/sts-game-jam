@@ -7,11 +7,10 @@
 size = Vector2(108, 136)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyt0g"]
-size = Vector2(202, 266)
+size = Vector2(172, 204)
 
 [node name="LoungeTableStation" type="Node2D"]
 script = ExtResource("1_qyt0g")
-fullfills = 3
 
 [node name="LoungeTable" type="StaticBody2D" parent="."]
 y_sort_enabled = true
@@ -33,5 +32,5 @@ collision_mask = 3
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(-34, -35)
+position = Vector2(-34, -49)
 shape = SubResource("RectangleShape2D_qyt0g")

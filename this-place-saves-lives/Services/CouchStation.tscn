@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://mnesuefxhgmg" path="res://Assets/Topdown/static/Couch.png" id="2_3bd4u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g75ew"]
-size = Vector2(168, 72)
+size = Vector2(168, 39)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2a1wu"]
 radius = 57.0
@@ -12,14 +12,13 @@ height = 242.0
 
 [node name="CouchStation" type="Node2D"]
 script = ExtResource("1_2a1wu")
-fullfills = 2
 
 [node name="Couch" type="StaticBody2D" parent="."]
 y_sort_enabled = true
 position = Vector2(2, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Couch"]
-position = Vector2(-2, -3)
+position = Vector2(-2, 13.5)
 shape = SubResource("RectangleShape2D_g75ew")
 
 [node name="CouchSprite" type="Sprite2D" parent="Couch"]
