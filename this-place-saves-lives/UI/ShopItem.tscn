@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dm2nop0ft7nuk"]
+
+[ext_resource type="Script" uid="uid://cib06bh38p4s4" path="res://Scripts/shop_item.gd" id="1_0leju"]
+[ext_resource type="Texture2D" uid="uid://dm1f6syigjfga" path="res://Assets/UI/EmptyButton.png" id="2_ndp7x"]
+[ext_resource type="Texture2D" uid="uid://bxyfe2opflci3" path="res://Assets/UI/AltEmptyButton.png" id="3_k604b"]
+[ext_resource type="Texture2D" uid="uid://b0ys15ijcerd3" path="res://Assets/UI/DisabledButton.png" id="4_w5bbk"]
+[ext_resource type="FontFile" uid="uid://c3f122lypv7sg" path="res://Assets/Pixelfont/tpsl_font.ttf" id="5_ndp7x"]
+
+[node name="ShopItem" type="VBoxContainer"]
+custom_minimum_size = Vector2(60, 70)
+offset_right = 60.0
+offset_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 0
+alignment = 2
+script = ExtResource("1_0leju")
+
+[node name="ItemImage" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 4
+stretch_mode = 5
+
+[node name="BuyButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+action_mode = 0
+texture_normal = ExtResource("2_ndp7x")
+texture_pressed = ExtResource("2_ndp7x")
+texture_hover = ExtResource("3_k604b")
+texture_disabled = ExtResource("4_w5bbk")
+stretch_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="BuyButton"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 1.0
+offset_right = 53.0
+offset_bottom = 14.0
+
+[node name="PriceTag" type="Label" parent="BuyButton/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_ndp7x")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="pressed" from="BuyButton" to="." method="_on_buy_button_pressed"]

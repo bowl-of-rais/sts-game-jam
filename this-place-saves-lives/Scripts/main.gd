@@ -10,6 +10,7 @@ func _ready() -> void:
 	SignalBus.view_switch_room.connect(go_to_room)
 	SignalBus.funds_changed.connect(update_funds_display)
 	update_funds_display()
+	%Room.check_capacities()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

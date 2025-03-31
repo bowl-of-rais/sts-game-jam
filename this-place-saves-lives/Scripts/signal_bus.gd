@@ -8,6 +8,8 @@ signal funds_changed()
 
 signal service_full(type: Services.Types)
 
+signal service_bought(type: Services.Types)
+
 #sets up a new dialog event wen emitted
 signal dialog_waiting(dialog_name)
 

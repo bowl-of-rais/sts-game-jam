@@ -12,7 +12,6 @@ func _ready() -> void:
 		if child is ServiceManager:
 			register_service(child)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -40,3 +39,8 @@ func buy(type: Services.Types) -> bool:
 				child.buy()
 				return true
 	return false
+	
+func check_capacities() -> void:
+	for child in get_children():
+		if child is ServiceManager:
+			child.check_capacity()

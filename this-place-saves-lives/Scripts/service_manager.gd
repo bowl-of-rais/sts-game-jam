@@ -35,8 +35,10 @@ func buy() -> bool:
 		stations[acquired_stations].acquire()
 		acquired_stations += 1
 		
-		if acquired_stations == max_num:
-			SignalBus.service_full.emit(type)
+		check_capacity()
 		return true
 	return false
-	
+
+func check_capacity():
+	if acquired_stations >= max_num:
+		SignalBus.service_full.emit(type)
