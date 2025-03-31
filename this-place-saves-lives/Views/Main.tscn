@@ -20,7 +20,9 @@ visible = false
 [node name="BuyMenu" parent="." instance=ExtResource("4_ha8lo")]
 unique_name_in_owner = true
 visible = false
-z_index = 4
+z_index = 6
 
 [node name="Gui" parent="." instance=ExtResource("5_7eko3")]
 unique_name_in_owner = true
+z_index = 5
+offset_bottom = -576.0

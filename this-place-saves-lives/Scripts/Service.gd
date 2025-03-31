@@ -2,15 +2,15 @@ extends Node2D
 class_name ServiceManager
 
 @export var service_name: String
-@export var stations: Array[Station]
+var stations: Array[Station]
 var fullfills: Array[CharacterSetting.Need] #TODO is this needed?
 @export var active:bool = false
 
-func register_station(newNode:Node):
+func register_station(newNode:Station):
 	if newNode is Station and not stations.has(newNode):
 		stations.append(newNode)
 
-func deregister_station(removedNode:Node):
+func deregister_station(removedNode:Station):
 	if removedNode is not Station: return #only handle stations here
 	stations.erase(removedNode)
 
@@ -27,4 +27,5 @@ func get_need_stations(need: CharacterSetting.Need) -> Array[Station]:
 	else: return []
 
 func _ready() -> void:
-	pass
+	for child in get_children():
+		register_station(child)
