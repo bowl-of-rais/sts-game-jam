@@ -24,3 +24,6 @@ signal log_event(description:String)
 
 signal station_occupied(station:Station)
 signal station_free(station:Station)
+
+signal view_switch_desk()
+signal view_switch_room()

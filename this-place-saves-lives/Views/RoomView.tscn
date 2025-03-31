@@ -1,11 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://loyi4vvokxcg"]
+[gd_scene load_steps=21 format=3 uid="uid://loyi4vvokxcg"]
 
 [ext_resource type="Texture2D" uid="uid://2ax6nqak41xe" path="res://Assets/Topdown/static/OverviewBackground.png" id="1_1b0no"]
 [ext_resource type="Script" uid="uid://cox4k3v3rneqn" path="res://Scripts/room.gd" id="1_7mgdn"]
-[ext_resource type="Texture2D" uid="uid://ba0kt1skxq4bv" path="res://Assets/Topdown/static/receptionDesk.png" id="2_i8m0n"]
-[ext_resource type="Texture2D" uid="uid://4e1fb773mvmc" path="res://Assets/Topdown/static/PlayerCharacterSitting.png" id="3_euueb"]
 [ext_resource type="Texture2D" uid="uid://tv17sdx3tkrc" path="res://Assets/Topdown/static/OverviewBackWall.png" id="3_yi4ap"]
 [ext_resource type="Script" uid="uid://ccn0nls46lluq" path="res://Scripts/Service.gd" id="4_ldjbo"]
+[ext_resource type="PackedScene" uid="uid://bd1lrtej5kawv" path="res://Services/ReceptionStation.tscn" id="5_hew1i"]
 [ext_resource type="PackedScene" uid="uid://c3gsufb5ilft6" path="res://Services/ConsumptionStation.tscn" id="5_q04p4"]
 [ext_resource type="Texture2D" uid="uid://byo7trc5jeeji" path="res://Assets/Topdown/static/stool.png" id="7_f7ehb"]
 [ext_resource type="PackedScene" uid="uid://6mqil7fc58ng" path="res://Services/CouchStation.tscn" id="9_d43x1"]
@@ -45,16 +44,10 @@ b = Vector2(1024, 284)
 a = Vector2(1073, 240)
 b = Vector2(1073, 284)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnxvv"]
-size = Vector2(100, 12)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_himyw"]
-radius = 9.43398
-
 [node name="Room" type="Node2D" node_paths=PackedStringArray("services")]
 y_sort_enabled = true
 script = ExtResource("1_7mgdn")
-services = [NodePath("ConsumptionService")]
+services = [NodePath("ReceptionService"), NodePath("ConsumptionService"), NodePath("CouchService"), NodePath("KitchenService"), NodePath("ShowerService"), NodePath("ToiletService"), NodePath("LoungeService")]
 
 [node name="Floor" type="StaticBody2D" parent="."]
 z_as_relative = false
@@ -99,45 +92,18 @@ centered = false
 position = Vector2(512, 65)
 texture = ExtResource("3_yi4ap")
 
-[node name="ReceptionDesk" type="StaticBody2D" parent="."]
-z_index = 1
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(934, 312)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ReceptionDesk"]
-z_index = 5
-position = Vector2(0, 18)
-shape = SubResource("RectangleShape2D_tnxvv")
-
-[node name="DeskSprite" type="Sprite2D" parent="ReceptionDesk"]
-z_index = 1
-z_as_relative = false
-scale = Vector2(4, 4)
-texture = ExtResource("2_i8m0n")
-
-[node name="PlayerCharacterSitting" type="Sprite2D" parent="."]
-z_index = 1
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(932, 319)
-scale = Vector2(4, 4)
-texture = ExtResource("3_euueb")
-
-[node name="DialogArea" type="Area2D" parent="PlayerCharacterSitting"]
-unique_name_in_owner = true
-position = Vector2(0, -2)
-scale = Vector2(0.25, 0.25)
-collision_layer = 2
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCharacterSitting/DialogArea"]
-z_index = 5
-shape = SubResource("CircleShape2D_himyw")
-
 [node name="SpawnPoint" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(1046, 262)
+
+[node name="ReceptionService" type="Node2D" parent="." node_paths=PackedStringArray("stations")]
+position = Vector2(924, 304)
+script = ExtResource("4_ldjbo")
+stations = [NodePath("ReceptionStation")]
+active = true
+metadata/_custom_type_script = "uid://ccn0nls46lluq"
+
+[node name="ReceptionStation" parent="ReceptionService" instance=ExtResource("5_hew1i")]
 
 [node name="ConsumptionService" type="Node2D" parent="." node_paths=PackedStringArray("stations")]
 z_index = 1
@@ -182,6 +148,7 @@ texture = ExtResource("7_f7ehb")
 position = Vector2(700, 142)
 script = ExtResource("4_ldjbo")
 stations = [NodePath("CouchStation")]
+active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
 [node name="CouchStation" parent="CouchService" instance=ExtResource("9_d43x1")]
@@ -191,37 +158,47 @@ fulfills = 2
 position = Vector2(542, 130)
 script = ExtResource("4_ldjbo")
 stations = [NodePath("MicrowaveStation")]
+active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
 [node name="MicrowaveStation" parent="KitchenService" instance=ExtResource("10_hew1i")]
+fulfills = 4
 
 [node name="ShowerService" type="Node2D" parent="." node_paths=PackedStringArray("stations")]
 position = Vector2(62, 152)
 script = ExtResource("4_ldjbo")
 stations = [NodePath("ShowerStation"), NodePath("ShowerStation2")]
+active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
 [node name="ShowerStation" parent="ShowerService" instance=ExtResource("11_d43x1")]
+fulfills = 5
 
 [node name="ShowerStation2" parent="ShowerService" instance=ExtResource("11_d43x1")]
 position = Vector2(64, 0)
+fulfills = 5
 
 [node name="ToiletService" type="Node2D" parent="."]
 position = Vector2(190, 155)
 script = ExtResource("4_ldjbo")
+active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
 [node name="ToiletStation" parent="ToiletService" instance=ExtResource("12_3jkwu")]
+fulfills = 6
 
 [node name="ToiletStation2" parent="ToiletService" instance=ExtResource("12_3jkwu")]
 position = Vector2(64, 0)
+fulfills = 6
 
 [node name="LoungeService" type="Node2D" parent="."]
 position = Vector2(130, 432)
 script = ExtResource("4_ldjbo")
+active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
 [node name="LoungeTableStation" parent="LoungeService" instance=ExtResource("13_p45k2")]
+fulfills = 3
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

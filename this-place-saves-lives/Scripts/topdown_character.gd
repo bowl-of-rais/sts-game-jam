@@ -12,22 +12,28 @@ var current_needs: Array[CharacterSetting.Need]
 var target: Vector2
 var target_delta: Vector2
 var next_need: CharacterSetting.Need
+var occupying_station: Station = null
 
 func _ready() -> void:
 	#setup room ref
 	room = get_parent()
 	#make sure character is set up correctly
 	if character != null:
+		#set skin
 		%Sprite.material = character.skin
+		#setup needs
+		current_needs = character.initial_needs.duplicate()
+		#set object name to character name
+		self.name = character.name
 	else: #TODO unnecessary in final game?
 		%Sprite.material = default_skin
-	#setup needs
-	current_needs = character.initial_needs.duplicate()
+	
 	#setup state machine
 	stateM = StateMachine.new()
 	stateM.add_state("Idle", idle)
 	stateM.add_state("Walking", walking)
 	stateM.add_state("Busy", busy)
+	stateM.add_state("Waiting", waiting)
 	stateM.set_state("Idle") #set initial state
 
 func _process(_delta: float) -> void:
@@ -88,8 +94,27 @@ func busy():
 	self.target_delta = Vector2.ZERO
 	#print(self.name + " is busy at a station")
 	#TODO animations (mb centering position on station)
+	match occupying_station.fulfills:
+		CharacterSetting.Need.talk:
+			SignalBus.dialog_waiting.emit(character.name)
+			#switch view
+			SignalBus.view_switch_desk.emit()
+			SignalBus.dialog_end.connect(
+				func():
+					self.current_needs.erase(next_need)
+					self.stateM.change_state("Idle")
+					SignalBus.view_switch_room.emit()
+					)
+			return "Waiting"
+		_:
+			self.current_needs.erase(next_need)
+			return "Idle"
+			
 	#TODO check if timer for task is up and if yes transition to idle
 	#TODO check if task specific events should be triggered
+	
+func waiting():
+	pass
 
 func _on_interaction_area_area_entered(area: Area2D) -> void:
 	var detected = area.get_parent()
@@ -98,6 +123,5 @@ func _on_interaction_area_area_entered(area: Area2D) -> void:
 	var detected_station = detected as Station
 	if detected_station.fulfills == next_need:
 		detected_station.occupied = true
+		occupying_station = detected_station
 		stateM.change_state("Busy")
-	
-	
