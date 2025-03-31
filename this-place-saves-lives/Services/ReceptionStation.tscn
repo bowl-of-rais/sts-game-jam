@@ -35,7 +35,7 @@ texture = ExtResource("2_tshtv")
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(0, 2)
+position = Vector2(0, 6)
 scale = Vector2(4, 4)
 texture = ExtResource("3_tshtv")
 
