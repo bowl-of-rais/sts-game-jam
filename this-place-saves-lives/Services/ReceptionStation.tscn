@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://4e1fb773mvmc" path="res://Assets/Topdown/static/PlayerCharacterSitting.png" id="3_tshtv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tshtv"]
-size = Vector2(100, 28)
+size = Vector2(100, 38)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s8p2w"]
 radius = 9.43398
@@ -22,7 +22,7 @@ position = Vector2(2, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ReceptionDesk"]
 z_index = 5
-position = Vector2(0, 26)
+position = Vector2(0, 31)
 shape = SubResource("RectangleShape2D_tshtv")
 
 [node name="DeskSprite" type="Sprite2D" parent="ReceptionDesk"]
