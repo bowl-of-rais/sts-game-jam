@@ -7,14 +7,14 @@
 size = Vector2(67, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxuak"]
-size = Vector2(66.0138, 15.5)
+size = Vector2(51.2341, 15.5)
 
 [node name="ShowerStation" type="Node2D"]
 script = ExtResource("1_mxuak")
 
 [node name="Shower" type="StaticBody2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-6, -36)
+position = Vector2(-6, -74)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shower"]
 position = Vector2(6.5, 40)
@@ -25,11 +25,12 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_v3w0k")
 
 [node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(0, -38)
 collision_layer = 2
 collision_mask = 3
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0.500485, 38)
+position = Vector2(2.38419e-07, 38)
 scale = Vector2(1.01495, 1)
 shape = SubResource("RectangleShape2D_mxuak")

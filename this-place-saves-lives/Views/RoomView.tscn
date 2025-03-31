@@ -47,6 +47,9 @@ b = Vector2(1024, 284)
 a = Vector2(1073, 240)
 b = Vector2(1073, 284)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hew1i"]
+size = Vector2(13, 40)
+
 [node name="Room" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_7mgdn")
@@ -173,7 +176,7 @@ visible = false
 fulfills = 4
 
 [node name="ShowerService" type="Node2D" parent="."]
-position = Vector2(62, 152)
+position = Vector2(62, 191)
 script = ExtResource("4_ldjbo")
 max_num = 2
 type = 3
@@ -190,7 +193,7 @@ position = Vector2(64, 0)
 fulfills = 5
 
 [node name="ToiletService" type="Node2D" parent="."]
-position = Vector2(190, 155)
+position = Vector2(191, 192)
 script = ExtResource("4_ldjbo")
 max_num = 2
 type = 2
@@ -252,6 +255,17 @@ position = Vector2(583, 242)
 [node name="SnackStation2" parent="SnackService" instance=ExtResource("15_lfsym")]
 visible = false
 position = Vector2(335, 521)
+
+[node name="DespawnArea" type="Area2D" parent="."]
+position = Vector2(1046, 262)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DespawnArea"]
+position = Vector2(18.5, 0)
+shape = SubResource("RectangleShape2D_hew1i")
+
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

@@ -7,13 +7,14 @@
 size = Vector2(68, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1vwmp"]
-size = Vector2(68, 16)
+size = Vector2(52, 16)
 
 [node name="ToiletStation" type="Node2D"]
 script = ExtResource("1_1vwmp")
 
 [node name="Toilet" type="StaticBody2D" parent="."]
 y_sort_enabled = true
+position = Vector2(0, -36)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet"]
 position = Vector2(0, 1)
@@ -25,6 +26,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_4e6xe")
 
 [node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(0, -36)
 collision_layer = 2
 collision_mask = 3
 monitoring = false
