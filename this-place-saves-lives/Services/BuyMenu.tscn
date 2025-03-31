@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://d3pe4hbkkvwau"]
+[gd_scene load_steps=17 format=3 uid="uid://dx3arsaq40pll"]
 
-[ext_resource type="Script" uid="uid://dbnygb7r04hr4" path="res://Services/buy_menu.gd" id="1_xn3jy"]
+[ext_resource type="Script" uid="uid://dbnygb7r04hr4" path="res://Scripts/buy_menu.gd" id="1_xn3jy"]
 [ext_resource type="Texture2D" uid="uid://7rlvgpbgj034" path="res://Assets/UI/BuyPage.png" id="2_eqv4g"]
 [ext_resource type="Texture2D" uid="uid://bbx62lemeinol" path="res://Assets/Menu/Buttons/Back/BackButtonPurple.png" id="3_866s1"]
 [ext_resource type="Texture2D" uid="uid://2d7llybwhp3n" path="res://Assets/Menu/Buttons/Back/AltBackButtonPurple.png" id="4_742c2"]

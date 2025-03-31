@@ -9,9 +9,8 @@
 [node name="Main" type="Node"]
 script = ExtResource("1_5tqwe")
 
-[node name="Room" parent="." node_paths=PackedStringArray("services") instance=ExtResource("2_bn1h3")]
+[node name="Room" parent="." instance=ExtResource("2_bn1h3")]
 unique_name_in_owner = true
-services = []
 
 [node name="Desk" parent="." instance=ExtResource("3_bn1h3")]
 unique_name_in_owner = true
