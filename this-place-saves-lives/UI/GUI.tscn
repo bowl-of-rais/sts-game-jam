@@ -80,6 +80,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+tooltip_text = "Money comes mainly from healthcare institutions and donations"
 alignment = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/MoneyCounter"]
