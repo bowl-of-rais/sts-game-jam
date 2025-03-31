@@ -1,9 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://cj51qgs7pyuiq"]
 
-[ext_resource type="Texture2D" uid="uid://durplwha7tpc6" path="res://Assets/Desk/Portraits/Sam.png" id="1_dd7h8"]
-
-[sub_resource type="GDScript" id="GDScript_nbqmw"]
+[sub_resource type="GDScript" id="GDScript_qnsed"]
 script/source = "extends Node
+
+func id(isshow:String):
+	assert(isshow.to_lower()==\"show\" or isshow.to_lower()==\"hide\")
+	%ID.visible = isshow.to_lower()==\"show\"
+
+func decrease_overdose_risk():
+	print(\"sam's risk of overdosing has decreased\")
+	#TODO decrease sam's risk for overdosing
+
 "
 
 [node name="Sam1" type="Node"]

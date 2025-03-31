@@ -15,7 +15,9 @@
 <beat id>
 	Sam: Is my insurance card ok too?
 	Player: Yeah, that works too.
-	You register Sam's info into the system<id true>
+
+	You register Sam's info into the system<id show>
+
 	<branch drugchecking drugcheck>
 	<jump end>
 
@@ -25,5 +27,7 @@
 	Player: Yes of course, right over there.<decrease_overdose_risk>
 
 <beat end>
-	Player: Ok then, you are all set.<id false>
+
+	Player: Ok then, you are all set.<id hide>
+
 	<flag PlayerMetSam>

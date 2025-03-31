@@ -55,14 +55,14 @@ func _on_gui_input(event: InputEvent) -> void:
 func remove_buttons():
 	button_container.visible = false
 	#disable every button in the container
-	for button_container in button_container.get_children():
-		button_container.queue_free()
+	for button in button_container.get_children():
+		button.queue_free()
 
 ##sets a dialog flag to be read in gdrama dialog
-func set_flag(name:String, value:bool):
-	assert(name is String and value is bool, "Flag can only be string and bool")
-	assert(name != "", "Flag name can not be empty")
-	%DramaPlayer.drama_reader.flags[name] = value
+func set_flag(fname:String, value:bool):
+	assert(fname is String and value is bool, "Flag can only be string and bool")
+	assert(fname != "", "Flag name can not be empty")
+	%DramaPlayer.drama_reader.flags[fname] = value
 
 # === DramaDisplay Overrides ===
 
@@ -88,7 +88,7 @@ func _set_raw_text(raw_text: String):
 ## Will be called to signal that the given letter has been displayed. Can, for
 ## instance, add one to the visible_characters property of the RichTextLabel 
 ## that's displaying the main text and play a randomized sound
-func _spoke(letter: String):
+func _spoke(_letter: String):
 	speaker_text_field.visible_characters += 1
 	#TODO talking sound?
 

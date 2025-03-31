@@ -11,14 +11,16 @@ config_version=5
 [application]
 
 config/name="This Place Saves Lives"
-run/main_scene="uid://b0xb08ck5jk8f"
+run/main_scene="uid://8q1aec16ql1q"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SignalBus="*res://Scripts/signal_bus.gd"
-Main="*res://Scripts/main.gd"
+
+GlobalSettings="*res://Scripts/global_settings.gd"
+
 GlobalAudio="*res://GlobalAudio.tscn"
 
 [display]

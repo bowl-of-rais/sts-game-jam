@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3gsufb5ilft6"]
+[gd_scene load_steps=5 format=3 uid="uid://c3gsufb5ilft6"]
 
-[ext_resource type="Script" uid="uid://deysunic7sfop" path="res://Scripts/Station.gd" id="1_a6e1u"]
-[ext_resource type="Texture2D" uid="uid://byo7trc5jeeji" path="res://Assets/Topdown/static/stool.png" id="1_y47ok"]
+[ext_resource type="Script" uid="uid://deysunic7sfop" path="res://Scripts/station.gd" id="1_a6e1u"]
 [ext_resource type="Texture2D" uid="uid://byjiplix6qy5x" path="res://Assets/Topdown/static/ConsumptionTable.png" id="2_ahlhs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g75ew"]
@@ -11,18 +10,13 @@ size = Vector2(60, 36)
 radius = 9.21954
 
 [node name="ConsumptionStation" type="Node2D"]
-script = ExtResource("1_a6e1u")
-fullfills = 1
-
-[node name="Stool" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(34, 14)
-scale = Vector2(4, 4)
-texture = ExtResource("1_y47ok")
+script = ExtResource("1_a6e1u")
+fulfills = 1
 
 [node name="ConsumptionTable" type="StaticBody2D" parent="."]
 y_sort_enabled = true
-position = Vector2(34, 56)
+position = Vector2(0, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ConsumptionTable"]
 position = Vector2(0, 10)
@@ -33,13 +27,10 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_ahlhs")
 
 [node name="InteractionArea" type="Area2D" parent="."]
-position = Vector2(34, 35)
+position = Vector2(0, -9)
 collision_layer = 2
 collision_mask = 3
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_5tbjf")
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(32, 44)

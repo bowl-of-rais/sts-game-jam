@@ -2,66 +2,126 @@ extends CharacterBody2D
 class_name topdown_character
 
 const default_skin = preload("res://Characters/placeholder_material.tres")
-var spawn_point: Node2D #set to spawn point marker when spawned
 var room: Room
 
-@export var character:CharacterSetting:
-	set(new_settings):
-		character = new_settings
-		if character != null:
-			%Sprite.material = character.skin
-		else:
-			%Sprite.material = default_skin
-	get:
-		return character
+## The characterSetting ressource that defines this character (including appearance)
+@export var character:CharacterSetting
 
 var stateM: StateMachine
 var current_needs: Array[CharacterSetting.Need]
 var target: Vector2
+var target_delta: Vector2
+var next_need: CharacterSetting.Need
+var occupying_station: Station = null
 
 func _ready() -> void:
-	#setup character TODO make work in tool mode
-	self.character = self.character
-	#setup needs
-	current_needs = character.initial_needs.duplicate()
+	#setup room ref
+	room = get_parent()
+	#make sure character is set up correctly
+	if character != null:
+		#set skin
+		%Sprite.material = character.skin
+		#setup needs
+		current_needs = character.initial_needs.duplicate()
+		#set object name to character name
+		self.name = character.name
+	else: #TODO unnecessary in final game?
+		%Sprite.material = default_skin
+	
 	#setup state machine
 	stateM = StateMachine.new()
 	stateM.add_state("Idle", idle)
 	stateM.add_state("Walking", walking)
 	stateM.add_state("Busy", busy)
+	stateM.add_state("Waiting", waiting)
 	stateM.set_state("Idle") #set initial state
 
 func _process(_delta: float) -> void:
 	stateM.process()
+	#set animation speed according to walking speed
+	var rv = self.get_real_velocity()
+	if rv.length() > 1 and self.target_delta.abs() > Vector2.ONE:
+		if abs(rv.angle_to(Vector2.LEFT)) < PI/2:
+			#TODO make this adaptive to body type in character_settings
+			%Sprite.play("fem_walk_left",rv.length()/GlobalSettings.animation_walking_speed_ps)
+		else:
+			%Sprite.play("fem_walk_right",rv.length()/GlobalSettings.animation_walking_speed_ps)
+	else:
+		%Sprite.play("fem_default")
 
 func _physics_process(_delta: float) -> void:
-	pass# move_and_slide towards walking target
+	self.move_and_slide()
 
 func idle():
 	if current_needs.is_empty():
 		#character is done with all needs
 		#set target to spawn point
-		target = spawn_point.position
+		target = room.spawn_point.position
 	else:
 		# check current needs
-		var next_need = current_needs.back()
+		next_need = current_needs.back()
 		#request matching service+station
 		var possible_targets = room.get_need_stations(next_need)
+		if possible_targets.is_empty():
+			#TODO remove need and give specific approval penalty
+			SignalBus.approval_delta.emit(GlobalSettings.need_unfulfulled_penalty)
+			current_needs.erase(next_need)
+			print("Could not find a need so removing with penalty")
+			return "Idle"
+		
 		possible_targets.sort_custom(
-			func(a,b):self.position.distance_to(a.position) < self.position.distance_to(b.position)
+			func(a,b): \
+			self.position.distance_to(a.global_position) \
+			 < self.position.distance_to(b.global_position)
 			)
-		target = possible_targets.back().position
-		return "Walking"
+		target = possible_targets.back().global_position
+	return "Walking"
 	
 func walking():
-	pass
-	#TODO set desired direction to follow route to service
+	#set desired direction to follow route to service
+	target_delta = target - position
+	if target_delta.length() > GlobalSettings.navigation_precision:
+		self.velocity = target_delta * (character.speed / target_delta.length())
+	else: self.velocity = Vector2.ZERO
 	#TODO check if station is still available?
 	#		if no check aggression stat and initiate conflict if high
 	#		else search for othersuitable station and reroute
 	#TODO initiate fight on collision
 	
 func busy():
-	pass
+	#stop character movement and targeting
+	self.velocity = Vector2.ZERO
+	self.target_delta = Vector2.ZERO
+	#print(self.name + " is busy at a station")
+	#TODO animations (mb centering position on station)
+	match occupying_station.fulfills:
+		CharacterSetting.Need.talk:
+			SignalBus.dialog_waiting.emit(character.name)
+			#switch view
+			SignalBus.view_switch_desk.emit()
+			SignalBus.dialog_end.connect(
+				func():
+					self.current_needs.erase(next_need)
+					self.stateM.change_state("Idle")
+					SignalBus.view_switch_room.emit()
+					)
+			return "Waiting"
+		_:
+			self.current_needs.erase(next_need)
+			return "Idle"
+			
 	#TODO check if timer for task is up and if yes transition to idle
 	#TODO check if task specific events should be triggered
+	
+func waiting():
+	pass
+
+func _on_interaction_area_area_entered(area: Area2D) -> void:
+	var detected = area.get_parent()
+	if detected is not Station: return
+	#check if right station and set to busy
+	var detected_station = detected as Station
+	if detected_station.fulfills == next_need:
+		detected_station.occupied = true
+		occupying_station = detected_station
+		stateM.change_state("Busy")

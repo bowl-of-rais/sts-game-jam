@@ -5,8 +5,8 @@ extends Panel
 func _ready() -> void:
 	SignalBus.log_event.connect(add_entry)
 
-func toggle_log(visible:bool):
-	self.visible = visible
+func toggle_log(new_visible:bool):
+	self.visible = new_visible
 
 ##adds an event description in a new line of the log
 func add_entry(event_description:String):

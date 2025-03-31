@@ -5,7 +5,8 @@ func _ready() -> void:
 
 
 func _on_play_texture_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Views/DeskView.tscn")
+
+	get_tree().change_scene_to_file("res://Views/Main.tscn")
 
 
 func _on_settings_texture_button_pressed() -> void:

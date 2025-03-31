@@ -1,6 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://3k51bolt18vb"]
 
-[ext_resource type="Script" uid="uid://deysunic7sfop" path="res://Scripts/Station.gd" id="1_1vwmp"]
+
+[ext_resource type="Script" uid="uid://deysunic7sfop" path="res://Scripts/station.gd" id="1_1vwmp"]
+
 [ext_resource type="Texture2D" uid="uid://by6ra2cuclmix" path="res://Assets/Topdown/static/ToiletDoorOpen.png" id="2_4e6xe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g75ew"]

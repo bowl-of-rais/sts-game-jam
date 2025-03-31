@@ -1,6 +1,7 @@
 extends Node
 
 signal approval_changed(new_approval, old_approval)
+signal approval_delta(relative_approval)
 
 signal funds_changed(new_funds, old_funds)
 
@@ -23,3 +24,6 @@ signal log_event(description:String)
 
 signal station_occupied(station:Station)
 signal station_free(station:Station)
+
+signal view_switch_desk()
+signal view_switch_room()
