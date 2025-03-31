@@ -11,6 +11,7 @@ func _ready() -> void:
 	SignalBus.funds_changed.connect(update_funds_display)
 	update_funds_display()
 	%Room.check_capacities()
+	SignalBus.approval_delta.connect(update_approval)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -38,3 +39,7 @@ func update_funds_display():
 	%BuyMenu.set_funds_display(new_funds)
 	%Gui.set_funds_display(new_funds)
 	
+func update_approval(val: int):
+	Session.change_approval(val)
+	var new_approval = Session.approval
+	%Gui.set_approval_display(new_approval)

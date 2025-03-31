@@ -18,6 +18,9 @@ func _on_shop_button_pressed() -> void:
 
 func set_funds_display(val: int):
 	%Label.text = str(val)
+
+func set_approval_display(val: int):
+	%ApprovalBar.value = val
 "
 
 [node name="Gui" type="Control"]
@@ -51,6 +54,7 @@ texture = ExtResource("1_k1pai")
 expand_mode = 3
 
 [node name="ApprovalBar" type="TextureProgressBar" parent="HBoxContainer/ApprovalBarContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
