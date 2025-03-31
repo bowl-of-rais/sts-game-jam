@@ -17,6 +17,7 @@ script = ExtResource("1_paipq")
 y_sort_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PrivacyScreen"]
+unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_g75ew")
 
 [node name="PrivacyScreenSprite" type="Sprite2D" parent="PrivacyScreen"]

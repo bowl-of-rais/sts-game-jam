@@ -19,6 +19,7 @@ y_sort_enabled = true
 position = Vector2(0, 12)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ConsumptionTable"]
+unique_name_in_owner = true
 shape = SubResource("RectangleShape2D_g75ew")
 
 [node name="TableSprite" type="Sprite2D" parent="ConsumptionTable"]

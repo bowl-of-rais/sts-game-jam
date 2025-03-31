@@ -3,6 +3,9 @@ class_name Station
 
 @export var fulfills: CharacterSetting.Need
 
+func _ready() -> void:
+	%CollisionShape2D.disabled = true
+
 var occupied: bool = true:
 	get():
 		return occupied
@@ -18,3 +21,4 @@ func acquire():
 	acquired = true
 	occupied = false
 	visible = true
+	%CollisionShape2D.disabled = false

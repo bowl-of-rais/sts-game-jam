@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://loyi4vvokxcg"]
+[gd_scene load_steps=25 format=3 uid="uid://loyi4vvokxcg"]
 
 [ext_resource type="Texture2D" uid="uid://2ax6nqak41xe" path="res://Assets/Topdown/static/OverviewBackground.png" id="1_1b0no"]
 [ext_resource type="Script" uid="uid://cox4k3v3rneqn" path="res://Scripts/room.gd" id="1_7mgdn"]
@@ -265,7 +265,6 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DespawnArea"]
 position = Vector2(18.5, 0)
 shape = SubResource("RectangleShape2D_hew1i")
-
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

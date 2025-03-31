@@ -18,6 +18,7 @@ y_sort_enabled = true
 position = Vector2(34, 56)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Microwave"]
+unique_name_in_owner = true
 position = Vector2(-34, -36)
 shape = SubResource("RectangleShape2D_g75ew")
 

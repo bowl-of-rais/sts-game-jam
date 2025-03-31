@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bmshic11t2wrm" path="res://Assets/Topdown/static/ShowerDoorOpen.png" id="2_v3w0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g75ew"]
-size = Vector2(67, 52)
+size = Vector2(4, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxuak"]
 size = Vector2(51.2341, 15.5)
@@ -17,7 +17,12 @@ y_sort_enabled = true
 position = Vector2(-6, -74)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shower"]
-position = Vector2(6.5, 40)
+unique_name_in_owner = true
+position = Vector2(38, 40)
+shape = SubResource("RectangleShape2D_g75ew")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Shower"]
+position = Vector2(-26, 40)
 shape = SubResource("RectangleShape2D_g75ew")
 
 [node name="ShowerSprite" type="Sprite2D" parent="Shower"]

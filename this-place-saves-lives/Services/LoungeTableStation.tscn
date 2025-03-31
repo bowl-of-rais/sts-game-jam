@@ -17,6 +17,7 @@ y_sort_enabled = true
 position = Vector2(34, 28)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LoungeTable"]
+unique_name_in_owner = true
 position = Vector2(-34, -28)
 shape = SubResource("RectangleShape2D_g75ew")
 

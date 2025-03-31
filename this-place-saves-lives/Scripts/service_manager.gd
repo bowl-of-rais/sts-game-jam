@@ -29,11 +29,16 @@ func _ready() -> void:
 		if type == Services.Types.Reception or type == Services.Types.Consumption:
 			child.acquire()
 			acquired_stations += 1
+	if acquired_stations == 0:
+		visible = false
 
 func buy() -> bool:
 	if acquired_stations < max_num:
 		stations[acquired_stations].acquire()
 		acquired_stations += 1
+		
+		if not visible:
+			visible = true
 		
 		check_capacity()
 		return true
