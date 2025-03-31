@@ -33,8 +33,8 @@ static func needs_of(type: Types) -> CharacterSetting.Need:
 static var service_to_price : Dictionary = {
 	Types.Reception : 0,
 	Types.Consumption : 500,
-	Types.Toilet : 1000,
-	Types.Shower : 1000,
+	Types.Toilet : 750,
+	Types.Shower : 750,
 	Types.Couch : 500,
 	Types.Cooking : 50,
 	Types.Lounge : 500,
