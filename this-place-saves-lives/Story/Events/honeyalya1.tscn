@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://c1co8sllisppk"]
+[gd_scene load_steps=3 format=3 uid="uid://c1co8sllisppk"]
+
+[ext_resource type="Texture2D" uid="uid://cfsv4sgnwo7e" path="res://Assets/Desk/Portraits/Alya.png" id="1_qhe6i"]
+[ext_resource type="Texture2D" uid="uid://gu3hidvkjrbg" path="res://Assets/Desk/Portraits/Honey.png" id="2_fmc10"]
 
 [node name="HoneyAndAlya" type="Node"]
+
+[node name="PortraitAlya" type="Sprite2D" parent="."]
+position = Vector2(346, 288)
+scale = Vector2(4, 4)
+texture = ExtResource("1_qhe6i")
+
+[node name="PortraitHoney" type="Sprite2D" parent="."]
+position = Vector2(693, 287)
+scale = Vector2(4, 4)
+texture = ExtResource("2_fmc10")

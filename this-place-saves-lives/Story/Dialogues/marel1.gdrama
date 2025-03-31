@@ -1,0 +1,18 @@
+<beat start>
+	Marel: Hey kid, how's it going?
+	Player: Aunt Marel!<wait 0.5> Doing good. You?
+	Marel: Ah, you know.
+	Player: Hang in there. Your usual?
+	Marel: Yeah, but hold on. You know Alice?
+	Player: Don't think so, why?
+	Marel: Ah, well, she was staying at the women's shelter for a bit, but she's getting back on her feet.
+	Marel: Anyways, she gave me a bunch of stuff to distribute and I thought y'all could use some.<wait 0.5> Gotta stick together.
+	Marel sets a plastic bag on the counter with various clothes, a few baby toys, milk bottles, a bit of formula and some makeup
+	Player: Woah, this is great! Thank you!
+	Marel: Now, you wouldn't make an old lady wait for her high, would you?
+	Player: grins and shakes head Nah, here you go.
+	Marel: Attaboy.
+	Marel: Do me a favor and give the baby stuff to the one with the green hair, would you? Such a sweet girl.
+	Player: Oh, you mean Alya. Yeah, sure!
+	
+	<end "marel's first dialog">

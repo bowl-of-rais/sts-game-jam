@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgn4x3od5yv3t"]
+[gd_scene load_steps=3 format=3 uid="uid://cgn4x3od5yv3t"]
 
 [ext_resource type="Texture2D" uid="uid://dtxnahl2v47xx" path="res://Assets/Desk/Portraits/MarelPortrait.png" id="1_b0s0r"]
 
+[sub_resource type="GDScript" id="GDScript_u2nfq"]
+script/source = "extends Node
+
+# requires: AlyaPregnant
+"
+
 [node name="Dialog" type="Node"]
+script = SubResource("GDScript_u2nfq")
 
 [node name="Portrait" type="Sprite2D" parent="."]
 z_index = 2

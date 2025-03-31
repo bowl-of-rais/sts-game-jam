@@ -1,0 +1,44 @@
+<beat start>
+	Player: Hey Sam, how you doing?
+	Sam: Heya, I'm fine.
+	Sam: I'm meeting Nicky here in a bit, they wanted to show me some art and make some together.
+	Sam: It's supposed to be therapeutic<wait 0.5> or something.
+	Player: Haha, yeah, it's a thing. Have fun, you two!
+	Sam approaches the desk
+	Sam: Uhhhhm...
+	Player: What's up?
+	Sam: Sooo<wait 0.5> you're out of tampons.
+	<choice "Oh!! Sorry, I havent refilled them yet. Here, grab one." yaytampon>
+	<choice "Alright, thanks for letting me know." confused>
+	<choice "Tough luck." rude>
+	<choice "Sorry, we ran out." shopping>
+
+<beat yaytampon>
+	Sam: [smile]Oh, thank god. You're literally saving my life.
+	Player: You know our motto! :D
+	Sam: True. But, seriously. My bank account is empty and... <wait 0.5> just. <wait 0.5> Thanks.
+	<change_approval 2>
+	<jump end>
+
+<beat confused>
+	Player: Alright, thanks for letting me know.
+	Sam: I mean...<wait 0.5> I'd really need one right now.
+	Player: Oh, I thought you didn't...? <wait 0.5> Nevermind. Let me see... <wait 0.5> Here you go.
+	<jump end>
+
+<beat rude>
+	Player: Tough luck.
+	Sam: [sigh]I guess I'll just use a bunch of toilet paper.
+	<change_approval -2>
+	<jump end>
+
+<beat shopping>
+	Player: Actually, I can't leave right now, but if you could hop to the Lidl down the street I'd give you some of our tampon budget to buy some.
+	Sam: Lol, tampon budget?
+	Player: Gotta love bookkeeping.
+	<change_approval 1>
+	<jump end>
+	
+<beat end>
+	Nicky: Saaam, you coming?
+	Sam: Be right there!

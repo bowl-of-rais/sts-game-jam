@@ -1,0 +1,14 @@
+[remap]
+
+importer="gdrama_importer"
+type="Resource"
+uid="uid://ck5bee2y86ugy"
+path="res://.godot/imported/sarah2.gdrama-6e3ad48bd4b10c8a843c9b26de818e1a.tres"
+
+[deps]
+
+source_file="res://Story/Dialogues/sarah2.gdrama"
+dest_files=["res://.godot/imported/sarah2.gdrama-6e3ad48bd4b10c8a843c9b26de818e1a.tres"]
+
+[params]
+

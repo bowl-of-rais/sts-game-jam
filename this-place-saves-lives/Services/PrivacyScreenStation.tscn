@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://7nh1khuct2wy"]
+
+[ext_resource type="Script" uid="uid://deysunic7sfop" path="res://Scripts/Station.gd" id="1_paipq"]
+[ext_resource type="Texture2D" uid="uid://dondn8enhrfmf" path="res://Assets/Topdown/static/PrivacyScreen.png" id="2_qaw5o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g75ew"]
+size = Vector2(108, 8)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_paipq"]
+radius = 26.0
+height = 124.0
+
+[node name="PrivacyScreenStation" type="Node2D"]
+script = ExtResource("1_paipq")
+fullfills = 8
+
+[node name="PrivacyScreen" type="StaticBody2D" parent="."]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrivacyScreen"]
+shape = SubResource("RectangleShape2D_g75ew")
+
+[node name="PrivacyScreenSprite" type="Sprite2D" parent="PrivacyScreen"]
+position = Vector2(0, -40)
+scale = Vector2(4, 4)
+texture = ExtResource("2_qaw5o")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -22)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_paipq")

@@ -1,0 +1,22 @@
+<beat start>
+	Honey: Ugh, this shift was the WORST.
+	Alya: Tell me about it. 
+	Alya: Banker guy kept trying to convince me to lose the condom and then tried to rip me off.
+	Honey: Oh hell no.<wait 0.5> He was at our bar yesterday and tried to haggle about a private dance.
+	Honey: Cannot get it into his pea brain that prices are fixed, and for good reason.
+	Player: Hey guys, coming for your results?
+	Honey: That's right.
+	<sti_results true>
+	You look through files and give them their respective STI test results.
+	Honey: Thanks, darlin'.<wait 0.5> Aly, let's call it a night, shall we?
+	Alya: ....
+	Honey: Aly?
+	Alya shows Honey her results
+	Honey: HUH.<wait 0.5> I thought we were gonna have a talk before starting a family.
+	Alya snorts, her face softening into a slight smile
+	Alya: Now is really not the time for jokes, you know.
+	Honey: Oh sweetie. Come 'ere.<wait 0.5> We got this, okay? I'm with you whatever happens.
+
+<flag PlayerMetAlya>
+<flag PlayerMetHoney>
+<flag AlyaPregnant>
