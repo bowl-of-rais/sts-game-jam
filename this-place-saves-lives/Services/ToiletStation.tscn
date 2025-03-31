@@ -1,8 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://3k51bolt18vb"]
 
-
 [ext_resource type="Script" uid="uid://deysunic7sfop" path="res://Scripts/station.gd" id="1_1vwmp"]
-
 [ext_resource type="Texture2D" uid="uid://by6ra2cuclmix" path="res://Assets/Topdown/static/ToiletDoorOpen.png" id="2_4e6xe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g75ew"]
@@ -13,10 +11,10 @@ size = Vector2(68, 16)
 
 [node name="ToiletStation" type="Node2D"]
 script = ExtResource("1_1vwmp")
-fullfills = 6
 
 [node name="Toilet" type="StaticBody2D" parent="."]
 y_sort_enabled = true
+position = Vector2(0, -36)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet"]
 position = Vector2(0, 1)
@@ -28,6 +26,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_4e6xe")
 
 [node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(0, -36)
 collision_layer = 2
 collision_mask = 3
 monitoring = false
