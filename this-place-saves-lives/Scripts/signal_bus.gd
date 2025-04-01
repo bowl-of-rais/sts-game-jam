@@ -6,6 +6,8 @@ signal approval_delta(relative_approval)
 # signal funds_changed(new_funds, old_funds)
 signal funds_changed()
 
+signal day_changed
+
 signal service_full(type: Services.Types)
 
 signal service_bought(type: Services.Types)
@@ -17,7 +19,7 @@ signal dialog_waiting(dialog_name)
 #story flags:
 #	kitchen : if the community kitchen has been established
 #	drugcheck: if the drugchecking service has been established
-signal dialog_flag(flag_name:String, flag_value:bool)
+signal story_flag(flag_name:String, flag_value:bool)
 
 #emitted when a story dialog starts
 signal dialog_start
