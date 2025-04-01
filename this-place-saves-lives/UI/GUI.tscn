@@ -79,7 +79,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 tooltip_text = "Approval goes up or down depending on how well you are able to meet people's needs."
-value = 50.0
+max_value = 40.0
+value = 20.0
 texture_under = ExtResource("2_axji4")
 texture_progress = ExtResource("3_drcj0")
 
