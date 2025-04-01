@@ -72,8 +72,26 @@ static var service_to_tooltip_text : Dictionary = {
 	Types.Lounge : "Lounge table: to sit down, maybe rest with a cup of tea",
 	Types.Menstrual : "Menstrual products: not obvious to some, but high in demand",
 	Types.PrivacyScreen : "Privacy Screen: barebones, but blocks vision at least",
-	Types.Snack : "Snacks: both convenient and calorically dense"
+	Types.Snack : "Snacks: both convenient and filling"
 }
 
 static func tooltip_text_of(type: Types) -> String:
 	return service_to_tooltip_text[type]
+
+static var name_to_service : Dictionary = {
+	"Reception": Types.Reception,
+	"Consumption": Types.Consumption,
+	"Toilet": Types.Toilet,
+	"Shower": Types.Shower,
+	"Couch": Types.Couch,
+	"Cooking": Types.Cooking,
+	"Lounge": Types.Lounge,
+	"Menstrual": Types.Menstrual,
+	"PrivacyScreen": Types.PrivacyScreen,
+	"Snack": Types.Snack
+}
+
+static func service_from_name(name: String) -> Types:
+	if name in name_to_service.keys():
+		return name_to_service[name]
+	return -1

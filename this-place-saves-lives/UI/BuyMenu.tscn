@@ -19,14 +19,15 @@ script = ExtResource("1_xn3jy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(513, 288)
+scale = Vector2(1.00172, 1.00022)
 texture = ExtResource("2_eqv4g")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 30.0
-offset_top = 23.0
+offset_top = 19.0
 offset_right = 512.0
-offset_bottom = 38.0
+offset_bottom = 34.0
 scale = Vector2(2, 2)
 theme_override_constants/separation = 415
 alignment = 2

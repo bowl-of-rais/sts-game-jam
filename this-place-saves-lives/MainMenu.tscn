@@ -1,11 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://8q1aec16ql1q"]
+[gd_scene load_steps=14 format=3 uid="uid://8q1aec16ql1q"]
 
 [ext_resource type="Script" uid="uid://dfjoggfhuhx2x" path="res://main_menu.gd" id="1_7r1g0"]
 [ext_resource type="Texture2D" uid="uid://ceqox7bu1vu4v" path="res://Assets/Menu/Pages/TitlePurple.png" id="2_u7cqb"]
-[ext_resource type="Texture2D" uid="uid://cewctdrwnou7t" path="res://Assets/Menu/Buttons/Play/PlayButtonPurple.png" id="3_u7cqb"]
-[ext_resource type="Texture2D" uid="uid://d1vphg0ve1stq" path="res://Assets/Menu/Buttons/Play/AltPlayButtonPurple.png" id="4_afec1"]
+[ext_resource type="Texture2D" uid="uid://co1285q4ogjm" path="res://Assets/Menu/Buttons/Continue/ContinueButtonPurple.png" id="3_61cf8"]
+[ext_resource type="Texture2D" uid="uid://cj3pnjx4es0ye" path="res://Assets/Menu/Buttons/Continue/AltContinueButtonPurple.png" id="4_rnncn"]
+[ext_resource type="Texture2D" uid="uid://b3ylflxawrqac" path="res://Assets/Menu/Buttons/Continue/DisabledContinueButtonPurple.png" id="5_3fnrj"]
 [ext_resource type="Texture2D" uid="uid://crwcdcvl7ssuv" path="res://Assets/Menu/Buttons/Settings/SettingsButtonPurple.png" id="5_31qfy"]
+[ext_resource type="Texture2D" uid="uid://bjawnj6ierguw" path="res://Assets/Menu/Buttons/New Game/NewGameButtonPurple.png" id="6_m04lp"]
 [ext_resource type="Texture2D" uid="uid://b2nix6ej8pxx5" path="res://Assets/Menu/Buttons/Settings/AltSettingsButtonPurple.png" id="6_qie43"]
+[ext_resource type="Texture2D" uid="uid://chs0t34j14k7n" path="res://Assets/Menu/Buttons/New Game/AltNewGameButtonPurple.png" id="7_1thib"]
 [ext_resource type="Texture2D" uid="uid://lhbvm60qegcx" path="res://Assets/Menu/Buttons/About/AboutButtonPurple.png" id="7_61cf8"]
 [ext_resource type="Texture2D" uid="uid://ds5gcme6cwang" path="res://Assets/Menu/Buttons/About/AltAboutButtonPurple.png" id="8_rnncn"]
 [ext_resource type="Texture2D" uid="uid://byqraoqjgy8g6" path="res://Assets/Menu/Buttons/CNs/CNsButtonPurple.png" id="9_3fnrj"]
@@ -23,46 +26,67 @@ texture = ExtResource("2_u7cqb")
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 720.0
-offset_top = 340.0
+offset_top = 280.0
 offset_right = 807.0
-offset_bottom = 412.0
+offset_bottom = 371.0
 scale = Vector2(3, 3)
-alignment = 2
+alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="PlayTextureButton" type="TextureButton" parent="VBoxContainer"]
+[node name="ContinueButton" type="TextureButton" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-texture_normal = ExtResource("3_u7cqb")
-texture_pressed = ExtResource("3_u7cqb")
-texture_hover = ExtResource("4_afec1")
-texture_disabled = ExtResource("3_u7cqb")
-texture_focused = ExtResource("3_u7cqb")
+disabled = true
+texture_normal = ExtResource("3_61cf8")
+texture_pressed = ExtResource("3_61cf8")
+texture_hover = ExtResource("4_rnncn")
+texture_disabled = ExtResource("5_3fnrj")
+stretch_mode = 5
 
-[node name="SettingsTextureButton" type="TextureButton" parent="VBoxContainer"]
+[node name="NewGameButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_m04lp")
+texture_pressed = ExtResource("6_m04lp")
+texture_hover = ExtResource("7_1thib")
+texture_disabled = ExtResource("6_m04lp")
+texture_focused = ExtResource("7_1thib")
+stretch_mode = 5
+
+[node name="SettingsButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_31qfy")
 texture_pressed = ExtResource("5_31qfy")
 texture_hover = ExtResource("6_qie43")
 texture_disabled = ExtResource("5_31qfy")
 texture_focused = ExtResource("5_31qfy")
+stretch_mode = 5
 
-[node name="AboutTextureButton" type="TextureButton" parent="VBoxContainer"]
+[node name="AboutButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("7_61cf8")
 texture_pressed = ExtResource("7_61cf8")
 texture_hover = ExtResource("8_rnncn")
 texture_disabled = ExtResource("7_61cf8")
 texture_focused = ExtResource("7_61cf8")
+stretch_mode = 5
 
-[node name="CNsTextureButton" type="TextureButton" parent="VBoxContainer"]
+[node name="CNsButton" type="TextureButton" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("9_3fnrj")
 texture_pressed = ExtResource("9_3fnrj")
 texture_hover = ExtResource("10_m04lp")
 texture_disabled = ExtResource("9_3fnrj")
 texture_focused = ExtResource("9_3fnrj")
+stretch_mode = 5
 
-[connection signal="pressed" from="VBoxContainer/PlayTextureButton" to="." method="_on_play_texture_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/SettingsTextureButton" to="." method="_on_settings_texture_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/AboutTextureButton" to="." method="_on_about_texture_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/CNsTextureButton" to="." method="_on_c_ns_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_play_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/AboutButton" to="." method="_on_about_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/AboutButton" to="." method="_on_about_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CNsButton" to="." method="_on_c_ns_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CNsButton" to="." method="_on_c_ns_button_pressed"]

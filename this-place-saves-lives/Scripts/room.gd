@@ -36,7 +36,7 @@ func buy(type: Services.Types) -> bool:
 	for child in get_children():
 		if child is ServiceManager:
 			if child.type == type:
-				child.buy()
+				child.unlock()
 				return true
 	return false
 	

@@ -20,15 +20,17 @@ func change_approval(val: int):
 
 # ------------------------------- SERVICES -------------------------------------
 
-var max_per_service: Dictionary[Services.Types, int]
+var max_per_service: Dictionary[Services.Types, int] = {}
 
-var unlocked_stations: Dictionary[Services.Types, int]
+var unlocked_per_service: Dictionary[Services.Types, int] = {}
 
 # ------------------------------ CHARACTERS ------------------------------------
 
-var characters: Dictionary[String, CharacterSetting]
+var characters: Dictionary[String, CharacterSetting] = {}
 
-var true_story_flags: Array[String]
+var known_characters: Array[String] = []
+
+var true_story_flags: Array[String] = []
 
 # adds a flag to the set of globally tracked story flags
 func add_story_flag(flag_name: String):
@@ -43,21 +45,9 @@ func check_story_flags(flags: Array[String]) -> bool:
 
 # --------------------------------- STORY --------------------------------------
 
-var next_event_index: int
+var next_event: int
 
-var day: int = 1
+var current_day: int
 
 func next_day():
-	day += 1
-
-# -------------------------------- SAVING --------------------------------------
-
-func save_game():
-	pass
-	
-func load_save_game():
-	pass
-
-func initialize_game():
-	# read in files: initial game state, initial character states
-	pass
+	current_day += 1
