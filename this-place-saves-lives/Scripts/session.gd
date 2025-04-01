@@ -22,11 +22,13 @@ func change_approval(val: int):
 
 var max_per_service: Dictionary[Services.Types, int]
 
-var unlocked_stations: Dictionary[Services.Types, int]
+var unlocked_per_service: Dictionary[Services.Types, int]
 
 # ------------------------------ CHARACTERS ------------------------------------
 
 var characters: Dictionary[String, CharacterSetting]
+
+var known_characters: Array[String]
 
 var true_story_flags: Array[String]
 
@@ -49,15 +51,3 @@ var day: int = 1
 
 func next_day():
 	day += 1
-
-# -------------------------------- SAVING --------------------------------------
-
-func save_game():
-	pass
-	
-func load_save_game():
-	pass
-
-func initialize_game():
-	# read in files: initial game state, initial character states
-	pass
