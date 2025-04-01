@@ -15,8 +15,7 @@
 script/source = "extends Control
 
 func _on_shop_button_pressed() -> void:
-	hide()
-	%BuyMenu.show()
+	%BuyMenu.enter_menu()
 
 func set_funds_display(val: int):
 	%Label.text = str(val)
@@ -25,7 +24,11 @@ func set_approval_display(val: int):
 	%ApprovalBar.value = val
 
 func _on_pause_button_pressed() -> void:
-	%PauseMenu.show()
+	%PauseMenu.enter_menu()
+
+func _input(event):
+	if not %PauseMenu.active and event.is_action_pressed(\"ui_cancel\"):
+		%PauseMenu.enter_menu()
 "
 
 [node name="Gui" type="Control"]

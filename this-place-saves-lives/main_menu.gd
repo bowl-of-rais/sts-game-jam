@@ -4,6 +4,10 @@ func _ready() -> void:
 	if GlobalGameStateManager.save_exists():
 		%ContinueButton.disabled = false
 
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()
+
 func _on_continue_button_pressed() -> void:
 	GlobalGameStateManager.load_saved_game()
 	GlobalGameStateManager.start_game()

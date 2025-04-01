@@ -37,6 +37,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BackButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
 z_index = 2
 layout_mode = 0
 offset_left = 27.0
@@ -68,12 +69,14 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="SaveButton" type="TextureButton" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture_normal = ExtResource("4_pbsus")
 texture_pressed = ExtResource("4_pbsus")
 texture_hover = ExtResource("5_pbsus")
 
 [node name="ExitButton" type="TextureButton" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture_normal = ExtResource("6_pbsus")
 texture_pressed = ExtResource("6_pbsus")
