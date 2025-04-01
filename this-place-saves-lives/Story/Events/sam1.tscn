@@ -1,25 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj51qgs7pyuiq"]
+[gd_scene load_steps=4 format=3 uid="uid://cj3anvbnuqm01"]
 
-[sub_resource type="GDScript" id="GDScript_qnsed"]
-script/source = "extends Node
+[ext_resource type="Texture2D" uid="uid://durplwha7tpc6" path="res://Assets/Desk/Portraits/Sam.png" id="1_dd7h8"]
+[ext_resource type="Texture2D" uid="uid://s4d562tp5x2l" path="res://Assets/Desk/ID.png" id="2_lt4sp"]
+
+[sub_resource type="GDScript" id="GDScript_2dt47"]
+script/source = "extends Event
 
 func id(isshow:String):
 	assert(isshow.to_lower()==\"show\" or isshow.to_lower()==\"hide\")
 	%ID.visible = isshow.to_lower()==\"show\"
-
-func decrease_overdose_risk():
-	print(\"sam's risk of overdosing has decreased\")
-	#TODO decrease sam's risk for overdosing
-
 "
 
 [node name="Sam1" type="Node"]
-script = SubResource("GDScript_nbqmw")
-
-[node name="ID" type="Sprite2D" parent="."]
-unique_name_in_owner = true
+script = SubResource("GDScript_2dt47")
 
 [node name="PortraitSam" type="Sprite2D" parent="."]
-position = Vector2(505, 288)
+position = Vector2(276, 287)
 scale = Vector2(4, 4)
 texture = ExtResource("1_dd7h8")
+
+[node name="SpriteID" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = 12
+z_as_relative = false
+position = Vector2(605, 526)
+scale = Vector2(4, 4)
+texture = ExtResource("2_lt4sp")
