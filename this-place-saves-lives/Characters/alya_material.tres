@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://x4h8yuftmun8"]
+
+[ext_resource type="Shader" uid="uid://c3hm86ipfknw5" path="res://Scripts/skin_mapping.gdshader" id="1_14ou7"]
+[ext_resource type="Texture2D" uid="uid://sgmj44f62ky2" path="res://Assets/Topdown/Skins/AlyaSkin.png" id="2_14ou7"]
+
+[resource]
+shader = ExtResource("1_14ou7")
+shader_parameter/skin = ExtResource("2_14ou7")
