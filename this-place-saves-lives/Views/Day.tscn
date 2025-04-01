@@ -6,10 +6,10 @@
 script/source = "extends Node2D
 
 func _ready():
-	%Label.text = str(Session.day)
+	%Label.text = str(Session.current_day)
 
 func update_day():
-	%Label.text = str(Session.day)
+	%Label.text = str(Session.current_day)
 "
 
 [node name="Day" type="Node2D"]

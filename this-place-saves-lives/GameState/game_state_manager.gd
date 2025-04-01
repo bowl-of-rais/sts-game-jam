@@ -22,6 +22,8 @@ func quit_game():
 
 # --------------------------- about save files ---------------------------------
 
+func save_exists():
+	return FileAccess.file_exists("user://saved_session.cfg")
 
 # -------------------------- utility functions ---------------------------------
 
@@ -35,11 +37,11 @@ func load_game_state(path: String):
 	if err != OK:
 		return
 
-	Session.funds = config.get_value("MAIN", "initial_funds")
-	Session.approval = config.get_value("MAIN", "initial_approval")
+	Session.funds = config.get_value("MAIN", "funds")
+	Session.approval = config.get_value("MAIN", "approval")
 	
 	Session.next_event = config.get_value("STORY", "next_event")
-	Session.day = config.get_value("STORY", "current_day")
+	Session.current_day = config.get_value("STORY", "current_day")
 	Session.known_characters = config.get_value("STORY", "known_characters")
 	
 	Session.max_per_service = config.get_value("SERVICES", "max_per_service")
@@ -49,11 +51,11 @@ func load_game_state(path: String):
 func save_game_state(path: String):
 	var config = ConfigFile.new()
 
-	config.set_value("MAIN", "current_funds", Session.funds)
-	config.set_value("MAIN", "current_approval", Session.approval)
+	config.set_value("MAIN", "funds", Session.funds)
+	config.set_value("MAIN", "approval", Session.approval)
 	
 	config.set_value("STORY", "next_event", Session.next_event)
-	config.get_value("STORY", "current_day", Session.day)
+	config.set_value("STORY", "current_day", Session.current_day)
 	config.set_value("STORY", "known_characters", Session.known_characters)
 
 	config.set_value("SERVICES", "max_per_service", Session.max_per_service)

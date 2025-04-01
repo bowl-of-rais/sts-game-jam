@@ -47,7 +47,7 @@ func check_story_flags(flags: Array[String]) -> bool:
 
 var next_event: int
 
-var day: int
+var current_day: int
 
 func next_day():
-	day += 1
+	current_day += 1

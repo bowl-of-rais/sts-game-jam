@@ -1,7 +1,8 @@
 extends Node
 
 func _ready() -> void:
-	pass
+	if GlobalGameStateManager.save_exists():
+		%ContinueButton.disabled = false
 
 func _on_continue_button_pressed() -> void:
 	GlobalGameStateManager.load_saved_game()
