@@ -41,6 +41,10 @@ func check_story_flags(flags: Array[String]) -> bool:
 			return false
 	return true
 
+# --------------------------------- STORY --------------------------------------
+
+var next_event_index: int
+
 # -------------------------------- SAVING --------------------------------------
 
 func save_game():
