@@ -51,6 +51,8 @@ func load_game_state(path: String):
 	Session.next_event = config.get_value("STORY", "next_event")
 	Session.current_day = config.get_value("STORY", "current_day")
 	Session.known_characters = config.get_value("STORY", "known_characters")
+	Session.events_per_day = config.get_value("STORY", "events_per_day")
+	Session.funds_each_day = config.get_value("STORY", "funds_each_day")
 	
 	Session.max_per_service = config.get_value("SERVICES", "max_per_service")
 	Session.unlocked_per_service = config.get_value("SERVICES", "unlocked_per_service")

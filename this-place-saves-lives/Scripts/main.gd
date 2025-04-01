@@ -32,6 +32,8 @@ func _ready() -> void:
 	add_child(spawn_timer)
 	SignalBus.dialog_start.connect(func():spawn_timer.paused = true)
 	SignalBus.dialog_end.connect(func():spawn_timer.paused = false)
+	SignalBus.dialog_end.connect(on_dialog_end)
+	show_day()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -57,12 +59,19 @@ func update_approval(val: int):
 	var new_approval = Session.approval
 	%Gui.set_approval_display(new_approval)
 	
-func next_day():
+func start_next_day():
 	Session.next_day()
-	%Day.update_day()
+	show_day()
 	
+func show_day():
 	%Day.visible = true
-	get_tree().create_timer(1).timeout.connect(func(): %Day.visible = false)
+	get_tree().create_timer(3).timeout.connect(func(): %Day.visible = false)
+
+## Checks if number of events per day is reached, activates Day scene if yes
+func on_dialog_end():
+	if Session.next_event % Session.events_per_day == 0:
+		start_next_day()
+	
 
 func next_spawn():
 	#spawn non story characters in between
