@@ -1,18 +1,23 @@
 extends Node
 class_name GameStateManager
 
+const SAVED_SESSION_PATH = "user://saved_session.cfg"
+const SAVED_CHARAS_PATH = "user://saved_characters.cfg"
+const INIT_SESSION_PATH = "res://GameState/init_session.cfg"
+const INIT_CHARAS_PATH = "res://GameState/init_characters.cfg"
+
 func save_game():
-	save_game_state("user://saved_session.cfg")
-	save_character_states("user://saved_characters.cfg")
+	save_game_state(SAVED_SESSION_PATH)
+	save_character_states(SAVED_CHARAS_PATH)
 	
 func load_saved_game():
-	load_game_state("user://saved_session.cfg")
-	load_character_states("user://saved_characters.cfg")
+	load_game_state(SAVED_SESSION_PATH)
+	load_character_states(SAVED_CHARAS_PATH)
 
 func initialize_game():
 	# read in files: initial game state, initial character states
-	load_game_state("res://GameState/init_session.cfg")
-	load_character_states("res://GameState/init_characters.cfg")
+	load_game_state(INIT_SESSION_PATH)
+	load_character_states(INIT_CHARAS_PATH)
 	
 func start_game():
 	get_tree().change_scene_to_file("res://Views/Main.tscn")
