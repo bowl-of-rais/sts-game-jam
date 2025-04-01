@@ -15,6 +15,8 @@ func _ready() -> void:
 	tooltip_text = Services.tooltip_text_of(service_type)
 	SignalBus.service_full.connect(update_if_full)
 	SignalBus.funds_changed.connect(update_in_budget)
+	service_full = Session.max_per_service[service_type] == Session.unlocked_per_service[service_type]
+	update_in_budget()
 
 func update_in_budget():
 	var current_funds = Session.funds
@@ -31,13 +33,13 @@ func update_if_full(type: Services.Types):
 
 func deactivate() -> void:
 	active = false
-	%PriceTag.text = "!"
 	%BuyButton.disabled = true
+	%BuyButton.tooltip_text = "Not enough money or space :("
 	
 func activate() -> void:
 	active = true
-	%PriceTag.text = str(price)
 	%BuyButton.disabled = false
+	%BuyButton.tooltip_text = ""
 
 func _on_buy_button_pressed() -> void:
 	SignalBus.service_bought.emit(service_type)
