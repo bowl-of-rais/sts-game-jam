@@ -2,12 +2,12 @@ extends Node
 class_name GameStateManager
 
 func save_game():
-	save_game_state("res://GameState/saved_session.cfg")
-	save_character_states("res://GameState/saved_characters.cfg")
+	save_game_state("user://saved_session.cfg")
+	save_character_states("user://saved_characters.cfg")
 	
 func load_saved_game():
-	load_game_state("res://GameState/saved_session.cfg")
-	load_character_states("res://GameState/saved_characters.cfg")
+	load_game_state("user://saved_session.cfg")
+	load_character_states("user://saved_characters.cfg")
 
 func initialize_game():
 	# read in files: initial game state, initial character states
@@ -19,6 +19,8 @@ func start_game():
 
 func quit_game():
 	get_tree().change_scene_to_file("res://MainMenu.tscn")
+
+# --------------------------- about save files ---------------------------------
 
 
 # -------------------------- utility functions ---------------------------------
@@ -90,7 +92,7 @@ func load_character_states(path: String):
 		char_res.overdose_risk = config.get_value(character, "overdose_risk")
 		char_res.initial_needs = []
 		
-		var needs_str = config.get_value(character, "overdose_risk")
+		var needs_str = config.get_value(character, "initial_needs")
 		for s in needs_str:
 			var need = CharacterSetting.need_from_str(s)
 			if need != -1:
