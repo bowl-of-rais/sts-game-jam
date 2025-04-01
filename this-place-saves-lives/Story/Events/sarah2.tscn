@@ -1,10 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://1x4lmfivn3np"]
+[gd_scene load_steps=4 format=3 uid="uid://1x4lmfivn3np"]
 
 [ext_resource type="Texture2D" uid="uid://disifr2sbvts" path="res://Assets/Desk/Portraits/SarahDistressedPortrait.png" id="1_iavk0"]
+[ext_resource type="Texture2D" uid="uid://gu3hidvkjrbg" path="res://Assets/Desk/Portraits/Honey.png" id="2_han3u"]
 
 [sub_resource type="GDScript" id="GDScript_44h1a"]
 resource_name = "Sarah2Actions"
-script/source = "extends Node
+script/source = "extends Event
 
 # requires: PlayerMetSarah
 
@@ -22,8 +23,9 @@ func make_tea():
 	#TODO play tea making animation and sound
 	
 func honey_appears():
-	print(\"honey would appear now\")
-	#TODO set honeys sprite to visible and mb some repositioning
+	# print(\"honey would appear now\")
+	# DONE set honeys sprite to visible and mb some repositioning
+	%HoneyPortrait.visible = true
 "
 
 [node name="Sarah2" type="Node"]
@@ -34,3 +36,11 @@ position = Vector2(313, 0)
 scale = Vector2(4, 4)
 texture = ExtResource("1_iavk0")
 centered = false
+
+[node name="HoneyPortrait" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = -3
+position = Vector2(218, 281)
+scale = Vector2(4.12, 4.06944)
+texture = ExtResource("2_han3u")

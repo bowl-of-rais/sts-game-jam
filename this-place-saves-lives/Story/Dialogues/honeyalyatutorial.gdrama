@@ -1,0 +1,37 @@
+<beat start>
+	Honey: Hey there!
+	Player: Hello!
+	Honey: You must be the new social worker.
+	Player: Yes, that's me!
+	Honey: Is this your first time managing a place like this?
+	
+	<choice "Yes, actually. Do you have any tips?" do_tutorial>
+	<choice "No, I've done this before." skip_tutorial>
+
+<beat do_tutorial>
+	Honey: Oh sure, let me show you around.
+	Honey: On the top right you can see your current funds and the shop button.
+	Honey: That's where you can buy furniture, toilets, or some food...
+	Honey: Whatever you think would help people that come here!
+	Honey: For some things, there's only enough space for a certain number.
+	Honey: That's why you might not be able to buy even if you have enough money.
+	Honey: If you're still unsure about anything, check out the tooltips.
+	
+<beat skip_tutorial>
+	Honey: Ah, a professional!
+	Honey: Well, if you're still unsure about anything, check out the tooltips.
+	<jump end>
+
+<beat end>
+	Player: So, how can I help you today?
+	Honey: Oh, I'm just here to wait for my friend, Alya.
+	Honey: We work at the strip club down the street.
+	Honey: There she is!
+	<alya true>
+	Alya: Hello!
+	Player: Hi, nice to meet you.
+	Honey: We're off to our shift.
+	Honey: But good luck and see you around!
+
+<flag PlayerMetAlya>
+<flag PlayerMetHoney>
