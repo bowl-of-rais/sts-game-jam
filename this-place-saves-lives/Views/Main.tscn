@@ -29,3 +29,5 @@ offset_bottom = -576.0
 
 [node name="Day" parent="." instance=ExtResource("6_7eko3")]
 unique_name_in_owner = true
+visible = false
+z_index = 10

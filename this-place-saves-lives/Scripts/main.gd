@@ -47,3 +47,6 @@ func update_approval(val: int):
 func next_day():
 	Session.next_day()
 	%Day.update_day()
+	
+	%Day.visible = true
+	get_tree().create_timer(1).timeout.connect(func(): %Day.visible = false)
