@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqtfmkdsx46xq"]
+
+[ext_resource type="Script" uid="uid://drhkpe3bdew22" path="res://Scripts/pause_menu.gd" id="1_pbsus"]
+[ext_resource type="Texture2D" uid="uid://bbx62lemeinol" path="res://Assets/Menu/Buttons/Back/BackButtonPurple.png" id="2_4lql7"]
+[ext_resource type="FontFile" uid="uid://c3f122lypv7sg" path="res://Assets/Pixelfont/tpsl_font.ttf" id="2_jsuq4"]
+[ext_resource type="Texture2D" uid="uid://2d7llybwhp3n" path="res://Assets/Menu/Buttons/Back/AltBackButtonPurple.png" id="3_jsuq4"]
+[ext_resource type="Texture2D" uid="uid://wjik7k2txgtg" path="res://Assets/UI/PauseMenuButtons/SaveButtonPurple.png" id="4_pbsus"]
+[ext_resource type="Texture2D" uid="uid://b2hro2c0310wr" path="res://Assets/UI/PauseMenuButtons/AltSaveButtonPurple.png" id="5_pbsus"]
+[ext_resource type="Texture2D" uid="uid://dfggwtk7rnppw" path="res://Assets/UI/PauseMenuButtons/ExitButtonPurple.png" id="6_pbsus"]
+[ext_resource type="Texture2D" uid="uid://bpl8if7x0cxbv" path="res://Assets/UI/PauseMenuButtons/AltExitButtonPurple.png" id="7_4lql7"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pbsus")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.999024, 0.998267)
+color = Color(0.16128, 0.1416, 0.24, 1)
+polygon = PackedVector2Array(-1.00098, -1.00174, 1024, -1, 1024, 576, -1, 576)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 443.0
+offset_right = 1023.0
+offset_bottom = 466.0
+theme_override_fonts/font = ExtResource("2_jsuq4")
+theme_override_font_sizes/font_size = 24
+text = "DON'T FORGET TO SAVE BEFORE CLOSING THE GAME :)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 27.0
+offset_top = 19.0
+offset_right = 44.0
+offset_bottom = 34.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_4lql7")
+texture_pressed = ExtResource("2_4lql7")
+texture_hover = ExtResource("3_jsuq4")
+texture_disabled = ExtResource("2_4lql7")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -17.0
+offset_right = -50.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="SaveButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_pbsus")
+texture_pressed = ExtResource("4_pbsus")
+texture_hover = ExtResource("5_pbsus")
+
+[node name="ExitButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_pbsus")
+texture_pressed = ExtResource("6_pbsus")
+texture_hover = ExtResource("7_4lql7")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

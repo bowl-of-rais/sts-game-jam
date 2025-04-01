@@ -17,6 +17,9 @@ func initialize_game():
 func start_game():
 	get_tree().change_scene_to_file("res://Views/Main.tscn")
 
+func quit_game():
+	get_tree().change_scene_to_file("res://MainMenu.tscn")
+
 
 # -------------------------- utility functions ---------------------------------
 
