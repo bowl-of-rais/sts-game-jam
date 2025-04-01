@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhcxxhwmyjbts"]
+
+[ext_resource type="Texture2D" uid="uid://cfsv4sgnwo7e" path="res://Assets/Desk/Portraits/Alya.png" id="1_3fr1h"]
+[ext_resource type="Texture2D" uid="uid://gu3hidvkjrbg" path="res://Assets/Desk/Portraits/Honey.png" id="2_xqo3j"]
+
+[sub_resource type="GDScript" id="GDScript_3fr1h"]
+script/source = "extends Node
+
+func alya(show:bool):
+	%PortraitAlya.visible = show
+"
+
+[node name="HoneyAndAlya" type="Node"]
+script = SubResource("GDScript_3fr1h")
+
+[node name="PortraitAlya" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(346, 288)
+scale = Vector2(4, 4)
+texture = ExtResource("1_3fr1h")
+
+[node name="PortraitHoney" type="Sprite2D" parent="."]
+position = Vector2(693, 287)
+scale = Vector2(4, 4)
+texture = ExtResource("2_xqo3j")
