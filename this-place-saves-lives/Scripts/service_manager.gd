@@ -24,8 +24,8 @@ func get_need_stations(need: CharacterSetting.Need) -> Array[Station]:
 	else: return []
 
 func _ready() -> void:
-	max_num = Session.max_per_service[type]
-	var should_be_unlocked = Session.unlocked_per_service[type]
+	max_num = Session.max_per_service.get(type)
+	var should_be_unlocked = Session.unlocked_per_service.get(type)
 	for child in get_children():
 		register_station(child)
 		if unlocked_stations < should_be_unlocked:
