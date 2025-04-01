@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://c15cunorihhmg"]
+
+[ext_resource type="Script" uid="uid://71e5qgqxki7i" path="res://Views/end_of_demo.gd" id="1_l24tw"]
+[ext_resource type="FontFile" uid="uid://c3f122lypv7sg" path="res://Assets/Pixelfont/tpsl_font.ttf" id="2_flyjh"]
+[ext_resource type="Texture2D" uid="uid://dm1f6syigjfga" path="res://Assets/UI/EmptyButton.png" id="3_fb03s"]
+[ext_resource type="Texture2D" uid="uid://bxyfe2opflci3" path="res://Assets/UI/AltEmptyButton.png" id="4_1f830"]
+
+[node name="EndOfDemo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l24tw")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(0, 0.998267)
+scale = Vector2(0.999024, 0.998267)
+color = Color(0.408925, 0.4015, 0.55, 1)
+polygon = PackedVector2Array(0, -1, 0, 0.0176821, 0, 576, 1025, 576, 1025, -1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 158.0
+offset_right = 1023.0
+offset_bottom = 331.0
+theme_override_fonts/font = ExtResource("2_flyjh")
+theme_override_font_sizes/font_size = 36
+text = "Y O U 'V E   R E A C H E D   T H E   E N D    O F   T H E   D E M O.
+T H A N K    Y O U   F O R   P L A Y I N G!   <3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 346.0
+offset_right = 453.0
+offset_bottom = 386.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_fb03s")
+texture_pressed = ExtResource("3_fb03s")
+texture_hover = ExtResource("4_1f830")
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 16.25
+offset_right = 56.0
+offset_bottom = 27.25
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_flyjh")
+theme_override_font_sizes/font_size = 12
+text = "MAIN MENU"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
