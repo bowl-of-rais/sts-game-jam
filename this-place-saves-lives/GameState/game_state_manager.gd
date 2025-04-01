@@ -91,7 +91,7 @@ func load_character_states(path: String):
 		char_res.overdose_risk = config.get_value(character, "overdose_risk")
 		char_res.initial_needs = config.get_value(character, "needs")
 		
-		var skin_path = "/".join([CHARAS_MATERIALS_PATH, char_res.name + "_material.tres"])
+		var skin_path = "/".join([CHARAS_MATERIALS_PATH, char_res.name.to_lower() + "_material.tres"])
 		char_res.skin = load(skin_path)
 		
 		char_res.speed = config.get_value(character, "speed")
