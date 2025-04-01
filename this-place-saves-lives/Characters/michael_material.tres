@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cr2chmybsemh0"]
+
+[ext_resource type="Shader" uid="uid://c3hm86ipfknw5" path="res://Scripts/skin_mapping.gdshader" id="1_momw2"]
+[ext_resource type="Texture2D" uid="uid://dr5ck8rs4x2xv" path="res://Assets/Topdown/Skins/MarolSkin.png" id="2_b6xed"]
+
+[resource]
+shader = ExtResource("1_momw2")
+shader_parameter/skin = ExtResource("2_b6xed")
