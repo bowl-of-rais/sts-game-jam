@@ -1,6 +1,13 @@
 extends Node
 class_name GameStateManager
 
+const SAVED_SESSION_PATH = "user://saved_session.cfg"
+const SAVED_CHARAS_PATH = "user://saved_characters.cfg"
+const INIT_SESSION_PATH = "res://GameState/init_session.cfg"
+const INIT_CHARAS_PATH = "res://GameState/init_characters.cfg"
+
+const CHARAS_MATERIALS_PATH = "res://Characters/"
+
 func save_game():
 	save_game_state("user://saved_session.cfg")
 	save_character_states("user://saved_characters.cfg")
@@ -87,7 +94,7 @@ func load_character_states(path: String):
 		#	if need != -1:
 		#		char_res.initial_needs.append(need)
 				
-		# TODO: skin paths
+		var skin_path = "/".join([CHARAS_MATERIALS_PATH, char_res.name + "_material.tres"])
 		
 		Session.characters[char_res.name] = char_res
 		
