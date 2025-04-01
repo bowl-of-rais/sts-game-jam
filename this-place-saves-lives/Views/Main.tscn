@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://i06gp828b1by"]
+[gd_scene load_steps=8 format=3 uid="uid://i06gp828b1by"]
 
 [ext_resource type="Script" uid="uid://bffl2vjj5bgh6" path="res://Scripts/main.gd" id="1_5tqwe"]
 [ext_resource type="PackedScene" uid="uid://loyi4vvokxcg" path="res://Views/RoomView.tscn" id="2_bn1h3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d3pe4hbkkvwau" path="res://UI/BuyMenu.tscn" id="4_ha8lo"]
 [ext_resource type="PackedScene" uid="uid://co6pjj1oa6b7l" path="res://UI/GUI.tscn" id="5_7eko3"]
 [ext_resource type="PackedScene" uid="uid://cekmccv27i4ux" path="res://Views/Day.tscn" id="6_7eko3"]
+[ext_resource type="PackedScene" uid="uid://dqtfmkdsx46xq" path="res://UI/PauseMenu.tscn" id="7_rdlit"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_5tqwe")
@@ -31,3 +32,8 @@ offset_bottom = -576.0
 unique_name_in_owner = true
 visible = false
 z_index = 10
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_rdlit")]
+unique_name_in_owner = true
+visible = false
+z_index = 6

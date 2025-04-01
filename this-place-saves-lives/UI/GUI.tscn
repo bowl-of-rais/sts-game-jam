@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://co6pjj1oa6b7l"]
+[gd_scene load_steps=12 format=3 uid="uid://co6pjj1oa6b7l"]
 
+[ext_resource type="Texture2D" uid="uid://dklbh2dlyqama" path="res://Assets/UI/PauseButton/PauseButton.png" id="1_ieifm"]
 [ext_resource type="Texture2D" uid="uid://dblctwetsn36l" path="res://Assets/UI/Approval/Disapproval.png" id="1_k1pai"]
 [ext_resource type="Texture2D" uid="uid://o73n1uost14w" path="res://Assets/UI/Approval/ApprovalBarBG.png" id="2_axji4"]
+[ext_resource type="Texture2D" uid="uid://2r57yirslgcu" path="res://Assets/UI/PauseButton/AltPauseButton.png" id="2_pg5km"]
 [ext_resource type="Texture2D" uid="uid://c70tb30nms51s" path="res://Assets/UI/Approval/ApprovalBarFill.png" id="3_drcj0"]
 [ext_resource type="Texture2D" uid="uid://bxh6mtuxjvmhp" path="res://Assets/UI/Approval/Approval.png" id="4_7wlhi"]
 [ext_resource type="Texture2D" uid="uid://bn2cktn5o18xf" path="res://Assets/UI/Money/Money.png" id="5_nrn6i"]
@@ -13,14 +15,20 @@
 script/source = "extends Control
 
 func _on_shop_button_pressed() -> void:
-	hide()
-	%BuyMenu.show()
+	%BuyMenu.enter_menu()
 
 func set_funds_display(val: int):
 	%Label.text = str(val)
 
 func set_approval_display(val: int):
 	%ApprovalBar.value = val
+
+func _on_pause_button_pressed() -> void:
+	%PauseMenu.enter_menu()
+
+func _input(event):
+	if not %PauseMenu.active and event.is_action_pressed(\"ui_cancel\"):
+		%PauseMenu.enter_menu()
 "
 
 [node name="Gui" type="Control"]
@@ -34,13 +42,25 @@ script = SubResource("GDScript_u4p83")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-offset_left = 380.0
-offset_top = 23.0
-offset_right = 690.0
-offset_bottom = 60.0
+offset_left = 1.0
+offset_top = 18.0
+offset_right = 512.0
+offset_bottom = 55.0
 scale = Vector2(2, 2)
-theme_override_constants/separation = 103
-alignment = 2
+theme_override_constants/separation = 114
+alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="PauseButton" type="TextureButton" parent="HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("1_ieifm")
+texture_pressed = ExtResource("1_ieifm")
+texture_hover = ExtResource("2_pg5km")
+texture_disabled = ExtResource("1_ieifm")
+texture_focused = ExtResource("1_ieifm")
 
 [node name="ApprovalBarContainer" type="HBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(0, 15)
@@ -108,4 +128,5 @@ texture_hover = ExtResource("8_l1an4")
 texture_disabled = ExtResource("7_ws0ck")
 texture_focused = ExtResource("7_ws0ck")
 
+[connection signal="pressed" from="HBoxContainer/VBoxContainer2/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ShopButton" to="." method="_on_shop_button_pressed"]
