@@ -43,3 +43,7 @@ func update_approval(val: int):
 	Session.change_approval(val)
 	var new_approval = Session.approval
 	%Gui.set_approval_display(new_approval)
+	
+func next_day():
+	Session.next_day()
+	%Day.update_day()

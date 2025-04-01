@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://cekmccv27i4ux"]
+
+[ext_resource type="FontFile" uid="uid://c3f122lypv7sg" path="res://Assets/Pixelfont/tpsl_font.ttf" id="1_nedij"]
+
+[sub_resource type="GDScript" id="GDScript_cu7oa"]
+script/source = "extends Node2D
+
+func _ready():
+	%Label.text = str(Session.day)
+
+func update_day():
+	%Label.text = str(Session.day)
+"
+
+[node name="Day" type="Node2D"]
+script = SubResource("GDScript_cu7oa")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.111197, 0.111197, 0.111197, 1)
+polygon = PackedVector2Array(-1, -1, 1023, 0, 1024, 576, -1, 576)
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 512.0
+offset_top = 290.0
+offset_right = 513.0
+offset_bottom = 306.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_nedij")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1

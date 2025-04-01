@@ -45,6 +45,11 @@ func check_story_flags(flags: Array[String]) -> bool:
 
 var next_event_index: int
 
+var day: int = 1
+
+func next_day():
+	day += 1
+
 # -------------------------------- SAVING --------------------------------------
 
 func save_game():
