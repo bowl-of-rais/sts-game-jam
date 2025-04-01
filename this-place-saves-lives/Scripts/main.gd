@@ -69,7 +69,7 @@ func next_spawn():
 	var chara_name :String
 	var setting :CharacterSetting
 	assert(non_story_spawn_count >= 0, "non_story_spawn_count should never be less than 0!")
-	if non_story_spawn_count == 0:
+	if non_story_spawn_count == 0 and Session.next_event < StorySequence.event_order.size():
 		chara_name = StorySequence.event_order[Session.next_event]
 		setting = load("res://Characters/" + chara_name + ".tres")
 		#TODO add characters once event is over
@@ -78,11 +78,15 @@ func next_spawn():
 		non_story_spawn_count = \
 		randi_range(GlobalSettings.min_non_story_spawn, GlobalSettings.max_non_story_spawn)
 	else:
-		chara_name = Session.known_characters.pick_random()
+		var available_characters = \
+		Session.known_characters.filter(func(cn:String): return %Room.characters_in_room.count(cn)==0)
+		if available_characters.is_empty():
+			print("Spawn skipped due to no available characters!")
+			return
+		chara_name = available_characters.pick_random()
 		setting = Session.characters[chara_name]
-		non_story_spawn_count -= 1
+		if non_story_spawn_count > 0: non_story_spawn_count -= 1
 	spawn_character(chara_name, setting)
-
 
 func spawn_character(chara_name:String, setting: CharacterSetting):
 	#test topdown character
@@ -92,8 +96,8 @@ func spawn_character(chara_name:String, setting: CharacterSetting):
 	new_character.name = chara_name
 	#set event settings or generic settings
 	new_character.character = setting
+	%Room.characters_in_room.append(setting.name)
 	#set character on spawn position
 	new_character.position = %Room.spawn_point.position
 	#add character to room (enables processing)
 	%Room.add_child(new_character)
-	

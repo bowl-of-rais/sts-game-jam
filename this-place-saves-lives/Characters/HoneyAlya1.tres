@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterSetting" load_steps=3 format=3 uid="uid://dlvt2sh2jjreq"]
+
+[ext_resource type="Script" uid="uid://7j5oel4upva7" path="res://Scripts/character_resource.gd" id="1_8yr4h"]
+[ext_resource type="Material" uid="uid://bc31x1fm1yi4n" path="res://Characters/honey_material.tres" id="2_5vpp1"]
+
+[resource]
+script = ExtResource("1_8yr4h")
+name = "Honey"
+skin = ExtResource("2_5vpp1")
+bodytype = 0
+initial_needs = Array[int]([])
+speed = 20.0
+overdose_risk = 0
+metadata/_custom_type_script = "uid://7j5oel4upva7"

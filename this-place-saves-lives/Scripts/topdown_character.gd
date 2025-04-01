@@ -112,6 +112,8 @@ func enter_busy():
 			timer.timeout.connect(
 				func():
 				self.stateM.change_state("Idle")
+				occupying_station.occupied = false
+				occupying_station = null
 				)
 			add_child(timer)
 
@@ -124,6 +126,7 @@ func busy():
 func _on_interaction_area_area_entered(area: Area2D) -> void:
 	if area.name == "DespawnArea" and current_needs.is_empty():
 		#TODO some last game state changes before despawning
+		room.character_left(character.name)
 		#shedule this characters despawn
 		self.queue_free()
 		return

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterSetting" load_steps=3 format=3 uid="uid://dt85de3ulvf7c"]
+
+[ext_resource type="Script" uid="uid://7j5oel4upva7" path="res://Scripts/character_resource.gd" id="1_0bhkg"]
+[ext_resource type="Material" uid="uid://r82d4c5kwc47" path="res://Characters/nicky_material.tres" id="2_8qkap"]
+
+[resource]
+script = ExtResource("1_0bhkg")
+name = "Nicky"
+skin = ExtResource("2_8qkap")
+bodytype = 0
+initial_needs = Array[int]([2, 1, 4, 0])
+speed = 20.0
+overdose_risk = 0
+metadata/_custom_type_script = "uid://7j5oel4upva7"
