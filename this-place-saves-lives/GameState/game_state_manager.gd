@@ -38,25 +38,12 @@ func load_game_state(path: String):
 	Session.funds = config.get_value("MAIN", "initial_funds")
 	Session.approval = config.get_value("MAIN", "initial_approval")
 	
-	Session.next_event_index = config.get_value("STORY", "next_event_index")
-	Session.day = config.get_value("STORY", "day")
+	Session.next_event = config.get_value("STORY", "next_event")
+	Session.day = config.get_value("STORY", "current_day")
+	Session.known_characters = config.get_value("STORY", "known_characters")
 	
-	var read_arr = config.get_value("STORY", "known_characters")
-	for value in read_arr:
-		if value is String:
-			Session.known_characters.append(value)
-
-	var read_dict = config.get_value("SERVICES", "max_per_service")
-	for key in read_dict.keys():
-		var service = Services.service_from_name(key)
-		if service != -1:
-			Session.max_per_service[service] = read_dict[key]
-			
-	read_dict = config.get_value("SERVICES", "unlocked_per_service")
-	for key in read_dict.keys():
-		var service = Services.service_from_name(key)
-		if service != -1:
-			Session.unlocked_per_service[service] = read_dict[key]
+	Session.max_per_service = config.get_value("SERVICES", "max_per_service")
+	Session.unlocked_per_service = config.get_value("SERVICES", "unlocked_per_service")
 
 
 func save_game_state(path: String):
@@ -65,8 +52,8 @@ func save_game_state(path: String):
 	config.set_value("MAIN", "current_funds", Session.funds)
 	config.set_value("MAIN", "current_approval", Session.approval)
 	
-	config.set_value("STORY", "next_event_index", Session.next_event_index)
-	config.get_value("STORY", "day", Session.day)
+	config.set_value("STORY", "next_event", Session.next_event)
+	config.get_value("STORY", "current_day", Session.day)
 	config.set_value("STORY", "known_characters", Session.known_characters)
 
 	config.set_value("SERVICES", "max_per_service", Session.max_per_service)
@@ -88,15 +75,15 @@ func load_character_states(path: String):
 	for character in config.get_sections():
 		var char_res: CharacterSetting = CharacterSetting.new()
 		char_res.name = config.get_value(character, "name")
-		char_res.bodytype = CharacterSetting.bodytype_from_str(config.get_value(character, "bodytype"))
+		char_res.bodytype = config.get_value(character, "bodytype")
 		char_res.overdose_risk = config.get_value(character, "overdose_risk")
-		char_res.initial_needs = []
+		char_res.initial_needs = config.get_value(character, "needs")
 		
-		var needs_str = config.get_value(character, "initial_needs")
-		for s in needs_str:
-			var need = CharacterSetting.need_from_str(s)
-			if need != -1:
-				char_res.initial_needs.append(need)
+		#var needs_str = config.get_value(character, "initial_needs")
+		#for s in needs_str:
+		#	var need = CharacterSetting.need_from_str(s)
+		#	if need != -1:
+		#		char_res.initial_needs.append(need)
 				
 		# TODO: skin paths
 		

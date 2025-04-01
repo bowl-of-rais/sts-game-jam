@@ -20,17 +20,17 @@ func change_approval(val: int):
 
 # ------------------------------- SERVICES -------------------------------------
 
-var max_per_service: Dictionary[Services.Types, int]
+var max_per_service: Dictionary[Services.Types, int] = {}
 
-var unlocked_per_service: Dictionary[Services.Types, int]
+var unlocked_per_service: Dictionary[Services.Types, int] = {}
 
 # ------------------------------ CHARACTERS ------------------------------------
 
-var characters: Dictionary[String, CharacterSetting]
+var characters: Dictionary[String, CharacterSetting] = {}
 
-var known_characters: Array[String]
+var known_characters: Array[String] = []
 
-var true_story_flags: Array[String]
+var true_story_flags: Array[String] = []
 
 # adds a flag to the set of globally tracked story flags
 func add_story_flag(flag_name: String):
@@ -45,9 +45,9 @@ func check_story_flags(flags: Array[String]) -> bool:
 
 # --------------------------------- STORY --------------------------------------
 
-var next_event_index: int
+var next_event: int
 
-var day: int = 1
+var day: int
 
 func next_day():
 	day += 1
