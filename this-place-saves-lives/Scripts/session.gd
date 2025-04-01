@@ -30,6 +30,19 @@ var characters: Dictionary[String, CharacterSetting] = {}
 
 var known_characters: Array[String] = []
 
+# --------------------------------- STORY --------------------------------------
+
+var next_event: int
+
+var current_day: int
+
+var events_per_day: int
+var funds_each_day: int
+
+func next_day():
+	current_day += 1
+	SignalBus.day_changed.emit()
+
 var true_story_flags: Array[String] = []
 
 # adds a flag to the set of globally tracked story flags
@@ -42,12 +55,3 @@ func check_story_flags(flags: Array[String]) -> bool:
 		if f not in true_story_flags:
 			return false
 	return true
-
-# --------------------------------- STORY --------------------------------------
-
-var next_event: int
-
-var current_day: int
-
-func next_day():
-	current_day += 1
