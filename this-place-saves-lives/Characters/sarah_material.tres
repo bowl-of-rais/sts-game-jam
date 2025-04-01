@@ -1,8 +1,8 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://33kq7ke3gkc4"]
 
 [ext_resource type="Shader" uid="uid://c3hm86ipfknw5" path="res://Scripts/skin_mapping.gdshader" id="1_8triv"]
-[ext_resource type="Texture2D" uid="uid://dr5ck8rs4x2xv" path="res://Assets/Topdown/Skins/MarolSkin.png" id="2_362i4"]
+[ext_resource type="Texture2D" uid="uid://c7xfoldr24wkt" path="res://Assets/Topdown/Skins/SarahSkin.png" id="2_8triv"]
 
 [resource]
 shader = ExtResource("1_8triv")
-shader_parameter/skin = ExtResource("2_362i4")
+shader_parameter/skin = ExtResource("2_8triv")
