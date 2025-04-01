@@ -1,10 +1,10 @@
 extends Node2D
 class_name ServiceManager
 
-@export var service_name: String
-@export var max_num: int
+# @export var service_name: String
+var max_num: int
 var stations: Array[Station]
-var acquired_stations: int = 0
+var unlocked_stations: int = 0
 @export var type : Services.Types
 @export var active:bool = false
 
@@ -24,18 +24,19 @@ func get_need_stations(need: CharacterSetting.Need) -> Array[Station]:
 	else: return []
 
 func _ready() -> void:
+	max_num = Session.max_per_service[type]
+	var should_be_unlocked = Session.unlocked_per_service[type]
 	for child in get_children():
 		register_station(child)
-		if type == Services.Types.Reception or type == Services.Types.Consumption:
-			child.acquire()
-			acquired_stations += 1
-	if acquired_stations == 0:
+		if unlocked_stations < should_be_unlocked:
+			unlock()
+	if unlocked_stations == 0:
 		visible = false
 
-func buy() -> bool:
-	if acquired_stations < max_num:
-		stations[acquired_stations].acquire()
-		acquired_stations += 1
+func unlock() -> bool:
+	if unlocked_stations < max_num:
+		stations[unlocked_stations].acquire()
+		unlocked_stations += 1
 		
 		if not visible:
 			visible = true
@@ -45,5 +46,5 @@ func buy() -> bool:
 	return false
 
 func check_capacity():
-	if acquired_stations >= max_num:
+	if unlocked_stations >= max_num:
 		SignalBus.service_full.emit(type)

@@ -104,7 +104,6 @@ position = Vector2(1046, 262)
 [node name="ReceptionService" type="Node2D" parent="."]
 position = Vector2(924, 304)
 script = ExtResource("4_ldjbo")
-max_num = 1
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
@@ -116,8 +115,6 @@ z_as_relative = false
 y_sort_enabled = true
 position = Vector2(620, 452)
 script = ExtResource("4_ldjbo")
-service_name = "Consumtion"
-max_num = 3
 type = 1
 active = true
 
@@ -153,7 +150,6 @@ texture = ExtResource("7_f7ehb")
 [node name="CouchService" type="Node2D" parent="."]
 position = Vector2(700, 142)
 script = ExtResource("4_ldjbo")
-max_num = 1
 type = 4
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
@@ -166,7 +162,6 @@ fulfills = 2
 [node name="KitchenService" type="Node2D" parent="."]
 position = Vector2(542, 130)
 script = ExtResource("4_ldjbo")
-max_num = 1
 type = 5
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
@@ -178,7 +173,6 @@ fulfills = 4
 [node name="ShowerService" type="Node2D" parent="."]
 position = Vector2(62, 191)
 script = ExtResource("4_ldjbo")
-max_num = 2
 type = 3
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
@@ -195,7 +189,6 @@ fulfills = 5
 [node name="ToiletService" type="Node2D" parent="."]
 position = Vector2(191, 192)
 script = ExtResource("4_ldjbo")
-max_num = 2
 type = 2
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
@@ -212,7 +205,6 @@ fulfills = 6
 [node name="LoungeService" type="Node2D" parent="."]
 position = Vector2(130, 432)
 script = ExtResource("4_ldjbo")
-max_num = 1
 type = 6
 active = true
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
@@ -223,7 +215,6 @@ fulfills = 3
 
 [node name="TamponService" type="Node2D" parent="."]
 script = ExtResource("4_ldjbo")
-max_num = 1
 type = 7
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
@@ -244,7 +235,6 @@ position = Vector2(247, 515)
 
 [node name="SnackService" type="Node2D" parent="."]
 script = ExtResource("4_ldjbo")
-max_num = 2
 type = 9
 metadata/_custom_type_script = "uid://ccn0nls46lluq"
 
