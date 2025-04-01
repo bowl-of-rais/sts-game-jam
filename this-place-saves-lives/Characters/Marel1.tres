@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("1_pygst")
-name = "Marel1"
+name = "Marel"
 skin = ExtResource("2_ykf75")
 bodytype = 0
 initial_needs = Array[int]([1, 6, 0])
 speed = 20.0
+overdose_risk = 0

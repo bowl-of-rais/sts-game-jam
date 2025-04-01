@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name topdown_character
+class_name TopdownCharacter
 
 const default_skin = preload("res://Characters/placeholder_material.tres")
 var room: Room
@@ -23,8 +23,6 @@ func _ready() -> void:
 		%Sprite.material = character.skin
 		#setup needs
 		current_needs = character.initial_needs.duplicate()
-		#set object name to character name
-		self.name = character.name
 	else: #TODO unnecessary in final game?
 		%Sprite.material = default_skin
 	
@@ -92,7 +90,7 @@ func enter_busy():
 	self.target_delta = Vector2.ZERO
 	match occupying_station.fulfills:
 		CharacterSetting.Need.talk:
-			SignalBus.dialog_waiting.emit(character.name)
+			SignalBus.dialog_waiting.emit(self.name)#use event name for dialog
 			#switch view
 			SignalBus.view_switch_desk.emit()
 			SignalBus.dialog_end.connect(

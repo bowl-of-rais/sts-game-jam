@@ -16,6 +16,7 @@
 	Honey: For some things, there's only enough space for a certain number.
 	Honey: That's why you might not be able to buy even if you have enough money.
 	Honey: If you're still unsure about anything, check out the tooltips.
+	<jump end>
 	
 <beat skip_tutorial>
 	Honey: Ah, a professional!
@@ -27,7 +28,7 @@
 	Honey: Oh, I'm just here to wait for my friend, Alya.
 	Honey: We work at the strip club down the street.
 	Honey: There she is!
-	<alya true>
+	<alya show>
 	Alya: Hello!
 	Player: Hi, nice to meet you.
 	Honey: We're off to our shift.
