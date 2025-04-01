@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterSetting" load_steps=3 format=3 uid="uid://c17v5ny3pie3r"]
+
+[ext_resource type="Script" uid="uid://7j5oel4upva7" path="res://Scripts/character_resource.gd" id="1_egocf"]
+[ext_resource type="Material" uid="uid://33kq7ke3gkc4" path="res://Characters/sarah_material.tres" id="2_gups8"]
+
+[resource]
+script = ExtResource("1_egocf")
+name = "Sarah"
+skin = ExtResource("2_gups8")
+bodytype = 0
+initial_needs = Array[int]([2, 1, 0])
+speed = 10.0
+overdose_risk = 0
+metadata/_custom_type_script = "uid://7j5oel4upva7"

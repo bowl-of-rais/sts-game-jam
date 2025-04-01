@@ -19,8 +19,9 @@ position = Vector2(276, 287)
 scale = Vector2(4, 4)
 texture = ExtResource("1_dd7h8")
 
-[node name="SpriteID" type="Sprite2D" parent="."]
+[node name="ID" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+visible = false
 z_index = 12
 z_as_relative = false
 position = Vector2(605, 526)

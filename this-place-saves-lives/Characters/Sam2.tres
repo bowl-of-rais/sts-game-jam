@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CharacterSetting" load_steps=3 format=3 uid="uid://c2jp1x5bypcti"]
+
+[ext_resource type="Script" uid="uid://7j5oel4upva7" path="res://Scripts/character_resource.gd" id="1_viapr"]
+[ext_resource type="Material" uid="uid://8gxagvpjimg6" path="res://Characters/sam_material.tres" id="2_7pjuc"]
+
+[resource]
+script = ExtResource("1_viapr")
+name = "Sam"
+skin = ExtResource("2_7pjuc")
+bodytype = 0
+initial_needs = Array[int]([1, 7, 0])
+speed = 20.0
+overdose_risk = 0
+metadata/_custom_type_script = "uid://7j5oel4upva7"
