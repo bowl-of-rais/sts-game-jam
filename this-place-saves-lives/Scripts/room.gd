@@ -15,7 +15,7 @@ func _ready() -> void:
 			register_service(child)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func register_service(new: ServiceManager):
@@ -47,5 +47,5 @@ func check_capacities() -> void:
 		if child is ServiceManager:
 			child.check_capacity()
 			
-func character_left(name: String):
-	characters_in_room.erase(name)
+func character_left(cname: String):
+	characters_in_room.erase(cname)

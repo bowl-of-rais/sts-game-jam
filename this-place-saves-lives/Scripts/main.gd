@@ -97,7 +97,7 @@ func next_spawn():
 			print("Spawn skipped due to no available characters!")
 			return
 		chara_name = available_characters.pick_random()
-		setting = Session.characters[chara_name]
+		setting = Session.characters.get(chara_name)
 		if non_story_spawn_count > 0: non_story_spawn_count -= 1
 	spawn_character(chara_name, setting)
 
