@@ -1,4 +1,4 @@
-extends Resource
+extends Node
 class_name StorySequence
 
 static var event_order = [
