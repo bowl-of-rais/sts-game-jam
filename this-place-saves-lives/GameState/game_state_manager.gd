@@ -2,10 +2,12 @@ extends Node
 class_name GameStateManager
 
 func save_game():
-	pass
+	save_game_state("res://GameState/saved_session.cfg")
+	save_character_states("res://GameState/saved_characters.cfg")
 	
 func load_saved_game():
-	pass
+	load_game_state("res://GameState/saved_session.cfg")
+	load_character_states("res://GameState/saved_characters.cfg")
 
 func initialize_game():
 	# read in files: initial game state, initial character states
@@ -51,6 +53,23 @@ func load_game_state(path: String):
 		if service != -1:
 			Session.unlocked_per_service[service] = read_dict[key]
 
+
+func save_game_state(path: String):
+	var config = ConfigFile.new()
+
+	config.set_value("MAIN", "current_funds", Session.funds)
+	config.set_value("MAIN", "current_approval", Session.approval)
+	
+	config.set_value("STORY", "next_event_index", Session.next_event_index)
+	config.get_value("STORY", "day", Session.day)
+	config.set_value("STORY", "known_characters", Session.known_characters)
+
+	config.set_value("SERVICES", "max_per_service", Session.max_per_service)
+	config.set_value("SERVICES", "unlocked_per_service", Session.unlocked_per_service)
+
+	var err = config.save(path)
+
+
 func load_character_states(path: String):
 	var config = ConfigFile.new()
 
@@ -77,3 +96,19 @@ func load_character_states(path: String):
 		# TODO: skin paths
 		
 		Session.characters[char_res.name] = char_res
+		
+
+func save_character_states(path: String):
+	var config = ConfigFile.new()
+
+	for character in Session.characters.values():
+		if character is CharacterSetting:
+			var char_name = character.name
+			config.set_value(char_name,"name", char_name)
+			config.set_value(char_name, "bodytype", character.bodytype)
+			config.set_value(char_name, "overdose_risk", character.overdose_risk)
+			config.set_value(char_name, "needs", character.initial_needs)
+				
+			# TODO: skin paths
+
+	var err = config.save(path)
