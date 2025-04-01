@@ -16,4 +16,5 @@ func buy(type: Services.Types) -> void:
 	if success:
 		var price = Services.price_of(type)
 		Session.change_funds(-price)
+		Session.unlocked_per_service[type] += 1
 		SignalBus.funds_changed.emit()
