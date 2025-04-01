@@ -69,9 +69,13 @@ func show_day():
 
 ## Checks if number of events per day is reached, activates Day scene if yes
 func on_dialog_end():
+	if Session.next_event == StorySequence.event_order.size():
+		demo_end()
 	if Session.next_event % Session.events_per_day == 0:
 		start_next_day()
-	
+
+func demo_end():
+	get_tree().change_scene_to_file("res://Views/EndOfDemo.tscn")
 
 func next_spawn():
 	#spawn non story characters in between
