@@ -89,13 +89,10 @@ func load_character_states(path: String):
 		char_res.overdose_risk = config.get_value(character, "overdose_risk")
 		char_res.initial_needs = config.get_value(character, "needs")
 		
-		#var needs_str = config.get_value(character, "initial_needs")
-		#for s in needs_str:
-		#	var need = CharacterSetting.need_from_str(s)
-		#	if need != -1:
-		#		char_res.initial_needs.append(need)
-				
 		var skin_path = "/".join([CHARAS_MATERIALS_PATH, char_res.name + "_material.tres"])
+		char_res.skin = load(skin_path)
+		
+		char_res.speed = config.get_value(character, "speed")
 		
 		Session.characters[char_res.name] = char_res
 		
@@ -110,7 +107,6 @@ func save_character_states(path: String):
 			config.set_value(char_name, "bodytype", character.bodytype)
 			config.set_value(char_name, "overdose_risk", character.overdose_risk)
 			config.set_value(char_name, "needs", character.initial_needs)
-				
-			# TODO: skin paths
+			config.set_value(char_name, "speed", character.speed)
 
 	var err = config.save(path)
