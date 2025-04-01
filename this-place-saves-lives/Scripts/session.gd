@@ -31,8 +31,8 @@ var characters: Dictionary[String, CharacterSetting]
 var true_story_flags: Array[String]
 
 # adds a flag to the set of globally tracked story flags
-func add_story_flag(name: String):
-	true_story_flags.append(name)
+func add_story_flag(flag_name: String):
+	true_story_flags.append(flag_name)
 
 # for an array of story flags, checks if they are all true
 func check_story_flags(flags: Array[String]) -> bool:
